@@ -1,0 +1,81 @@
+\documentclass[11pt]{scrartcl}
+
+\title{Projektantrag}
+\author{Silvan Adrian, Fabian Binna, Pascal Kistler}
+\date{\today{}, Graz}
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{Kopfzeile innen}
+\chead{Software Engineering 2 Projekt 2015}
+\ohead{Projekt: JBomberman}
+\ifoot{Pojektantrag: JBomberman}
+\cfoot{Version: 1.0}
+\ofoot{Datum: Date (fixed)}
+
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+\begin{center}
+{\huge Projektantrag: JBomberman}
+\end{center}
+
+\section{Datum: Date (fixed), Ausgabe 1.0}
+\label{sec:datum}
+
+\section{Team}
+\label{sec:Team}
+Silvan Adrian: \href{mailto:sadrian@hsr.ch}{sadrian@hsr.ch}\newline
+Fabian Binna: \href{mailto:fbinna@hsr.ch}{fbinna@hsr.ch}\newline
+Pascal Kistler: \href{mailto:p1kistle@hsr.ch}{p1kistle@hsr.ch}\newline
+
+Beratungs- und Review-Termine:
+\begin{itemize}
+    \item Do 08-09
+    \item Do 09-10
+    \item Do 14-15
+\end{itemize}
+
+\section{Antrag Virtueller Server}
+\label{sec:antragserver}
+\begin{itemize}
+    \item Ja, wir ätten gerne ein virtuellen Server und zwar vom Typ:
+    \uline {Ubuntu Linux 14.04 [SE2-BuildServer]}
+\end{itemize}
+
+\section{Motivation}
+\label{sec:motivation}
+\begin{itemize}
+    \item Wir wollen gelerntes aus Prog1, Prog2, UInt1 und SE1 anwenden.
+    \item Komplettes Projekt mit Git, Jenkins und Redmine umgesetzt.
+    \item Teamfähigkeiten verbessern.
+\end{itemize}
+
+\section{Programmidee}
+\label{sec:programmidee}
+Bei JBomberman treten 2-4 Spieler gegeneinander an. Es hat derjenige gewonnen, der bis zum Ende überlebt. Ein Bomberman kann Bomben legen, die zeitversetzt detonieren. Das Spielfeld besteht aus zerstörbaren und unzerstörbaren Blöcken. Die zerstörbaren Blöcke können mit einer Bombe gesprengt werden. Beim zerstören eines Blockes erhält man die Möglichkeit auf ein Item, welches die Fähigkeiten eines Bombermans verbessert. Es wird über mehrere Runden gespielt. Falls die Zeit einer Runde abgelaufen ist, wird das Spielfeld verkleinert.\newline Das Spiel kann über ein Netzwerk gespielt werden. Ein dedizierter Server übernimmt die Spiellogik und bringt die Clients regelmässig auf den neusten Stand.\newline Optional: Zusätzliche Items die einem Bomberman erweiterte Fähigkeiten gewähren
+
+\section{Realisierung}
+\label{sec:realisierung}
+\begin{itemize}
+    \item Programmiersprache: Java 8
+    \item Bibliotheken: Java2D, Swing
+    \item Entwicklungsumgebung: Eclipse Luna
+    \item Entwicklungswerkzeuge: Git, Jenkins und Redmine
+    \item Benutzerschnittstelle: GUI, Tastatur, Maus
+    \item Plattform: Desktop
+\end{itemize}
+
+
+ 
+\end{document}
