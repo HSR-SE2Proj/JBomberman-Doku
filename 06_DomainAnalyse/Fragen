@@ -1,0 +1,4 @@
+1.
+Domain Model Server
+Wo gehört die abhandlung des Verbindungsaufbaus hin?
+Neuer Spieler direkt in GameLogik einfügen oder bis Spielstart warten?
