@@ -12,3 +12,7 @@ Wo sollen die Messages interpretiert werden
 
 4. 
 ActionQueue oder MessageQueue missbrauchen
+
+5.
+dynamicSprite -> Collidable 
+Falls Collidable nicht benötigt leer lassen?
