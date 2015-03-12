@@ -12,6 +12,7 @@
 \usepackage{scrpage2}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{sidecap}
 \graphicspath{ {./images/} }
 \pagestyle{scrheadings}
 \usepackage{wrapfig}
@@ -59,6 +60,7 @@
 \textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
+\textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -69,9 +71,10 @@
 
 \subsection{Gültigkeit}
 \label{sec:Gültigkeit}
-
+Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
 \subsection{Referenzen}
 \label{sec:Referenzen}
+siehe letzte Seite Literatur
 
 \subsection{Übersicht}
 \label{sec:Übersicht}
@@ -133,11 +136,12 @@ Spielern bleiben die übrigen Ecken einfach leer.
 \begin{table}[h]
 \begin{tabularx}{\linewidth}{l X }
      
-       \includegraphics[]{solidblock}
+      \raisebox{-.8\totalheight}{ \includegraphics[scale=.8]{solidblock}}
       & Die unzerstörbaren Wände können von keiner Bombe zerstört noch von einem 
 Bomberman durchlaufen werden.
 \end{tabularx}
 \end{table}
+
 
 \subsubsection{Zerstörbar}
 \label{sec:Zerstörbar}
@@ -146,46 +150,84 @@ Bomberman durchlaufen werden.
   \begin{tabularx}{\textwidth}{l X }
     
     
-      \includegraphics[]{explodableblock} & Die zerstörbaren Wände können von 
-    einer Bombe zerstört werden, bevor Sie zerstört sind kann ein Bomberman 
+       \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{explodableblock}} & Die zerstörbaren Wände können von 
+    einer Bombe zerstört werden, bevor sie zerstört sind kann ein Bomberman 
     nicht durchlaufen.
   \end{tabularx}
 \end{table}
-
 \subsection{Bomberman}
-\label{subsec:Bomberman}
-Der Bomberman ist der steuerbare Charakter im Bomberman Spiel, dabei kann er 
+\label{sec:Bomberman}
+\begin{table}[!h]
+\begin{tabularx}{\textwidth}{l X}
+\raisebox{-.8\totalheight}{\includegraphics[scale=0.6]{bomberman}}
+  & Der Bomberman ist der steuerbare Charakter im Bomberman Spiel, dabei kann er 
 sich in alle Himmelsrichtungen bewegen.
 Es sei denn ein Hindernis ist im Weg, dann kann er sicht nicht weiter bewegen.
+\end{tabularx}
+  
+\end{table}
+
+
 
 \subsection{Bombe}
-\label{subsec:Bombe}
-Die Bombe ist wohl der wichtigste Gegenstand im Bomberman, denn ohne die Bombe 
+\label{sec:Bombe}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{l X}
+\raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{bomb}}
+& Die Bombe ist wohl der wichtigste Gegenstand im Bomberman, denn ohne die Bombe 
 könnten sich die Bombermans ihren Weg nicht freiräumen.
 Somit ist die Funktion der Bombe das beseitigen von zerstörbaren Wände und um 
 Gegenspieler frühzeitig aus dem Spiel zu werfen.
+\end{tabularx}
+
+\end{table}
+
+
 \subsection{Power Ups}
 \label{subsec:Power Ups}
 Durch zerstören, der zerstörbaren Wände kommen Power Ups zutage, welche einen 
 gewissen Einfluss auf das Spielerlebnis haben.
 
 \subsubsection{Bombe}
-\label{subsubsec:Bombe}
+\label{sec:Bombe}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{l X}
+\raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{bombpowerup}}
+& Durch dieses Powerup ist es dem Bomberman möglich mehr als eine Bombe zu platzieren, dabei gibt es ein Maxiumum von 8 Bomben.
+\end{tabularx}
+\end{table}
 
 \subsubsection{Stiefel}
-\label{subsubsection:Stiefel}
+\label{sec:Stiefel}
+\begin{table}[!h]
+\begin{tabularx}{\textwidth}{l X}
+\raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{speedpowerup}}
+& Durch dieses Powerup beschleunigt sich die Fortbewegungsgeschwindigkeit eines Bomberman.
+\end{tabularx}
+
+\end{table}
 
 \subsubsection{Flamme}
-\label{subsubsection:Flamme}
+\label{sec:Flamme}
 
+\begin{table}[!h]
+\begin{tabularx}{\textwidth}{l X}
+\raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{flamepowerup}}
+& Dieses Powerup gibt der Bombe einen grösseren Sprengradius (in alle 4 Himmelsrichtungen).
+
+\end{tabularx}
+
+\end{table}
+
+\newpage
 \section{Use Cases}
 \label{sec:Use Cases}
 
 \subsection{Use Case Diagramm}
 \label{sec:Use Case Diagramm}
 
-\subsection{Aktoren & Stakeholders}
-\label{Aktoren & Stakeholders}
+\subsection{Aktoren + Stakeholders}
+\label{Aktoren + Stakeholders}
 
 \subsection{Beschreibungen Brief}
 \label{sec:Beschreibungen Brief}
@@ -213,12 +255,12 @@ gewissen Einfluss auf das Spielerlebnis haben.
 
 
 \begin{thebibliography}{999}
-\bibitem [Spielprinzip] {Bomberman Spielprinzip} 
+\bibitem [Spielprinzip] {Bomberman Spielprinzip}
 \url{http://de.wikipedia.org/wiki/Bomberman}, Zugriff 
 11.03.2015
-\bibitem [Spielfeld] {Bomberman Spielfeld} 
+\bibitem [Spielfeld] {Bomberman Spielfeld}
 \url{http://images1.wikia.nocookie.net/__cb20120401191543/
-bomberman/images/archive/d/d0/20120401224115!SB2Usual.png} , Zugriff 11.03.15
+bomberman/images/archive/d/d0/20120401224115!SB2Usual.png}, Zugriff 11.03.15
 \end{thebibliography}
 
 \end{document}
