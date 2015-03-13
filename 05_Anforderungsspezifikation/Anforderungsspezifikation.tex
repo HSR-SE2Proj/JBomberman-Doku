@@ -61,6 +61,7 @@
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
+\textbf{13.03.15} & 1.02 & Spielregeln im detail & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -99,16 +100,55 @@ siehe letzte Seite Literatur
 
 \subsection{Abhängigkeit}
 \label{sec:Abhängigkeit}
-
+\newpage
 \section{Detailiertes Spielprinzip}
 \label{sec:Detailiertes Spielprinzip}
-\subsection{Allgemeine Beschreibung}
-\label{Allgemeine Beschreibung}
+\subsection{Kurzbeschreibung}
+\label{Kurzbeschreibung}
 In der klassischen Variante besteht das Spielfeld aus einer Anordnung 
 von zerstörbaren und unzerstörbaren Wänden. 
 Durch das Legen von Bomben können somit immer mehr 
 Bereiche des Spielfelds erschlossen werden. Hinter einigen 
 Wänden verstecken sich Bonusgegenstände.\cite{Bomberman Spielprinzip}
+
+\subsection{Spielregeln}
+\label{sec:Spielregeln}
+
+\subsubsection{Spielewinn}
+\label{sec:Spielgewinn}
+Ein Spieler hat gewonnen, wenn alle anderen Bombermans besigt sind und er der letzte bestehende Spieler auf dem Spielfeld ist.
+Der Gewinner bekommt einen Punkt für die gewonnene Runde und wird im angerechnet angezigt in der Statusanzeige.
+
+\subsubsection{Spielabbruch}
+\label{sec:Spielabbruch}
+Zu einem Spielabbruch kommt es, wenn es zu wenige Mitspieler gibt (mindestens 2 Spieler müssen verbunden sein).
+Dies kann passieren, falls ein Verbindungsunterbruch passieren sollte.
+
+\subsubsection{Timer läuft ab}
+\label{sec:Timer läuft ab}
+Falls innerhalb der festgelegten Zeit kein Bomberman alle anderen Mitspieler besiegt wird das Spielfeld verkleinert.
+Die Bomberman, die sich dabei auf einem Block befindet der \grqq{}verschwindet\grqq{} wird aus dem Spiel geworfen.
+Der Bomberman, der übrig bleibt wird dabei der Gewinner der Spielrunde.
+
+\subsubsection{Bombe}
+\label{sec:Bombe}
+Sobald eine Bombe platziert ist wird desen \grqq{}Zeit bis zur Explosion gestartet\grqq{}.
+Sobald ein Bombe explodiert wird alles was sich im Radius der Bombe befindet und zerstörbar ist zerstört.
+Der Radius der Bombeexplosion kann varieren, da Powerups für das erhöhen des Bombenradius bestehen.
+\subsubsection{Zerstörbare Wand}
+\label{sec:Zerstörbare Wand}
+Wenn eine zerstörbare Wand zerstört wird verschwindet diese.
+Manche zerstörbaren Gegenstände beherbergen Powerups für die Bomberman, welche nach dem zerstören der Wand aufgedeckt werden.
+Solange die Wand aber nicht zerstört ist kann auch kein Bomberman diese durchqueren.
+
+\subsubsection{Unzerstörbare Wand}
+\label{sec:Unzerstörbare Wand}
+Unzerstörbare Wände können nicht durch Bomben zerstört werden, noch von Bombermans durchquert werden.
+
+\subsubsection{Bomberman}
+\label{sec:Bomberman}
+Der Bomberman wird über die Tastatur gesteuert, dabei gibt es 4 Tasten für die Fortbewegung und 1 Zusätzliche Taste für das legen der Bombe.
+Ein Bomberman kann sich \grqq{}upgraden\grqq{} wenn er Powerups aufnimmt.
 
 \subsection{Spielelemente}
 \label{sec:Spielelemente}
@@ -128,12 +168,12 @@ Spielern bleiben die übrigen Ecken einfach leer.
 \includegraphics[scale=1.5]{bombermanmap} 
 
 \cite{Bomberman Spielfeld}
-
+\newpage
 \subsection{Wände}
 \label{sec:Wände}
 \subsubsection{Unzerstörbar}
 \label{sec:Unzerstörbar}
-\begin{table}[h]
+\begin{table}[!h]
 \begin{tabularx}{\linewidth}{l X }
      
       \raisebox{-.8\totalheight}{ \includegraphics[scale=.8]{solidblock}}
@@ -146,13 +186,13 @@ Bomberman durchlaufen werden.
 \subsubsection{Zerstörbar}
 \label{sec:Zerstörbar}
 
-\begin{table}[h]
+\begin{table}[!h]
   \begin{tabularx}{\textwidth}{l X }
     
     
        \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{explodableblock}} & Die zerstörbaren Wände können von 
     einer Bombe zerstört werden, bevor sie zerstört sind kann ein Bomberman 
-    nicht durchlaufen.
+    diese nicht durchlaufen.
   \end{tabularx}
 \end{table}
 \subsection{Bomberman}
@@ -162,7 +202,7 @@ Bomberman durchlaufen werden.
 \raisebox{-.8\totalheight}{\includegraphics[scale=0.6]{bomberman}}
   & Der Bomberman ist der steuerbare Charakter im Bomberman Spiel, dabei kann er 
 sich in alle Himmelsrichtungen bewegen.
-Es sei denn ein Hindernis ist im Weg, dann kann er sicht nicht weiter bewegen.
+Es sei denn ein Hindernis ist im Weg, dann kann er sich nicht weiter bewegen.
 \end{tabularx}
   
 \end{table}
@@ -171,7 +211,7 @@ Es sei denn ein Hindernis ist im Weg, dann kann er sicht nicht weiter bewegen.
 
 \subsection{Bombe}
 \label{sec:Bombe}
-\begin{table}[h]
+\begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{bomb}}
 & Die Bombe ist wohl der wichtigste Gegenstand im Bomberman, denn ohne die Bombe 
@@ -181,8 +221,7 @@ Gegenspieler frühzeitig aus dem Spiel zu werfen.
 \end{tabularx}
 
 \end{table}
-
-
+\newpage
 \subsection{Power Ups}
 \label{subsec:Power Ups}
 Durch zerstören, der zerstörbaren Wände kommen Power Ups zutage, welche einen 
@@ -190,10 +229,10 @@ gewissen Einfluss auf das Spielerlebnis haben.
 
 \subsubsection{Bombe}
 \label{sec:Bombe}
-\begin{table}[h]
+\begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{bombpowerup}}
-& Durch dieses Powerup ist es dem Bomberman möglich mehr als eine Bombe zu platzieren, dabei gibt es ein Maxiumum von 8 Bomben.
+& Durch dieses Powerup ist es dem Bomberman möglich mehr als eine Bombe zu platzieren, dabei gibt es ein Maxiumum von 8 Bomben welche zur gleichen Zeit gelegt werden können.
 \end{tabularx}
 \end{table}
 
