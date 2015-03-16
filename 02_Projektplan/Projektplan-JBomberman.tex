@@ -81,7 +81,8 @@ Dieses Dokument beschreibt die Planung des SE2 Projekts.
 Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
 \subsection{Referenzen}
 \label{sec:Refernzen}
-Spielprinzip/Beschreibung: \href{http://de.wikipedia.org/wiki/Bomberman}{http://de.wikipedia.org/wiki/Bomberman} \\Konzepte für Games: Spiele entwickeln für iPad, iPhone und iPod touch, Thomas Lucka, 2012, ISBN 978-3-446-43085-3
+Spielprinzip/Beschreibung: \href{http://de.wikipedia.org/wiki/Bomberman}{http://de.wikipedia.org/wiki/Bomberman} \\
+Konzepte für Games: Spiele entwickeln für iPad, iPhone und iPod touch, Thomas Lucka, 2012, ISBN 978-3-446-43085-3
 
 \section{Projektübersicht}
 \label{sec:projektübersicht}
@@ -89,7 +90,8 @@ JBomberman ist ein Geschicklichkeitsspiel, das die gleichen Regeln wie das klass
 
 \subsection{Zweck und Ziel}
 \label{sec:Zweck und Ziel}
-Wir wollen gelerntes aus Prog1, Prog2, Uint1 und SE1 anwenden und erweiterte Programmierkonzepte erlernen. Hinzu kommen Module wie VSS und ParProg, die wir parallel besuchen und auch für die Durchführung des Projekts notwendig sind.Unser Ziel ist es ein Software Projekt in einem Team erfolgreich durchzuführen.
+Wir wollen gelerntes aus Prog1, Prog2, Uint1 und SE1 anwenden und erweiterte Programmierkonzepte erlernen. Hinzu kommen Module wie VSS und ParProg, die wir parallel besuchen und auch für die Durchführung des Projekts notwendig sind.
+Unser Ziel ist es ein Software Projekt in einem Team erfolgreich durchzuführen.
  
 
 \subsection{Primäre Features}
@@ -158,7 +160,10 @@ Projektbetreuer: Daniel Keller (\href{mailto:d1keller@hsr.ch}{d1keller@hsr.ch})
 \label{sec:Kostenvoranschlag}
 Wir rechnen mit 420 Stunden Gesamtaufwand. 60 Stunden davon sind Reserve aufgrund von potenziellen Risiken.\\
 \\
-Gesamtaufwand: 420h \\Davon Risikoaufwand: 60h \\Aufwand pro Woche: 28h \\Aufwand pro Woche pro Teammitglied: ~10h \\
+Gesamtaufwand: 420h \\
+Davon Risikoaufwand: 60h \\
+Aufwand pro Woche: 28h \\
+Aufwand pro Woche pro Teammitglied: ~10h \\
 
 \subsection{Phasen / Iterationen}
 \label{sec:Phasen / Iterationen}
@@ -173,24 +178,23 @@ Gesamtaufwand: 420h \\Davon Risikoaufwand: 60h \\Aufwand pro Woche: 28h \\Auf
 und Projektplan fertig gestellt. Erster Prototyp zum Testen mit Grundfunktionen (Befehle an Server senden). & 05.03.15 \\
 \hline
 \textbf{Elaboration 2} & Use Cases aufschreiben, dazu das Spielprinzip genauer beschreiben. 
-Nicht Funktionale Anforderungen aufschreiben 
-und auch testen (Performance) & SW05 \\
+Nicht Funktionale Anforderungen bestimmen. & 22.03.15 \\
 \hline
 \textbf{Elaboration 3} & Architektur Prototyp (Kommunikationsverfahren 
 zwischen Client und Server), 
-erste Performance Tests zum ausgewählten. & SW06 \\
+Performance Tests zum ausgewählten Verfahren. & 05.04.15 \\
 \hline
 \textbf{Construction 1} & Hauptfeatures implementieren
- (Kollisionsdetektion, Bomben Funktionieren, Powerups funktionieren & SW09 \\
+ (Kollisionsdetektion, Bomben Funktionieren, Powerups funktionieren) & 19.04.15 \\
 \hline
 \textbf{Construction 2} & Spielablauf und Matchmaking fertig. 
-Falls genügend Zeit werden werden noch erweiterte Features eingebaut. & SW11 \\
+Falls genügend Zeit werden werden noch erweiterte Features eingebaut. & 03.05.15 \\
 \hline
 \textbf{Construction 3} & Suchablauf und Matchmaking fertig. Falls genügend Zeit werden
- noch erweiterte Features eingebaut. & SW13 \\
+ noch erweiterte Features eingebaut. & 23.05.15 \\
 \hline
 \textbf{Transition} & Vorbereitung zur Schlusspräsentation 
-und Abgabe. & SW15 \\
+und Abgabe. & 30.05.15 \\
 \hline
 \end{tabularx}
 \end{table}
@@ -204,14 +208,15 @@ und Abgabe. & SW15 \\
 \textbf{05.03.15} & Review Projektplan mit Zeitplan 
 und aktuellen Iterationsplänen & MS1-RV Projektplan \\
 \hline
-\textbf{SW05} & Review der Anforderungsspezifikation
+\textbf{19.03.15} & Review der Anforderungsspezifikation
  und der Domainanalyse & MS2-RV Anforderungen 
  und Analyse \\
 \hline
-\textbf{SW07} & Zwischenpräsentation mit Demo einesArchitekturprototypen, Review & MS3-RV 
+\textbf{09.04.15} & Zwischenpräsentation mit Demo eines
+Architekturprototypen, Review & MS3-RV 
 Ende Elaboration \\
 \hline
-\textbf{SW09} & Review von Architektur + Design
+\textbf{07.05.15} & Review von Architektur + Design
  und Architekturdokumenten & MS4-RV Architektur/Design \\
 \hline
 \textbf{28.05.15} & Präsentation und Demo der Software
@@ -264,7 +269,7 @@ Fabian Binna & Lenovo T530s & Ubuntu 14.04.1 & Eclipse Luna \\
 \begin{itemize}
     \item BuildServer: Jenkins
     \item CodeReview GitLab
-    \item Konfigurationsmanagement
+    \item Konfigurationsmanagement GIT
 \end{itemize}
 
 \subsection{Kommunikationsmittel}
@@ -297,7 +302,8 @@ Jedem Commit wird eine Beschreibung hinzugefügt, danach knnen die Commits im Re
 Es sollten für jede Klasse / jedes Codemodul Junit Tests geschrieben und durchgeführt werden. Vor jedem push müssen alle Test erfolgreich durchlaufen werden.
 \subsubsection{Code Reviews}
 \label{sec:Code Reviews}
-Durch Code Reviews wird sichergestellt, dass der Code den Style Guidelines entspricht.Durch die Kontrolle durch ein oder zwei weitere Teammitglieder wird sichergestellt, dass die Codequalität stets auf hohem Niveau ist.
+Durch Code Reviews wird sichergestellt, dass der Code den Style Guidelines entspricht.
+Durch die Kontrolle durch ein oder zwei weitere Teammitglieder wird sichergestellt, dass die Codequalität stets auf hohem Niveau ist.
 \subsubsection{Code Style Guidelines}
 \label{sec:Code Style Guidelines}
 Es werden die Code Style Guidelines aus den Modulen Prog1 und SE1 verwendet. Namen im Code (wie Variablen, Methoden, etc.) werden in Englisch benannt.
@@ -306,9 +312,6 @@ Es werden die Code Style Guidelines aus den Modulen Prog1 und SE1 verwendet. Nam
 \subsubsection{Komponententest}
 \label{sec:Komponententest}
 Zu jeder Komponente werden mehrere Test geschrieben. Diese stellen sicher, dass alle Komponenten ordnungsgemäss funktionieren und kein nicht funktionierender Code gepusht wird.
-\subsection{Integrationstest}
-\label{sec:Integrationstest}
-Für jede implementierte Funktion werden wiederum Tests geschrieben, um die korrekte Funktionsweise und die Zusammenarbeit der einzelnen Module sicherzustellen.
 \subsection{Systemtest}
 \label{sec:Systemtest}
 Systemtest werden gegen Ende des Projekts erstellt. Sie garantieren, dass das gesamte System ordnungsgemäss funktioniert und alle Komponenten richtig zusammen arbeiten.
