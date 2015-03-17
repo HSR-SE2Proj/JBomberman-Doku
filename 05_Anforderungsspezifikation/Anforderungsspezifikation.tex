@@ -29,6 +29,7 @@
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{longtable}
 
 
 \begin{document}
@@ -267,6 +268,25 @@ gewissen Einfluss auf das Spielerlebnis haben.
 
 \subsection{Aktoren + Stakeholders}
 \label{Aktoren + Stakeholders}
+  \begin{table}[h]
+  	\begin{tabular}{lll}
+  		\bfseries Aktor & \bfseries Typ & \bfseries Ziele \\\hline 
+  		Spieler & Primary &  
+  		\begin{minipage}{5in}
+  			\vskip 4pt
+  			\begin{itemize}
+  				\item Einfach mit Server verbinden
+  				\item Ohne Umwege Spiel starten
+  				\item Schnelle Beendigung des Spiels
+  				\item Schnelle Reaktionszeit des Spiels
+  				\item kurzweilige Unterhaltung
+  			\end{itemize}
+  			\vskip 4pt
+  		\end{minipage}
+		\\ \hline
+	\end{tabular}
+\end{table}
+
 
 \subsection{Beschreibungen Brief}
 \label{sec:Beschreibungen Brief}
@@ -276,6 +296,74 @@ gewissen Einfluss auf das Spielerlebnis haben.
 
 \subsection{Beschreibungen fully dressed}
 \label{sec:Beschreibungen full dressed}
+\begin{table}[h]
+	\begin{tabular}{ll}
+		\bfseries Primäraktor & Spieler  \\\hline 
+		\bfseries Steakholders und Interessen & Spieler: - Möchte das Spiel gemeinsam mit Bekannten spielen  \\\hline 
+		\bfseries Vorbedingungen & Das Programm wurde gestartet  \\\hline 
+		\bfseries Nachbedingungen & Das Programm wurde beendet  \\\hline 
+		\bfseries Standartablauf & \begin{minipage}{5in}
+			\vskip 4pt
+			\begin{enumerate}
+				\item Der Spieler gibt die Adresse des Servers ein zu dem er sich verbinden möchte
+				\item Spieler drückt auf \textbf{Connect}
+				\item Die Verbindung wird hergestellt und andere evtl. wartende Spieler werden in der Lobby angezeigt
+				\item Der Spieler klickt \textbf{I'm ready}
+				\item Sobald alle Spieler bereit sind, wird das Spiel gestartet
+				\item Die Spielumgebung wird gestartet und die erste Runde beginnt
+				\item Bis zur letzten Runde wiederholen
+				\begin{enumerate}
+					\item Der Countdown zu Beginn einer Runde gibt den Spielern Zeit sich und die andern Spieler zu lokalisieren. Nach dem Countdown kontrollieren die Spieler ihre Figur und die Runde beginnt
+					\item Am Ende einer Runde wird jedem Spieler angezeigt, ob er gewonnen hat und der Punktestand aller Spieler
+				\end{enumerate}
+				\item Die Spielumgebung wird beendet und der Spieler befindet sich wieder in der Lobby
+				\item Der Spieler verlässt die Lobby indem er auf \textbf{Disconnect} drückt
+				\item Der Spieler schliesst das Verbindungsfenster
+			\end{enumerate}
+			\vskip 4pt
+		\end{minipage}  \\\hline 
+		\bfseries Alternativer Ablauf & \begin{minipage}{5in}
+			\vskip 4pt
+			\begin{enumerate}
+				\setcounter{enumi}{1}
+				\item 
+				\begin{enumerate}
+					\item Der Server ist nicht erreichbar. Das System gibt eine Fehlermeldung aus und der Spieler kann eine andere Adresse angeben (Schritt 1)
+				\end{enumerate}
+				\item 
+				\begin{enumerate}
+					\item Der Spieler entscheidet sich um
+					\begin{enumerate}
+						\item Der Spieler drückt auf \textbf{Disconnect}. 
+						\item Die Verbindung wird getrennt und der Spieler befindet sich wieder auf dem Startbildschirm (Schritt 1)
+					\end{enumerate}
+				\end{enumerate}
+				\item 
+				\begin{enumerate}
+					\item Der Spieler entscheidet sich um
+					\begin{enumerate}
+						\item Der Spieler drückt auf \textbf{I'm not ready}. 
+						\item Solange mindestens ein Spieler nicht bereit ist, startet das Spiel nicht. (Schritt 3)
+					\end{enumerate}
+				\end{enumerate}
+				\setcounter{enumi}{6}
+				\item 
+				\begin{enumerate}
+					\item 
+					\begin{enumerate}
+						\item Der Spieler schliesst das Fenster
+						\item Das Spiel beendet sich und der Startbildschirm erscheint (Schritt 1)
+					\end{enumerate}
+				\end{enumerate}
+			\end{enumerate}
+			\vskip 4pt
+		\end{minipage}   \\\hline 
+		\bfseries Spezielle Anforderungen & Spieler  \\\hline 
+		\bfseries Technologie- und Datenvarianten & Spieler  \\\hline 
+		\bfseries Auftrittshäufigkeit & Spieler  \\\hline 
+		\bfseries Offene Fragen & Spieler  \\\hline  
+	\end{tabular}
+\end{table}
 
 \subsubsection{Use Case Name}
 \label{sec:Use Case Name}

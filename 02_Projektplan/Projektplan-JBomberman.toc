@@ -1,0 +1,39 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}\IeC {\"A}nderungshistorie}{2}{section.1}
+\contentsline {section}{\numberline {2}Einf\IeC {\"u}hrung}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Zweck}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}G\IeC {\"u}ltigkeitsbereich}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Referenzen}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Projekt\IeC {\"u}bersicht}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Zweck und Ziel}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Prim\IeC {\"a}re Features}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Erweiterte Features}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Lieferumfang}{6}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Annahmen und Einschr\IeC {\"a}nkungen}{6}{subsection.3.5}
+\contentsline {section}{\numberline {4}Projektorganisation}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Organisationsstruktur}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Externe Schnittstellen}{7}{subsection.4.2}
+\contentsline {section}{\numberline {5}Managment Abl\IeC {\"a}ufe}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Kostenvoranschlag}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Phasen / Iterationen}{7}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Reviews}{8}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Besprechungen}{8}{subsection.5.4}
+\contentsline {section}{\numberline {6}Risikomanagement}{8}{section.6}
+\contentsline {subsection}{\numberline {6.1}Risiken}{8}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Umgang mit Risiken}{8}{subsection.6.2}
+\contentsline {section}{\numberline {7}Arbeitspakete}{8}{section.7}
+\contentsline {section}{\numberline {8}Infrastruktur}{9}{section.8}
+\contentsline {subsection}{\numberline {8.1}Entwicklungsinfrastruktur}{9}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Tools/Software}{9}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Kommunikationsmittel}{9}{subsection.8.3}
+\contentsline {section}{\numberline {9}Qualit\IeC {\"a}tsmassnahmen}{9}{section.9}
+\contentsline {subsection}{\numberline {9.1}Dokumentation}{9}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Projektmanagement}{9}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Entwicklung}{10}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {9.3.1}Vorgehen}{10}{subsubsection.9.3.1}
+\contentsline {subsubsection}{\numberline {9.3.2}Unit Testing}{10}{subsubsection.9.3.2}
+\contentsline {subsubsection}{\numberline {9.3.3}Code Reviews}{10}{subsubsection.9.3.3}
+\contentsline {subsubsection}{\numberline {9.3.4}Code Style Guidelines}{10}{subsubsection.9.3.4}
+\contentsline {subsection}{\numberline {9.4}Testen}{10}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {9.4.1}Komponententest}{10}{subsubsection.9.4.1}
+\contentsline {subsection}{\numberline {9.5}Systemtest}{10}{subsection.9.5}

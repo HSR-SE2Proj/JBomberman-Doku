@@ -1,0 +1,45 @@
+\BOOKMARK [1][-]{section.1}{\304nderungshistorie}{}% 1
+\BOOKMARK [1][-]{section.2}{Einf\374hrung}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{G\374ltigkeit}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Referenzen}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{\334bersicht}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Allgemein Beschreibung}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Produkt Perspektive}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Produkt Funktion}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.3}{Benutzer Chrakteristik}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{Einschr\344nkungen}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.5}{Annahmen}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.6}{Abh\344ngigkeit}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Detailiertes Spielprinzip}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Kurzbeschreibung}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Spielregeln}{section.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Spielewinn}{subsection.4.2}% 16
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Spielabbruch}{subsection.4.2}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Timer l\344uft ab}{subsection.4.2}% 18
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Bombe}{subsection.4.2}% 19
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Zerst\366rbare Wand}{subsection.4.2}% 20
+\BOOKMARK [3][-]{subsubsection.4.2.6}{Unzerst\366rbare Wand}{subsection.4.2}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.7}{Bomberman}{subsection.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.3}{Spielelemente}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Statusanzeige}{subsection.4.3}% 24
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Spielfeld}{subsection.4.3}% 25
+\BOOKMARK [2][-]{subsection.4.4}{W\344nde}{section.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Unzerst\366rbar}{subsection.4.4}% 27
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Zerst\366rbar}{subsection.4.4}% 28
+\BOOKMARK [2][-]{subsection.4.5}{Bomberman}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.6}{Bombe}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.7}{Power Ups}{section.4}% 31
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Bombe}{subsection.4.7}% 32
+\BOOKMARK [3][-]{subsubsection.4.7.2}{Stiefel}{subsection.4.7}% 33
+\BOOKMARK [3][-]{subsubsection.4.7.3}{Flamme}{subsection.4.7}% 34
+\BOOKMARK [1][-]{section.5}{Use Cases}{}% 35
+\BOOKMARK [2][-]{subsection.5.1}{Use Case Diagramm}{section.5}% 36
+\BOOKMARK [2][-]{subsection.5.2}{Aktoren + Stakeholders}{section.5}% 37
+\BOOKMARK [2][-]{subsection.5.3}{Beschreibungen Brief}{section.5}% 38
+\BOOKMARK [3][-]{subsubsection.5.3.1}{Use Case Name}{subsection.5.3}% 39
+\BOOKMARK [2][-]{subsection.5.4}{Beschreibungen fully dressed}{section.5}% 40
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Use Case Name}{subsection.5.4}% 41
+\BOOKMARK [1][-]{section.6}{Weitere Anforderungen}{}% 42
+\BOOKMARK [2][-]{subsection.6.1}{Qualit\344tsmerkmale}{section.6}% 43
+\BOOKMARK [2][-]{subsection.6.2}{Schnittstellen}{section.6}% 44
+\BOOKMARK [2][-]{subsection.6.3}{Randbedingungen}{section.6}% 45
