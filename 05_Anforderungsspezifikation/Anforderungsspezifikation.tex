@@ -21,7 +21,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Anforderungsspezifikation}
-\cfoot{Version: 1.00}
+\cfoot{Version: 1.03}
 \ofoot{Datum: \today{}}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -62,6 +62,7 @@
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
 \textbf{13.03.15} & 1.02 & Spielregeln im detail & Silvan Adrian \\
+\textbf{17.03.15} & 1.03 & Allgeimeine Beschreibung eingefügt & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -69,7 +70,9 @@
 \newpage
 \section{Einführung}
 \label{sec:Einführung}
-
+\subsection{Zweck}
+\label{sec:Zweck}
+Dieses Dokument beschreibt die Anforderungen für das Projekt JBomberman.
 \subsection{Gültigkeit}
 \label{sec:Gültigkeit}
 Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
@@ -79,27 +82,52 @@ siehe letzte Seite Literatur
 
 \subsection{Übersicht}
 \label{sec:Übersicht}
+In diesem Dokument wird das Produkt hinsichtlich seiner Anforderungen beschrieben, dabei werden Einschränkungen, Annahmen, Abhängigkeiten und Funktionen beschrieben
 
+In der Sektion Detailiertes Spielprinzip, sollen die Anforderungen, der Applikation auslesbar sein.
+
+Use Cases sollen im Brief Format erstellt werden und dazu noch Contracts schreiben.
 \section{Allgemein Beschreibung}
 \label{sec:Allgemeine Beschreibung}
 
 \subsection{Produkt Perspektive}
 \label{sec:Produkt Perspektive}
-
+JBomberman soll ein kostenlos und einfach zu installierendes Game sein, das für alle Desktop Platformen zur Verfügung steht.
+Es soll für bis zu 4 Mitspieler Unterhaltung bieten.
 \subsection{Produkt Funktion}
 \label{sec:Produkt Funktion}
+\begin{itemize}
+    \item JBomberman ist ein Klon des Spielklassikers Bomberman
+    \item JBomberman ist nur im Mehrspielermodus spielbar
+    \item Es gibt einen dedizierten Server, der entweder lokal oder auf einem eigenen Server gestartet werden kann
+\end{itemize}
 
 \subsection{Benutzer Chrakteristik}
 \label{sec:Benutzer Chrakteristik}
+Zur Zielgruppe von JBomberman gehören, die sich bereits für den Klassiker Bomberman interessiert haben.
 
+In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähiges Spiel gespielt hat, da der Spieler selbst einen Server starten und sich über desen IP verbinden muss.
 \subsection{Einschränkungen}
 \label{sec:Einschränkungen}
+Es können maximal 4 Spieler an einem Spiel teilnehmen, dabei geht das Spiel über mehrere Runden.
 
+Das Spiel soll auf allen gängigen Plattformen lauffähig sein und wird auch auf allen getestet.
 \subsection{Annahmen}
 \label{sec:Annahmen}
+\begin{itemize}
+    \item Spielcomputer verfügt über Tastatur und Maus zur Steuerung
+    \item Es ist eine Qwertz Tastatur
+\end{itemize}
 
 \subsection{Abhängigkeit}
 \label{sec:Abhängigkeit}
+Die lauffähigkeit von JBomberman hat direkte einbussen, wenn folgende Abhängigkeiten nicht erfüllt sind.
+\begin{itemize}
+    \item Es wird Java in der Version 8 vorausgesetzt
+    \item Der Spielcomputer muss entweder im gleichen Netzwerk, wie der Server befinden oder Zugriff aufs Internet haben
+    \item Performance hängt von der zur Verfügung stehenden Bandbreite zum Server und der Geschwindigkeit von RabbitMQ beim abarbeiten der Queues.
+\end{itemize}
+
 \newpage
 \section{Detailiertes Spielprinzip}
 \label{sec:Detailiertes Spielprinzip}
