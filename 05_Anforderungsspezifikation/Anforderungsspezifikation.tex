@@ -22,7 +22,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Anforderungsspezifikation}
-\cfoot{Version: 1.03}
+\cfoot{Version: 1.05}
 \ofoot{Datum: \today{}}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -63,7 +63,9 @@
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
 \textbf{13.03.15} & 1.02 & Spielregeln im detail & Silvan Adrian \\
-\textbf{17.03.15} & 1.03 & Allgeimeine Beschreibung eingefügt & Silvan Adrian \\
+\textbf{17.03.15} & 1.03 & Allgemeine Beschreibung eingefügt & Silvan Adrian \\
+\textbf{17.03.15} & 1.04 & Use Case beschrieben  & Kistler Pascal \\
+\textbf{18.03.15} & 1.05 & Bilder ausgetauscht & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -107,7 +109,7 @@ Es soll für bis zu 4 Mitspieler Unterhaltung bieten.
 \label{sec:Benutzer Chrakteristik}
 Zur Zielgruppe von JBomberman gehören, die sich bereits für den Klassiker Bomberman interessiert haben.
 
-In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähiges Spiel gespielt hat, da der Spieler selbst einen Server starten und sich über desen IP verbinden muss.
+In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähiges Spiel gespielt hat, da der Spieler selbst einen Server starten und sich über dessen IP verbinden muss.
 \subsection{Einschränkungen}
 \label{sec:Einschränkungen}
 Es können maximal 4 Spieler an einem Spiel teilnehmen, dabei geht das Spiel über mehrere Runden.
@@ -146,7 +148,7 @@ Wänden verstecken sich Bonusgegenstände.\cite{Bomberman Spielprinzip}
 \subsubsection{Spielewinn}
 \label{sec:Spielgewinn}
 Ein Spieler hat gewonnen, wenn alle anderen Bombermans besigt sind und er der letzte bestehende Spieler auf dem Spielfeld ist.
-Der Gewinner bekommt einen Punkt für die gewonnene Runde und wird im angerechnet angezigt in der Statusanzeige.
+Der Gewinner bekommt einen Punkt für die gewonnene Runde und wird im angerechnet angezeigt in der Statusanzeige.
 
 \subsubsection{Spielabbruch}
 \label{sec:Spielabbruch}
@@ -184,7 +186,7 @@ Ein Bomberman kann sich \grqq{}upgraden\grqq{} wenn er Powerups aufnimmt.
 \subsubsection{Statusanzeige}
 \label{sec:Statusanzeige}
 In der Statusanzeige wird für jeden einzelnen Bomberman (1-4 Spieler) die Anzahl 
-Gewinne und ein Timer der runterzählt angezeigt.
+Gewinne, ein Timer der runterzählt und die momentante Runde angezeigt.
 \subsubsection{Spielfeld}
 \label{sec:Spielfeld}
 Das Spielfeld wird sich auf eine Grösse von ca. 13 Blöcken x 13 Blöcken 
@@ -193,10 +195,12 @@ Die Wände sind dabei unzerstörbar, damit die bis zu 4 Bombermans das Spielfeld
 nicht verlassen können.
 Jeder Ecken im Spielfeld ist für einen Bomberman festgelegt, bei weniger als 4 
 Spielern bleiben die übrigen Ecken einfach leer.
+\begin{center}
+\includegraphics[scale=1.4]{bombermanmap} 
+\end{center}
 
-\includegraphics[scale=1.5]{bombermanmap} 
 
-\cite{Bomberman Spielfeld}
+
 \newpage
 \subsection{Wände}
 \label{sec:Wände}
@@ -407,9 +411,6 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \bibitem [Spielprinzip] {Bomberman Spielprinzip}
 \url{http://de.wikipedia.org/wiki/Bomberman}, Zugriff 
 11.03.2015
-\bibitem [Spielfeld] {Bomberman Spielfeld}
-\url{http://images1.wikia.nocookie.net/__cb20120401191543/
-bomberman/images/archive/d/d0/20120401224115!SB2Usual.png}, Zugriff 11.03.15
 \end{thebibliography}
 
 \end{document}
