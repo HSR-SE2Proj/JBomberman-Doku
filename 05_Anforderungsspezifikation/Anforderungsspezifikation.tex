@@ -22,7 +22,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Anforderungsspezifikation}
-\cfoot{Version: 1.05}
+\cfoot{Version: 1.06}
 \ofoot{Datum: \today{}}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -64,8 +64,9 @@
 \textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
 \textbf{13.03.15} & 1.02 & Spielregeln im detail & Silvan Adrian \\
 \textbf{17.03.15} & 1.03 & Allgemeine Beschreibung eingefügt & Silvan Adrian \\
-\textbf{17.03.15} & 1.04 & Use Case beschrieben  & Kistler Pascal \\
+\textbf{17.03.15} & 1.04 & Use Case beschrieben  & Pascal Kistler \\
 \textbf{18.03.15} & 1.05 & Bilder ausgetauscht & Silvan Adrian \\
+\textbf{19.03.15} & 1.06 & UserCase Diagram hinzugefügt & Pascal Kistler \\
 \end{tabularx}
 
 \newpage
@@ -297,6 +298,7 @@ gewissen Einfluss auf das Spielerlebnis haben.
 
 \subsection{Use Case Diagramm}
 \label{sec:Use Case Diagramm}
+\raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{UCDiagram}}
 
 \subsection{Aktoren + Stakeholders}
 \label{Aktoren + Stakeholders}
@@ -317,23 +319,16 @@ gewissen Einfluss auf das Spielerlebnis haben.
 		\\ \hline
 	\end{tabularx}
 
-
-\subsection{Beschreibungen Brief}
-\label{sec:Beschreibungen Brief}
-
-\subsubsection{Use Case Name}
-\label{sec:Name of Use Case}
-
 \newpage
 \subsection{Beschreibungen fully dressed}
 \label{sec:Beschreibungen full dressd}
 
-\subsubsection{UC01: Spiel spielen}
-\label{sec:UC01: Spiel spielen}
+\subsubsection{UC01: JBomberman spielen}
+\label{sec:UC01: JBomberman spielen}
 \belowtabulinesep = 1mm
 \begin{longtabu} to \textwidth {X[1,l] X[2,l]}
 	\bfseries Primäraktor & Spieler  \\\hline 
-	\bfseries Steakholders und Interessen & Spieler: - Möchte das Spiel gemeinsam mit Bekannten spielen  \\\hline 
+	\bfseries Steakholders und Interessen & Spieler: Möchte das Spiel gemeinsam mit Bekannten spielen  \\\hline 
 	\bfseries Vorbedingungen & Das Programm wurde gestartet  \\\hline 
 	\bfseries Nachbedingungen & Das Programm wurde beendet  \\\hline 
 	\bfseries Standartablauf & 
