@@ -18,9 +18,9 @@
 \clearscrheadfoot
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
-\ifoot{Pojektantrag: JBomberman}
-\cfoot{Version: 1.00}
-\ofoot{Datum: 07.03.15}
+\ifoot{DomainAnalyse: JBomberman}
+\cfoot{Version: 1.01}
+\ofoot{Datum: 20.03.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -39,7 +39,7 @@
 \end{center}
 \begin{center}
 \huge {Projekt: JBomberman} \\
-\huge {Projektplan}
+\huge {DomainAnalyse}
 \end{center}
 \begin{center}
 \vspace{10em}
@@ -58,6 +58,7 @@
 \textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
+\textbf{20.03.15} & 1.01 & Vollendung des Dokuments & Fabian Binna \\
 \end{tabularx}
 
 \newpage
@@ -66,11 +67,303 @@
 \section{Einführung}
 \label{sec:Einführung}
 
+\subsection{Zweck}
+\label{sec:Zweck}
+Dieses Dokument beschreibt die Domainanalyse für das Projekt JBomberman.
+
 \subsection{Gültigkeit}
 \label{sec:Gültigkeit}
 Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
 
-\subsection{Referenzen}
-\label{sec:Referenzen}
+\subsection{Übersicht}
+\label{sec:Übersicht}
+Dieses Dokument soll eine erste Analyse der Software zeigen. Das Strukturdiagramm stell die wichtigsten Klassen dar, die miteinander interagieren müssen. Das Systemsequenzdiagramm beschreibt die wichtigsten Abläufe der Use Cases.
+
+\newpage
+\section{DomainModell}
+\label{sec:DomainModell}
+\subsection{Strukturdiagramm}
+\label{sec:Strukturdiagramm}
+
+\begin{center}
+\includegraphics[scale=0.5]{Strukturdiagramm_JBomberman} 
+\end{center}
+
+\newpage
+
+\subsection{Konzeptbeschreibung}
+\label{sec:Konzeptbeschreibung}
+
+\subsubsection{Game}
+\label{sec:Game}
+Die Klasse Game ist die oberste Klasse und kontrolliert den Ablauf des Spiels. \\\\
+\textbf{Gamestate} \\
+Der GameState weist auf den aktuelle Spielestatus hin. Je nachdem in welchem Status sich das Spiel befindet werden andere Routinen durchlaufen.
+
+\subsubsection{Party}
+\label{sec:party}
+Die Party beinhaltet alle Spieler die aktuell am Spiel teilnehmen, und kontrolliert Zeit sowie die Spielrunden.
+\\\\
+\textbf{round}\\
+Die aktuelle Spielrunde.
+\\\\
+\textbf{maxRounds}\\
+Maximale Anzahl Runden die gespielt werden müssen.
+\\\\
+\textbf{time}\\
+Time zählt die Zeit von 3 Minuten herunter. Bei Ende der Zeit kriegen alle Bombermans die vollen PowerUps.
+
+\subsubsection{Player}
+\label{sec:Player}
+Der Player dient zur identifizierung der Teilnehmer. Jedem Spieler ist ein Bomberman zugewiesen. Die Messages werden über die jeweilige Playerinstanz dem korrekten Bomberman zugewiesen.
+\\\\
+\textbf{name}\\
+Speichert den Namen des Spielers. Wird auch zur identifizierung verwendet.
+\\\\
+\textbf{score}\\
+Speichert die aktuelle Punktezahl des Spielers.
+
+\newpage
+
+\subsubsection{Sprite}
+\label{sec:Sprite}
+Die Spriteklasse implementiert die Grundvoraussetzungen für jedes Spielelement. Jedes visuelle Element muss von der Spriteklasse erben.
+\\\\
+\textbf{Position}\\
+Position ist eine Klasse, die x und y Koordinaten speichert.
+\\\\
+\textbf{image}\\
+Image ist ein String, der den Namen des Bildes speichert, welcher intern zur identifizierung dient und bei einem ResourceManager die Referenz zum BufferedImage abholen kann.
+
+\subsubsection{AnimatedSprite}
+\label{sec:AnimatedSprite}
+Das AnimatedSprite erbt von der Spriteklasse und implementiert weitere Funktionen, die ein animiertes Objekt ermöglicht.
+\\\\
+\textbf{animationSpeed}\\
+Die Geschwindigkeit mit der durch die einzelnen Bildteile geschaltet wird.
+
+\subsubsection{Bomberman}
+\label{sec:Bomberman}
+Die Bombermanklasse beschreibt den Zustand und die Fähigkeiten der Spielfigur.
+\\\\
+\textbf{movementSpeed }\\
+Wie schnell kann sich der Bomberman fortbewegen.
+\\\\
+\textbf{bombPower}\\
+Wie weit reicht der Sprengradius.
+\\\\
+\textbf{bombs}\\ 
+Anzahl Bomben die der Bomberman zeitgleich auf dem Spielfeld verteilen kann.
+\\\\
+\textbf{maxBombs}\\
+Maximale Anzahl Bombem die der Bomberman tragen kann.
+
+\subsubsection{PowerUp}
+\label{sec:PowerUp}
+Das PowerUp beschreibt die Art der Fähigkeit die den Bomberman verbessert.
+
+\newpage
+
+\subsubsection{Bomb}
+\label{sec:Bomb}
+Die Bombklasse repräsentiert die Bombe auf dem Spielfeld.
+\\\\
+\textbf{bombPower}\\
+Die Reichweite der Explosionsarme.
+
+\subsubsection{Explosion}
+\label{sec:Explosion}
+Beschreibt einen Teil eines Explosionsarms. Die bombPower der Bombe definiert wie viele Explosionen in jede Richtung erstellt werden müssen.
+
+\subsubsection{DestroyableBlock}
+\label{sec:DestroyableBlock}
+Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manchmal ein PowerUp.
+
+
+\section{Systemsequenzdiagramme}
+\label{sec:Systemsequenzdiagramme}
+\subsection{UC01: Bomberman spielen}
+\label{sec:UC01: Bomberman spielen}
+\begin{center}
+\includegraphics[scale=0.3]{SystemSequenzDiagramm_JBomberman} 
+\end{center}
+
+\newpage
+\section{Systemoperationen}
+\label{sec:Systemoperationen}
+\begin{itemize}
+\item connect(server: Address)
+\item ready(player: Player)
+\item startGame()
+\item countdown(time: integer)
+\item pressed(key: Message)
+\item update(mapChanges: Message)
+\item results(results: Array)
+\item endOfGame()
+\item disconnect()
+\end{itemize}
+
+\subsection{Contracts}
+\label{sec:Contracts}
+
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & connect(server : Address) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Eine Serveradressse wurde eingegeben \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Client ist mit dem Server verbunden
+			\item Der Server kennt den Client
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & ready(player : Player) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Status des Clients wurde auf dem Server auf \textbf{ready} gesetzt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & startGame() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Alle Client sind ready \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Bei den Clients wurde die Spielumgebung gestartet
+			\item Der Server befindet sich im Gamemode
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & countdown(time : integer) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Das Spiel wurde gestartet \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Ein Countdown wird den Spielern angezeigt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & pressed(key : Message) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich im Spiel und der Countdown ist abgelaufen \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Event ist beim Server angekommen
+			\item Der Event befindet sich in der Eventqueue
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & update(mapChanges : Message) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich im Spiel \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Die Informationen über Änderungen in der Map wurden an den Client übertragen
+			\item Der Client hat seine Map angepasst
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & results(results : Array) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Die Runde ist vorbei \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Die Clients haben die Rangliste erhalten
+			\item Die Clients zeigen die Rangliste an
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & endOfGame() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Alle Runden sind vorbei \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Alle Clients wurden über das Ende des Spiels informiert
+			\item Die Clients zeigen die Rangliste an
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & disconnect() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Client ist nicht mehr mit dem Server verbunden
+			\item Der Server hat den Client aus der Clientliste entfernt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
 
 \end{document}
