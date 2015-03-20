@@ -1,0 +1,198 @@
+\documentclass[11pt]{scrartcl}
+
+\title{Projektplan: JBomberman}
+\author{Silvan Adrian \\ Fabian Binna \\ Pascal Kistler}
+\date{\today{}}
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{scrpage2}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\graphicspath{ {./images/} }
+\pagestyle{scrheadings}
+
+\clearscrheadfoot
+\ihead{\includegraphics[scale=0.4]{jbomberman}}
+\ohead{Projekt: JBomberman}
+\ifoot{Pojektantrag: JBomberman}
+\cfoot{Version: 1.00}
+\ofoot{Datum: 07.03.15}
+\setheadsepline{0.5pt}
+\setfootsepline{0.5pt}
+
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+\def\arraystretch{1.5}
+\section{Contracts}
+\label{sec:Contracts}
+
+
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & connect(server : Address) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Eine Serveradressse wurde eingegeben \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Client ist mit dem Server verbunden
+			\item Der Server kennt den Client
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & ready(player : Player) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Status des Clients wurde auf dem Server auf \textbf{ready} gesetzt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & startGame() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Alle Client sind ready \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Bei den Clients wurde die Spielumgebung gestartet
+			\item Der Server befindet sich im Gamemode
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & countdown(time : integer) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Das Spiel wurde gestartet \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Ein Countdown wird den Spielern angezeigt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & pressed(key : Message) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich im Spiel und der Countdown ist abgelaufen \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Event ist beim Server angekommen
+			\item Der Event befindet sich in der Eventqueue
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & update(mapChanges : Message) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich im Spiel \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Die Informationen über Änderungen in der Map wurden an den Client übertragen
+			\item Der Client hat seine Map angepasst
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & results(results : Array) \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Die Runde ist vorbei \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Die Clients haben die Rangliste erhalten
+			\item Die Clients zeigen die Rangliste an
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & endOfGame() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Alle Runden sind vorbei \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Alle Clients wurden über das Ende des Spiels informiert
+			\item Die Clients zeigen die Rangliste an
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+\\ \\
+\begin{tabularx}{\linewidth}{l l}
+	\textbf{Operation} & disconnect() \\
+	\hline
+	\textbf{Cross References} & UC01 \\
+	\hline
+	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
+	\hline
+	\textbf{Postconditions} & 
+	\begin{minipage}{5in}
+		\vskip 4pt
+		\begin{itemize}
+			\item Der Client ist nicht mehr mit dem Server verbunden
+			\item Der Server hat den Client aus der Clientliste entfernt
+		\end{itemize}
+		\vskip 4pt
+	\end{minipage}  \\
+\end{tabularx}
+
+\end{document}
