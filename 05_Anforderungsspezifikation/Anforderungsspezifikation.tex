@@ -113,14 +113,16 @@ Zur Zielgruppe von JBomberman gehören, die sich bereits für den Klassiker Bomb
 In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähiges Spiel gespielt hat, da der Spieler selbst einen Server starten und sich über dessen IP verbinden muss.
 \subsection{Einschränkungen}
 \label{sec:Einschränkungen}
-Es können maximal 4 Spieler an einem Spiel teilnehmen, dabei geht das Spiel über mehrere Runden.
-
-Das Spiel soll auf allen gängigen Plattformen lauffähig sein und wird auch auf allen getestet.
+\begin{itemize}
+    \item Es können maximal 4 Spieler an einem Spiel teilnehmen, dabei geht das Spiel über mehrere Runden.
+    \item Das Spiel soll auf allen gängigen Desktop Plattformen lauffähig sein.
+    \item Ein Server kann nur 1 Spiel verwalten, smoit bentigt jede Spielaustragung ihren eigenen Server
+\end{itemize}
 \subsection{Annahmen}
 \label{sec:Annahmen}
 \begin{itemize}
     \item Spielcomputer verfügt über Tastatur und Maus zur Steuerung
-    \item Es ist eine Qwertz Tastatur
+    \item Es wird vorausgesetzt, das der Spieler mit den Spielregeln vertraut ist
 \end{itemize}
 
 \subsection{Abhängigkeit}
@@ -389,17 +391,80 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \end{longtabu}
 
 
-\section{Weitere Anforderungen}
-\label{sec:Weitere Anforderungen}
+\section{Nichtfunktionale Anforderungen}
+\label{sec:Nicht funktionale Anforderungen}
+
+\subsection{Leistung}
+\label{sec:leistung}
+\begin{itemize}
+    \item Die Software ist zeitkritisch, daher muss auf allen Cients der gleiche Stand vorhanden sein, sonst könnte dies als Vorteil für einen Mitspielers enden
+    
+\end{itemize}
+
+
+\subsection{Menge}
+\label{sec:Menge}
+\begin{itemize}
+    \item Anzahl Spieler ist beschränkt (auf 4)
+    \item Bombenanzahl ist beschränkt (auf 8 pro Bomberman)
+    \item Anzahl Runden werden festgelegt
+    \item Spielzeit wird festgelegt (ca.: 3 min)
+\end{itemize}
+
+
+
+\subsubsection{Schnittstellen}
+\label{sec:Schnittstellen}
+\begin{itemize}
+    \item Zur Intereaktion mit dem Spieler werden herkömmmliche Schnittstellen benötigt (Maus, Tastatur, Bildschirm)
+    \item Das System benötigt eine Netzwerkschnittstelle, um mit den anderen Spielern Kommunizieren zu können.
+    \item Es wird ein gestartet Server gebraucht, welcher über seine IP erreichbar sein wird
+\end{itemize}
 
 \subsection{Qualitätsmerkmale}
 \label{sec:Qualitätsmermale}
 
-\subsection{Schnittstellen}
-\label{sec:Schnittstellen}
+\subsubsection{Funktionalität}
+\label{sec:Funktionalität}
+siehe Detailiertes Spielprinzip
+
+
+\subsubsection{Zuverlässigkit}
+\label{sec:Zuverlässigkeit}
+\begin{itemize}
+    \item JBomberman bietet nur einen Mehrpsielermodus und dieser soll in 90\% der Fälle durchführbar sein.
+    \item Falls ein Spieler die Netzwerkverbindung verliert, wird dieser aus dem laufenden Spiel geworfen.
+    \item Die restlichen Spieler können dabei weiterspielen, falles es bereits nur 2 Spieler gab wrd bei beiden das Spiel unterbrochen.
+\end{itemize}
+
+\subsubsection{Benutzbarkeit}
+\label{sec:Benutzbarkeit}
+\begin{itemize}
+    \item JBomberman verfügt über ein User Interface, was ein infaches einsteigen ins Spiel ermglichen soll
+    \item Das Spiel selbst wir nur mit der Tastatur gesteuert
+\end{itemize}
+
+\subsubsection{Effizienz}
+\label{sec:Effizienz}
+-
+\subsubsection{Änderbarkeit}
+\label{sec:Änderbarkeit}
+Für JBomberman sind vorerst keine Erweiterungen geplant, weitere PowerUps wären allerdings denkbar.
+
+
+\subsubsection{Übertragbarkeit}
+\label{sec:Übertragbarkeit}
+Da das Projekt in Java umgesetzt wird ist es Plattformunabhängig, dadurch kann es auch von verschiedenen Spielern auf anderen Plattformen gespielt werden.
+In unserem Team selbst sind auch 3 verschiedene Entwicklungsumgebungen vorhanden, wodurch es noch wichtiger ist das die Plattformunabhängigkeit gegeben ist.
 
 \subsection{Randbedingungen}
 \label{sec:Randbedingungen}
+\begin{itemize}
+    \item An einer Spieldurchführung nehmen 2 bis maximal 4 Spieler teil
+    \item Das Spiel wird in Java implementiert
+    \item Server und Client sind getrennte Applikationen
+    \item Server ist nur für 1 Spiel zuständig (somit benötigt jedes ausgetragene Spiel ihren eigenen Server)
+\end{itemize}
 
 
 \begin{thebibliography}{999}
