@@ -77,7 +77,7 @@ Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktual
 
 \subsection{Übersicht}
 \label{sec:Übersicht}
-Dieses Dokument soll eine erste Analyse der Software zeigen. Das Strukturdiagramm stell die wichtigsten Klassen dar, die miteinander interagieren müssen. Das Systemsequenzdiagramm beschreibt die wichtigsten Abläufe der Use Cases.
+Dieses Dokument soll eine erste Analyse der Software zeigen. Das Strukturdiagramm stellt die wichtigsten Klassen dar, die miteinander interagieren müssen. Das Systemsequenzdiagramm beschreibt die wichtigsten Abläufe der Use Cases.
 
 \newpage
 \section{DomainModell}
@@ -147,7 +147,7 @@ Die Geschwindigkeit mit der durch die einzelnen Bildteile geschaltet wird.
 Die Bombermanklasse beschreibt den Zustand und die Fähigkeiten der Spielfigur.
 \\\\
 \textbf{movementSpeed }\\
-Wie schnell kann sich der Bomberman fortbewegen.
+Wie schnell sich ein Bomberman fortbewegen kann.
 \\\\
 \textbf{bombPower}\\
 Wie weit reicht der Sprengradius.
@@ -206,7 +206,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 \subsection{Contracts}
 \label{sec:Contracts}
 
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & connect(server : Address) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -224,7 +224,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & ready(player : Player) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -232,7 +232,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Der Status des Clients wurde auf dem Server auf \textbf{ready} gesetzt
@@ -241,7 +241,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & startGame() \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -249,7 +249,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Alle Client sind ready \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Bei den Clients wurde die Spielumgebung gestartet
@@ -259,7 +259,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & countdown(time : integer) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -267,7 +267,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Das Spiel wurde gestartet \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Ein Countdown wird den Spielern angezeigt
@@ -276,7 +276,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & pressed(key : Message) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -284,7 +284,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Der Client befindet sich im Spiel und der Countdown ist abgelaufen \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Der Event ist beim Server angekommen
@@ -294,7 +294,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & update(mapChanges : Message) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -302,7 +302,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Der Client befindet sich im Spiel \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Die Informationen über Änderungen in der Map wurden an den Client übertragen
@@ -312,7 +312,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & results(results : Array) \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -320,7 +320,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Die Runde ist vorbei \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4.8in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Die Clients haben die Rangliste erhalten
@@ -330,7 +330,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & endOfGame() \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -338,7 +338,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Alle Runden sind vorbei \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Alle Clients wurden über das Ende des Spiels informiert
@@ -348,7 +348,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\end{minipage}  \\
 \end{tabularx}
 \\ \\
-\begin{tabularx}{\linewidth}{l l}
+\begin{tabularx}{\linewidth}{l X}
 	\textbf{Operation} & disconnect() \\
 	\hline
 	\textbf{Cross References} & UC01 \\
@@ -356,7 +356,7 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 	\textbf{Preconditions} & Der Client befindet sich in der Lobby \\
 	\hline
 	\textbf{Postconditions} & 
-	\begin{minipage}{5in}
+	\begin{minipage}{4in}
 		\vskip 4pt
 		\begin{itemize}
 			\item Der Client ist nicht mehr mit dem Server verbunden
