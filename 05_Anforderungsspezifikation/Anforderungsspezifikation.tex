@@ -22,7 +22,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Anforderungsspezifikation}
-\cfoot{Version: 1.06}
+\cfoot{Version: 1.07}
 \ofoot{Datum: \today{}}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -61,12 +61,13 @@
 \textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
-\textbf{12.03.15} & 1.01 & detailliertes Spielprinzip schreiben & Silvan Adrian \\
-\textbf{13.03.15} & 1.02 & Spielregeln im detail & Silvan Adrian \\
+\textbf{12.03.15} & 1.01 & detailliertes Spielprinzip geschrieben & Silvan Adrian \\
+\textbf{13.03.15} & 1.02 & Spielregeln im Detail & Silvan Adrian \\
 \textbf{17.03.15} & 1.03 & Allgemeine Beschreibung eingefügt & Silvan Adrian \\
 \textbf{17.03.15} & 1.04 & Use Case beschrieben  & Pascal Kistler \\
 \textbf{18.03.15} & 1.05 & Bilder ausgetauscht & Silvan Adrian \\
-\textbf{19.03.15} & 1.06 & UserCase Diagram hinzugefügt & Pascal Kistler \\
+\textbf{19.03.15} & 1.06 & UseCase Diagram hinzugefügt & Pascal Kistler \\
+\textbf{20.03.15} & 1.07 & Nichtfunktionale Anforderungen eingefügt & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -88,27 +89,24 @@ siehe letzte Seite Literatur
 \label{sec:Übersicht}
 In diesem Dokument wird das Produkt hinsichtlich seiner Anforderungen beschrieben, dabei werden Einschränkungen, Annahmen, Abhängigkeiten und Funktionen beschrieben
 
-In der Sektion Detailiertes Spielprinzip, sollen die Anforderungen, der Applikation auslesbar sein.
-
-Use Cases sollen im Brief Format erstellt werden und dazu noch Contracts schreiben.
 \section{Allgemein Beschreibung}
 \label{sec:Allgemeine Beschreibung}
 
 \subsection{Produkt Perspektive}
 \label{sec:Produkt Perspektive}
-JBomberman soll ein kostenlos und einfach zu installierendes Game sein, das für alle Desktop Platformen zur Verfügung steht.
-Es soll für bis zu 4 Mitspieler Unterhaltung bieten.
+JBomberman soll ein kostenlos und einfach zu installierendes Game sein, das für alle Desktop Plattformen zur Verfügung steht.
+Es soll für bis zu 4 Mitspieler kurzweilige Unterhaltung bieten.
 \subsection{Produkt Funktion}
 \label{sec:Produkt Funktion}
 \begin{itemize}
     \item JBomberman ist ein Klon des Spielklassikers Bomberman
     \item JBomberman ist nur im Mehrspielermodus spielbar
-    \item Es gibt einen dedizierten Server, der entweder lokal oder auf einem eigenen Server gestartet werden kann
+    \item Es gibt einen dedizierten Server, der entweder lokal oder auf einem entfernten Server gestartet werden kann
 \end{itemize}
 
 \subsection{Benutzer Chrakteristik}
 \label{sec:Benutzer Chrakteristik}
-Zur Zielgruppe von JBomberman gehören, die sich bereits für den Klassiker Bomberman interessiert haben.
+Zur Zielgruppe von JBomberman gehören die, die  sich bereits für den Klassiker Bomberman interessiert haben.
 
 In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähiges Spiel gespielt hat, da der Spieler selbst einen Server starten und sich über dessen IP verbinden muss.
 \subsection{Einschränkungen}
@@ -116,13 +114,13 @@ In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähig
 \begin{itemize}
     \item Es können maximal 4 Spieler an einem Spiel teilnehmen, dabei geht das Spiel über mehrere Runden.
     \item Das Spiel soll auf allen gängigen Desktop Plattformen lauffähig sein.
-    \item Ein Server kann nur 1 Spiel verwalten, smoit bentigt jede Spielaustragung ihren eigenen Server
+    \item Ein Server kann nur 1 Spiel verwalten, somit benötigt jede Spielaustragung ihren eigenen Server
 \end{itemize}
 \subsection{Annahmen}
 \label{sec:Annahmen}
 \begin{itemize}
     \item Spielcomputer verfügt über Tastatur und Maus zur Steuerung
-    \item Es wird vorausgesetzt, das der Spieler mit den Spielregeln vertraut ist
+    \item Es wird vorausgesetzt, dass der Spieler mit den Spielregeln vertraut ist
 \end{itemize}
 
 \subsection{Abhängigkeit}
@@ -130,8 +128,8 @@ In JBomberman wird vorausgesetzt das der Spieler schon einmal ein Netzwerkfähig
 Die lauffähigkeit von JBomberman hat direkte einbussen, wenn folgende Abhängigkeiten nicht erfüllt sind.
 \begin{itemize}
     \item Es wird Java in der Version 8 vorausgesetzt
-    \item Der Spielcomputer muss entweder im gleichen Netzwerk, wie der Server befinden oder Zugriff aufs Internet haben
-    \item Performance hängt von der zur Verfügung stehenden Bandbreite zum Server und der Geschwindigkeit von RabbitMQ beim abarbeiten der Queues.
+    \item Der Spielcomputer muss sich entweder im gleichen Netzwerk wie der Server befinden oder Zugriff aufs Internet haben
+    \item Die Performance hängt von der zur Verfügung stehenden Bandbreite zum Server und der Geschwindigkeit von RabbitMQ beim abarbeiten der Queues ab
 \end{itemize}
 
 \newpage
@@ -150,29 +148,30 @@ Wänden verstecken sich Bonusgegenstände.\cite{Bomberman Spielprinzip}
 
 \subsubsection{Spielewinn}
 \label{sec:Spielgewinn}
-Ein Spieler hat gewonnen, wenn alle anderen Bombermans besigt sind und er der letzte bestehende Spieler auf dem Spielfeld ist.
+Ein Spieler hat gewonnen, wenn alle anderen Bombermans besiegt sind und er der letzte bestehende Spieler auf dem Spielfeld ist.
 Der Gewinner bekommt einen Punkt für die gewonnene Runde und wird im angerechnet angezeigt in der Statusanzeige.
+Der Bomberman mit den meisten gewonnen Runden gewinnt ist schlussendlich der Gewinner.
 
 \subsubsection{Spielabbruch}
 \label{sec:Spielabbruch}
 Zu einem Spielabbruch kommt es, wenn es zu wenige Mitspieler gibt (mindestens 2 Spieler müssen verbunden sein).
-Dies kann passieren, falls ein Verbindungsunterbruch passieren sollte.
+Dies kann eintreffen, falls ein Verbindungsunterbruch zustande kommen sollte.
 
 \subsubsection{Timer läuft ab}
 \label{sec:Timer läuft ab}
-Falls innerhalb der festgelegten Zeit kein Bomberman alle anderen Mitspieler besiegt wird das Spielfeld verkleinert.
+Falls innerhalb der festgelegten Zeit kein Bomberman alle anderen Mitspieler besiegt wird das Spielfeld innerhalb kurzer Zeit verkleinert.
 Die Bomberman, die sich dabei auf einem Block befindet der \grqq{}verschwindet\grqq{} wird aus dem Spiel geworfen.
 Der Bomberman, der übrig bleibt wird dabei der Gewinner der Spielrunde.
 
 \subsubsection{Bombe}
 \label{sec:Bombe}
-Sobald eine Bombe platziert ist wird desen \grqq{}Zeit bis zur Explosion gestartet\grqq{}.
+Sobald eine Bombe platziert ist wird dessen \grqq{}Zeit bis zur Explosion gestartet\grqq{}.
 Sobald ein Bombe explodiert wird alles was sich im Radius der Bombe befindet und zerstörbar ist zerstört.
-Der Radius der Bombeexplosion kann varieren, da Powerups für das erhöhen des Bombenradius bestehen.
+Der Radius der Bombenexplosion kann varieren, da Powerups für das Erhöhen des Bombenradius bestehen.
 \subsubsection{Zerstörbare Wand}
 \label{sec:Zerstörbare Wand}
-Wenn eine zerstörbare Wand zerstört wird verschwindet diese.
-Manche zerstörbaren Gegenstände beherbergen Powerups für die Bomberman, welche nach dem zerstören der Wand aufgedeckt werden.
+Wenn eine zerstörbare Wand zerstört wird verschwindet diese und macht den Weg frei.
+Manche zerstörbaren Gegenstände beherbergen Powerups für die Bombermans, welche nach dem zerstören der Wand aufgedeckt werden.
 Solange die Wand aber nicht zerstört ist kann auch kein Bomberman diese durchqueren.
 
 \subsubsection{Unzerstörbare Wand}
@@ -182,14 +181,14 @@ Unzerstörbare Wände können nicht durch Bomben zerstört werden, noch von Bomb
 \subsubsection{Bomberman}
 \label{sec:Bomberman}
 Der Bomberman wird über die Tastatur gesteuert, dabei gibt es 4 Tasten für die Fortbewegung und 1 Zusätzliche Taste für das legen der Bombe.
-Ein Bomberman kann sich \grqq{}upgraden\grqq{} wenn er Powerups aufnimmt.
+Ein Bomberman kann sich \grqq{}upgraden\grqq{}, wenn er Powerups aufhebt.
 
 \subsection{Spielelemente}
 \label{sec:Spielelemente}
 \subsubsection{Statusanzeige}
 \label{sec:Statusanzeige}
 In der Statusanzeige wird für jeden einzelnen Bomberman (1-4 Spieler) die Anzahl 
-Gewinne, ein Timer der runterzählt und die momentante Runde angezeigt.
+Gewinne, ein Timer der runterzählt und die momentane Runde angezeigt.
 \subsubsection{Spielfeld}
 \label{sec:Spielfeld}
 Das Spielfeld wird sich auf eine Grösse von ca. 13 Blöcken x 13 Blöcken 
@@ -199,10 +198,9 @@ nicht verlassen können.
 Jeder Ecken im Spielfeld ist für einen Bomberman festgelegt, bei weniger als 4 
 Spielern bleiben die übrigen Ecken einfach leer.
 \begin{center}
+Spielfeld in JBomberman mit 4 Spielern.
 \includegraphics[scale=1.4]{bombermanmap} 
 \end{center}
-
-
 
 \newpage
 \subsection{Wände}
@@ -226,7 +224,8 @@ Bomberman durchlaufen werden.
   \begin{tabularx}{\textwidth}{l X }
     
     
-       \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{explodableblock}} & Die zerstörbaren Wände können von 
+       \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{explodableblock}} & 
+       Die zerstörbaren Wände können von 
     einer Bombe zerstört werden, bevor sie zerstört sind kann ein Bomberman 
     diese nicht durchlaufen.
   \end{tabularx}
@@ -250,7 +249,7 @@ Es sei denn ein Hindernis ist im Weg, dann kann er sich nicht weiter bewegen.
 \begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.8\totalheight}{\includegraphics[scale=0.8]{bomb}}
-& Die Bombe ist wohl der wichtigste Gegenstand im Bomberman, denn ohne die Bombe 
+& Die Bombe ist wohl der wichtigste Gegenstand im JBomberman, denn ohne die Bombe 
 könnten sich die Bombermans ihren Weg nicht freiräumen.
 Somit ist die Funktion der Bombe das beseitigen von zerstörbaren Wände und um 
 Gegenspieler frühzeitig aus dem Spiel zu werfen.
@@ -390,14 +389,14 @@ gewissen Einfluss auf das Spielerlebnis haben.
 	\bfseries Offene Fragen & Keine  \\\hline  
 \end{longtabu}
 
-
+\newpage
 \section{Nichtfunktionale Anforderungen}
 \label{sec:Nicht funktionale Anforderungen}
 
 \subsection{Leistung}
 \label{sec:leistung}
 \begin{itemize}
-    \item Die Software ist zeitkritisch, daher muss auf allen Cients der gleiche Stand vorhanden sein, sonst könnte dies als Vorteil für einen Mitspielers enden
+    \item Die Software ist zeitkritisch, daher muss auf allen Clients der gleiche Stand vorhanden sein, sonst könnte dies als Vorteil für einen Mitspieler enden
     
 \end{itemize}
 
@@ -418,7 +417,7 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \begin{itemize}
     \item Zur Intereaktion mit dem Spieler werden herkömmmliche Schnittstellen benötigt (Maus, Tastatur, Bildschirm)
     \item Das System benötigt eine Netzwerkschnittstelle, um mit den anderen Spielern Kommunizieren zu können.
-    \item Es wird ein gestartet Server gebraucht, welcher über seine IP erreichbar sein wird
+    \item Es wird ein gestartet Server gebraucht, welcher über seine IP erreichbar ist
 \end{itemize}
 
 \subsection{Qualitätsmerkmale}
@@ -440,8 +439,8 @@ siehe Detailiertes Spielprinzip
 \subsubsection{Benutzbarkeit}
 \label{sec:Benutzbarkeit}
 \begin{itemize}
-    \item JBomberman verfügt über ein User Interface, was ein infaches einsteigen ins Spiel ermglichen soll
-    \item Das Spiel selbst wir nur mit der Tastatur gesteuert
+    \item JBomberman verfügt über ein User Interface, was ein einfaches einsteigen ins Spiel ermöglichen soll
+    \item Das Spiel selbst wird nur mit der Tastatur gesteuert
 \end{itemize}
 
 \subsubsection{Effizienz}
@@ -461,14 +460,6 @@ Für JBomberman sind vorerst keine Erweiterungen geplant, weitere PowerUps wäre
 Da das Projekt in Java umgesetzt wird ist es Plattformunabhängig, dadurch kann es auch von verschiedenen Spielern auf anderen Plattformen gespielt werden.
 In unserem Team selbst sind auch 3 verschiedene Entwicklungsumgebungen vorhanden, wodurch es noch wichtiger ist das die Plattformunabhängigkeit gegeben ist.
 
-\subsection{Randbedingungen}
-\label{sec:Randbedingungen}
-\begin{itemize}
-    \item An einer Spieldurchführung nehmen 2 bis maximal 4 Spieler teil
-    \item Das Spiel wird in Java implementiert
-    \item Server und Client sind getrennte Applikationen
-    \item Server ist nur für 1 Spiel zuständig (somit benötigt jedes ausgetragene Spiel ihren eigenen Server)
-\end{itemize}
 
 
 \begin{thebibliography}{999}
