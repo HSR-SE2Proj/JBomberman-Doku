@@ -81,13 +81,30 @@ Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktual
  
 \section{Architektonische Ziele \& Einschränkungen}
 <Beschreibt die Softwareanforderungen und Objekte, welche einen Einfluss auf die Architektur haben (z.B. Safety, Security, Privacy, Distribution, usw.); Beinhaltet auch eine Beschreibung von Design und Implementationsstrategie, Entwicklungstools, usw.>
+
+\newpage
  
 \section{Logische Architektur}
-<Beschreibung der logischen Struktur des Projekts. Pro Subsystem/Package ein einzelner Abschnitt und ein Übersichtsdiagramm über die einzelnen Subsysteme/Packages. Aufteilung in Subsysteme/Packages (zum Beispiel: 3-Layer-Architektur mit GUI, Problem Domain und Datenhaltung). >
-\subsection{ <Subsystem/Package Name>}
-<Beschreibung mit Text und Diagramm der Architektur des Subsystems/Packages. >
+Dieses Package Diagramm zeigt sowol Client, als auch Server. Client und Server sind zwei Eigenständige Applikationen, die getrennt ausgeführt werden. Sie verwenden jedoch teilweise die gleichen Packages.
+
+\includegraphics[scale=0.5]{LogischeSicht}
+
+\newpage
+
+\subsection{ <Presentation/view>}
+Im Package view befinden sich Frames und Canvas, die für die Presentation des Client notwendig sind.
+
+
 \subsubsection{Klassenstruktur}
-<Klassendiagramm innerhalb des Packages und tabellarisch die wichtigsten Klassen beschreiben>
+\includegraphics[scale=1]{ClassDiagramView}
+
+\begin{tabularx}{\linewidth}{l p{12cm}}
+\textbf{Klasse} & \textbf{Beschreibung}\\
+\hline
+GameCanvas & Der GameCanvas implementiert das Rendering. Für eine flüssige Bilddarstellung wird auf eine BufferStrategy gesetzt.\\
+PartyFrame & Mit dem PartyFrame kann sich der User bei einem Server anmelden und das Spiel starten, sowie die aktuellen Mitspieler sehen.
+\end{tabularx}
+
 \subsubsection{Schnittstellen}
 <Beschreibung der Schnittstellen>
 \subsubsection{Wichtige interne Abläufe}
