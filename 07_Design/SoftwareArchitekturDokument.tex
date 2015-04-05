@@ -81,7 +81,20 @@ Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktual
 <Beschreibt die Softwarearchitektur eines Systems und wie sie sich präsentiert (am besten mit einem Bild um eine Übersicht zu ermöglichen) und einzelne Beschreibungen zu den einzelnen Elementen des Systems>
  
 \section{Architektonische Ziele \& Einschränkungen}
-<Beschreibt die Softwareanforderungen und Objekte, welche einen Einfluss auf die Architektur haben (z.B. Safety, Security, Privacy, Distribution, usw.); Beinhaltet auch eine Beschreibung von Design und Implementationsstrategie, Entwicklungstools, usw.>
+\subsection{Ziele}
+\begin{itemize}
+    \item Die Spielumgebungen müssen mit allen Clients synchronisiert werden (über den dedizierten Server)
+    \item Möglichkeit weitere PowerUp's einzubauen.
+    \item Austausch zwischen den Clients und dem Server wird über JMS umgesetzt.
+\end{itemize}
+
+
+\subsection{Einschränkungen}
+\begin{itemize}
+    \item Es wird keinen Live Server geben, jeder der das Spiel spielen will muss einen eigenen Server starten.
+    \item Die Clients können nur zum Server Verbindung aufnehmen, wenn diese die IP des Servers kennen.
+\end{itemize}
+
 
 \newpage
  
@@ -122,8 +135,8 @@ Im Package application.client befindet sich der workflow des Clients. Er kontrol
 
 \textbf{ClientController}\\
 Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den PartyFrame, nicht aber den GameFrame.\\
-
-\begin{tabularx}{\linewidth}{l p{9cm}}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{l X}
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
 startGame():void & Erstellt eine GameFrame, welches die ClientGame Klasse instanziert und somit das Spiel startet.\\
@@ -135,9 +148,9 @@ disconnect() : void & Schliesst die Verbindung mit dem RabbitMQ Broker.\\
 setReady(b: Boolean): void & Setzt den Spieler auf bereit.\\
 
 \end{tabularx}
+\end{table}
 
 \newpage
-
 \subsection{Domain/game.client}
 Im Package game.client werden die Actions vom Server interpretiert und die Sprites auf den neusten Stand gebracht. Die Sprites werden in einer Layer-Logik gespeichet, damit sie korrekt gezeichnet werden können.
 
@@ -154,15 +167,15 @@ Der SpriteManager speicher alle Sprites in einer Schichten-Logik. Dies wird ben�
 
 \textbf{Sprite}\\
 Die Sprite-Klasse beinhaltet alle Informationen die für das Zeichnen der Spielobjekte benötig wird.\\
-
-\begin{tabularx}{\linewidth}{l p{9cm}}
+\begin{table}
+\begin{tabularx}{\linewidth}{l X}
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
 update(action : Acton) : void & Interpretiert die Action und führt die nötigen Aktualisierungsschritte durch.\\
 draw(screen : int[]) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seinen screen mit auf dem gezeichnet werden kann.\\
 tick() : void & Aktualisiert das Sprite. Wird hauptsächlich für Animationen benötigt.\\
 \end{tabularx}\\
-
+\end{table}
 \textbf{Keyboard}\\
 Das Keyboard zeichnet die Tastatureingaben auf und sendet diese direkt über die Methode update an den Server.
 
@@ -209,9 +222,6 @@ Das Keyboard zeichnet die Tastatureingaben auf und sendet diese direkt über die
  
 \section{Deployment}
 <Beschreibung der einzelnen Komponenten und deren Aufteilung (auf welchen Umgebungen, Servern, usw. laufen die Komponenten)>
- 
-\section{Datenspeicherung}
-<Beschreibung mit Diagramm der Datenspeicherung (Datenmodell, z.B. Datenbank)>
  
 \section{Grössen und Leistung}
 <Einschränkungen der Applikation bezüglich Speicher, Leistung, etc…. (zum Beispiel: Verwaltung unterstützt maximal 20'000 Einträge)>
