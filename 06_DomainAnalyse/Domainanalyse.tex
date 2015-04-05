@@ -191,17 +191,23 @@ Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manc
 \newpage
 \section{Systemoperationen}
 \label{sec:Systemoperationen}
+\subsection{Client}
 \begin{itemize}
 \item connect(server: Address)
 \item ready(player: Player)
-\item startGame()
-\item countdown(time: integer)
 \item pressed(key: Message)
-\item update(mapChanges: Message)
-\item results(results: Array)
-\item endOfGame()
 \item disconnect()
 \end{itemize}
+
+\subsection{Server}
+\begin{itemize}
+    \item startGame()
+    \item countdown(time: integer)
+    \item update(mapChanges: Message)
+    \item results(results: Array)
+    \item endOfGame()
+\end{itemize}
+
 
 \subsection{Contracts}
 \label{sec:Contracts}
