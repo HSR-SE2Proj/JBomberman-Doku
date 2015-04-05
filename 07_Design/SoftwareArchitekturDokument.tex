@@ -58,6 +58,7 @@
 \textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
 \hline
 \textbf{01.04.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
+\textbf{05.04.15} & 1.01 & Logische Architektur & Fabian Binna \\
 \end{tabularx}
 
 \newpage
@@ -85,30 +86,37 @@ Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktual
 \newpage
  
 \section{Logische Architektur}
-Dieses Package Diagramm zeigt sowol Client, als auch Server. Client und Server sind zwei Eigenständige Applikationen, die getrennt ausgeführt werden. Sie verwenden jedoch teilweise die gleichen Packages.
+Dieses Package Diagramm zeigt sowol Client, als auch Server. Client und Server sind zwei eigenständige Applikationen, die getrennt ausgeführt werden. Sie verwenden jedoch teilweise die gleichen Packages.
 
 \includegraphics[scale=0.5]{LogischeSicht}
 
 \newpage
 
 \subsection{ <Presentation/view>}
-Im Package view befinden sich Frames und Canvas, die für die Presentation des Client notwendig sind.
+Im Package view befinden sich Frames und Canvas, die für die Presentation des Clients notwendig sind.
 
 
 \subsubsection{Klassenstruktur}
-\includegraphics[scale=1]{ClassDiagramView}
+\includegraphics[scale=0.8]{ClassDiagramView}
 
+
+\textbf{GameFrame}\\
+Der GameFrame ist ein Observer und delegiert die Notifies an das zugehörige Panel, die sich dann selber auf den neusten Stand bringen.\\\\
+
+\textbf{GameCanvas}\\
+Der GameCanvas kümmert sich nur um das Rendering, also das Zeichnen der Szene. Dabei delegiert er jedoch nur die pixels[] an alle Sprites, welche sich dann eigenständig zeichnen. Der GameCanvas kümmert sich dann um das performante Buffering.\\\\
 \begin{tabularx}{\linewidth}{l p{12cm}}
-\textbf{Klasse} & \textbf{Beschreibung}\\
+\textbf{Methode} & \textbf{Beschreibung}\\
 \hline
-GameCanvas & Der GameCanvas implementiert das Rendering. Für eine flüssige Bilddarstellung wird auf eine BufferStrategy gesetzt.\\
-PartyFrame & Mit dem PartyFrame kann sich der User bei einem Server anmelden und das Spiel starten, sowie die aktuellen Mitspieler sehen.
+render():void & Kümmert sich um die BufferStrategy und delegiert das zeichnen der Sprites direkt an die Sprites selbst.
 \end{tabularx}
 
-\subsubsection{Schnittstellen}
-<Beschreibung der Schnittstellen>
+\newpage
+
 \subsubsection{Wichtige interne Abläufe}
 <Beschreibung von wichtigen internen Abläufen>
+
+
 \subsection{Wichtige Abläufe}
 <Beschreibung von wichtigen Abläufen (packageübergreifend)>
  
