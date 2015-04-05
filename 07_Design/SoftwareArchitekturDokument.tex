@@ -92,7 +92,8 @@ Dieses Package Diagramm zeigt sowol Client, als auch Server. Client und Server s
 
 \newpage
 
-\subsection{ <Presentation/view>}
+\section{Logische Architektur Client}
+\subsection{Presentation/view}
 Im Package view befinden sich Frames und Canvas, die für die Presentation des Clients notwendig sind.
 
 
@@ -101,7 +102,7 @@ Im Package view befinden sich Frames und Canvas, die für die Presentation des C
 
 
 \textbf{GameFrame}\\
-Der GameFrame ist ein Observer und delegiert die Notifies an das zugehörige Panel, die sich dann selber auf den neusten Stand bringen.\\\\
+Der GameFrame ist ein Observer und delegiert die Notifies an das zugehörige Panel, die sich dann selber auf den neusten Stand bringen.\\
 
 \textbf{GameCanvas}\\
 Der GameCanvas kümmert sich nur um das Rendering, also das Zeichnen der Szene. Dabei delegiert er jedoch nur die pixels[] an alle Sprites, welche sich dann eigenständig zeichnen. Der GameCanvas kümmert sich dann um das performante Buffering.\\\\
@@ -113,12 +114,95 @@ render():void & Kümmert sich um die BufferStrategy und delegiert das zeichnen d
 
 \newpage
 
+\subsection{Workflow/application.client}
+Im Package application.client befindet sich der workflow des Clients. Er kontrolliert wann der PartyFrame und der GameFrame sichtbar ist.
+
+\subsubsection{Klassenstruktur}
+\includegraphics[scale=0.75]{ClassDiagramApplicationClient}
+
+\textbf{ClientController}\\
+Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den PartyFrame, nicht aber den GameFrame.\\
+
+\begin{tabularx}{\linewidth}{l p{9cm}}
+\textbf{Methode} & \textbf{Beschreibung}\\
+\hline
+startGame():void & Erstellt eine GameFrame, welches die ClientGame Klasse instanziert und somit das Spiel startet.\\
+finishGame():void & Informiert den PartyFrame darüber, dass das Spiel beendet wurde.\\
+addPlayer(player: Player) : void & Fügt einen neuen Player in die Party ein.\\
+removePlayer(player: Player) : void & Entfernt einen Player aus der Party.\\
+connectToServer(hostname: String) : void & Verbindet den Client mit einem RabbitMQ Broker.\\
+disconnect() : void & Schliesst die Verbindung mit dem RabbitMQ Broker.\\
+setReady(b: Boolean): void & Setzt den Spieler auf bereit.\\
+
+\end{tabularx}
+
+\newpage
+
+\subsection{Domain/game.client}
+Im Package game.client werden die Actions vom Server interpretiert und die Sprites auf den neusten Stand gebracht. Die Sprites werden in einer Layer-Logik gespeichet, damit sie korrekt gezeichnet werden können.
+
+\subsubsection{Klassenstruktur}
+\includegraphics[scale=0.5]{ClassDiagramGameClient}
+
+\textbf{ClientGame}\\
+Die Methode loop wird unter "Wichtige interne Abläufe" beschrieben.\\
+
+\textbf{SpriteManager}\\
+Der SpriteManager speicher alle Sprites in einer Schichten-Logik. Dies wird benötig, damit die Sprites korrekt gezeichnet werden können. Zudem können die Sprites per id gefunden werden, damit das aktualisieren der Positionen und Zustände einfacher wird. Die Methoden des SpriteManager sind ähnlich wie bei normalen Datenstrukturen und werden deshalb nicht weiter erläutert.
+
+\newpage
+
+\textbf{Sprite}\\
+Die Sprite-Klasse beinhaltet alle Informationen die für das Zeichnen der Spielobjekte benötig wird.\\
+
+\begin{tabularx}{\linewidth}{l p{9cm}}
+\textbf{Methode} & \textbf{Beschreibung}\\
+\hline
+update(action : Acton) : void & Interpretiert die Action und führt die nötigen Aktualisierungsschritte durch.\\
+draw(screen : int[]) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seinen screen mit auf dem gezeichnet werden kann.\\
+tick() : void & Aktualisiert das Sprite. Wird hauptsächlich für Animationen benötigt.\\
+\end{tabularx}\\
+
+\textbf{Keyboard}\\
+Das Keyboard zeichnet die Tastatureingaben auf und sendet diese direkt über die Methode update an den Server.
+
 \subsubsection{Wichtige interne Abläufe}
-<Beschreibung von wichtigen internen Abläufen>
+//SSD zur GameLoop realisiertung einfügen.
+
+
+\newpage
+
+\subsection{Network/network.client}
+
+\subsubsection{Klassenstruktur}
+\includegraphics[scale=0.5]{ClassDiagramNetworkClient}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Wichtige Abläufe}
 <Beschreibung von wichtigen Abläufen (packageübergreifend)>
+
+
+
+
+
  
 \section{Prozesse und Threads}
 <Wenn mehrere Prozesse oder Threads eingesetzt werden wird hier beschrieben, wie diese ablaufen, miteinander funktionieren, Daten austauschen, sich synchronisieren, usw.>
