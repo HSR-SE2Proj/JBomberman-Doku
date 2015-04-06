@@ -61,6 +61,7 @@
 \textbf{04.04.15} & 1.01 & Logische Architektur & Fabian Binna \\
 \textbf{05.04.15} & 1.02 & Logische Architektur Client & Fabian Binna\\
 \textbf{06.04.15} & 1.03 & Logische Architektur Server & Fabian Binna\\
+\textbf{06.04.15} & 1.04 & Zustandsdiagramm Workflows & Fabian Binna\\
 \end{tabularx}
 
 \newpage
@@ -197,6 +198,7 @@ setReady(b: Boolean): void & Setzt den Spieler auf bereit.\\
 \end{tabularx}
 \end{table}
 
+
 \newpage
 \subsection{Domain/game.client}
 Im Package game.client werden die Actions vom Server interpretiert und die Sprites auf den neusten Stand gebracht. Die Sprites werden in einer Layer-Logik gespeichet, damit sie korrekt gezeichnet werden können.
@@ -251,7 +253,8 @@ Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server s
 \newpage
 
 \subsection{Wichtige Abläufe}
-<Beschreibung von wichtigen Abläufen (packageübergreifend)>
+\subsection{Zustandsdiagramm Client Workflow}
+\includegraphics[scale=0.5]{StatemachineClient}
 
 \newpage
 
@@ -321,7 +324,9 @@ Der ServerReceiver holt alle Daten aus einer einzelnen RabbitMQ-Queue, auf welch
 
 \newpage
 
-
+\subsection{Wichtige Abläufe}
+\subsection{Zustandsdiagramm Server Workflow}
+\includegraphics[scale=0.7]{StatemachineServer}
 
 
 
