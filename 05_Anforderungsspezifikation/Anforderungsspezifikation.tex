@@ -22,7 +22,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Anforderungsspezifikation}
-\cfoot{Version: 1.07}
+\cfoot{Version: 1.08}
 \ofoot{Datum: \today{}}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -68,6 +68,7 @@
 \textbf{18.03.15} & 1.05 & Bilder ausgetauscht & Silvan Adrian \\
 \textbf{19.03.15} & 1.06 & UseCase Diagram hinzugefügt & Pascal Kistler \\
 \textbf{20.03.15} & 1.07 & Nichtfunktionale Anforderungen eingefügt & Silvan Adrian \\
+\textbf{06.04.15} & 1.08 & Verbesserungen gemäss Reviewprotokoll & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -149,8 +150,9 @@ Wänden verstecken sich Bonusgegenstände.\cite{Bomberman Spielprinzip}
 \subsubsection{Spielewinn}
 \label{sec:Spielgewinn}
 Ein Spieler hat gewonnen, wenn alle anderen Bombermans besiegt sind und er der letzte bestehende Spieler auf dem Spielfeld ist.
-Der Gewinner bekommt einen Punkt für die gewonnene Runde und wird im angerechnet angezeigt in der Statusanzeige.
-Der Bomberman mit den meisten gewonnen Runden gewinnt ist schlussendlich der Gewinner.
+Der Gewinner bekommt einen Punkt für die gewonnene Runde (round) und wird im angerechnet angezeigt in der Statusanzeige.
+Der Bomberman mit den meisten gewonnen Runden hat ist schlussendlich der Gewinner.
+Die Anzahl maximal Runden ist festgelgt durch maxRounds.
 
 \subsubsection{Spielabbruch}
 \label{sec:Spielabbruch}
@@ -159,17 +161,17 @@ Dies kann eintreffen, falls ein Verbindungsunterbruch zustande kommen sollte.
 
 \subsubsection{Timer läuft ab}
 \label{sec:Timer läuft ab}
-Falls innerhalb der festgelegten Zeit kein Bomberman alle anderen Mitspieler besiegt wird das Spielfeld innerhalb kurzer Zeit verkleinert.
+Falls innerhalb der festgelegten Zeit kein Bomberman alle anderen Mitspieler besiegt wird das Spielfeld innerhalb kurzer Zeit verkleinert und die Bombermans kriegen alle PowerUps.
 Die Bomberman, die sich dabei auf einem Block befindet der \grqq{}verschwindet\grqq{} wird aus dem Spiel geworfen.
 Der Bomberman, der übrig bleibt wird dabei der Gewinner der Spielrunde.
 
 \subsubsection{Bombe}
 \label{sec:Bombe}
 Sobald eine Bombe platziert ist wird dessen \grqq{}Zeit bis zur Explosion gestartet\grqq{}.
-Sobald ein Bombe explodiert wird alles was sich im Radius der Bombe befindet und zerstörbar ist zerstört.
+Sobald ein Bombe explodiert wird alles was sich im Radius (bombPower) der Bombe befindet und zerstörbar ist zerstört.
 Der Radius der Bombenexplosion kann varieren, da Powerups für das Erhöhen des Bombenradius bestehen.
 \subsubsection{Zerstörbare Wand}
-\label{sec:Zerstörbare Wand}
+\label{sec:Zerstörbare Wand (DestroyableBlock)}
 Wenn eine zerstörbare Wand zerstört wird verschwindet diese und macht den Weg frei.
 Manche zerstörbaren Gegenstände beherbergen Powerups für die Bombermans, welche nach dem zerstören der Wand aufgedeckt werden.
 Solange die Wand aber nicht zerstört ist kann auch kein Bomberman diese durchqueren.
@@ -185,6 +187,9 @@ Ein Bomberman kann sich \grqq{}upgraden\grqq{}, wenn er Powerups aufhebt.
 
 \subsection{Spielelemente}
 \label{sec:Spielelemente}
+Jedes Spielelement hat visuelle Element, welche als Sprites bezeichnet werden.
+Zusätzlich hat jedes Spielelement eine Position, wo dieses platziert werden soll, wie auch einen festgelegten Namen.
+Dabei gibt es auch animierte Elemente (AnimatedSprites), wie Explosionen, Bomben oder die Bobermans selbst, die wiederum verschiedene Geschwindigkeiten (animationSpeed) haben können.
 \subsubsection{Statusanzeige}
 \label{sec:Statusanzeige}
 In der Statusanzeige wird für jeden einzelnen Bomberman (1-4 Spieler) die Anzahl 
@@ -230,7 +235,7 @@ Bomberman durchlaufen werden.
     diese nicht durchlaufen.
   \end{tabularx}
 \end{table}
-\subsection{Bomberman}
+\subsection{Bomberman (Player)}
 \label{sec:Bomberman}
 \begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
@@ -238,6 +243,7 @@ Bomberman durchlaufen werden.
   & Der Bomberman ist der steuerbare Charakter im Bomberman Spiel, dabei kann er 
 sich in alle Himmelsrichtungen bewegen.
 Es sei denn ein Hindernis ist im Weg, dann kann er sich nicht weiter bewegen.
+Jeder Bomberman hat einen eindeutigen Namen (name) und eine Anzahl gewonnen Runden (score).
 \end{tabularx}
   
 \end{table}
@@ -267,7 +273,7 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{bombpowerup}}
-& Durch dieses Powerup ist es dem Bomberman möglich mehr als eine Bombe zu platzieren, dabei gibt es ein Maxiumum von 8 Bomben welche zur gleichen Zeit gelegt werden können.
+& Durch dieses Powerup ist es dem Bomberman möglich mehr als eine Bombe zu platzieren, dabei gibt es ein Maxiumum von 8 Bomben (maxBombs) welche zur gleichen Zeit gelegt werden können.
 \end{tabularx}
 \end{table}
 
@@ -276,7 +282,7 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{speedpowerup}}
-& Durch dieses Powerup beschleunigt sich die Fortbewegungsgeschwindigkeit eines Bomberman.
+& Durch dieses Powerup beschleunigt sich die Fortbewegungsgeschwindigkeit (movementSpeed) eines Bomberman.
 \end{tabularx}
 
 \end{table}
@@ -287,7 +293,7 @@ gewissen Einfluss auf das Spielerlebnis haben.
 \begin{table}[!h]
 \begin{tabularx}{\textwidth}{l X}
 \raisebox{-.6\totalheight}{\includegraphics[scale=0.8]{flamepowerup}}
-& Dieses Powerup gibt der Bombe einen grösseren Sprengradius (in alle 4 Himmelsrichtungen).
+& Dieses Powerup gibt der Bombe einen grösseren Sprengradius (bombPower) -> (in alle 4 Himmelsrichtungen) -> (Explosion).
 
 \end{tabularx}
 

@@ -19,7 +19,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{DomainAnalyse: JBomberman}
-\cfoot{Version: 1.01}
+\cfoot{Version: 1.02}
 \ofoot{Datum: 20.03.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -59,6 +59,7 @@
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{20.03.15} & 1.01 & Vollendung des Dokuments & Fabian Binna \\
+\textbf{06.04.15} & 1.01 & Verbesserung gemäss Reviewprotokoll & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -90,96 +91,6 @@ Dieses Dokument soll eine erste Analyse der Software zeigen. Das Strukturdiagram
 \end{center}
 
 \newpage
-
-\subsection{Konzeptbeschreibung}
-\label{sec:Konzeptbeschreibung}
-
-\subsubsection{Game}
-\label{sec:Game}
-Die Klasse Game ist die oberste Klasse und kontrolliert den Ablauf des Spiels. \\\\
-\textbf{Gamestate} \\
-Der GameState weist auf den aktuelle Spielestatus hin. Je nachdem in welchem Status sich das Spiel befindet werden andere Routinen durchlaufen.
-
-\subsubsection{Party}
-\label{sec:party}
-Die Party beinhaltet alle Spieler die aktuell am Spiel teilnehmen, und kontrolliert Zeit sowie die Spielrunden.
-\\\\
-\textbf{round}\\
-Die aktuelle Spielrunde.
-\\\\
-\textbf{maxRounds}\\
-Maximale Anzahl Runden die gespielt werden müssen.
-\\\\
-\textbf{time}\\
-Time zählt die Zeit von 3 Minuten herunter. Bei Ende der Zeit kriegen alle Bombermans die vollen PowerUps.
-
-\subsubsection{Player}
-\label{sec:Player}
-Der Player dient zur identifizierung der Teilnehmer. Jedem Spieler ist ein Bomberman zugewiesen. Die Messages werden über die jeweilige Playerinstanz dem korrekten Bomberman zugewiesen.
-\\\\
-\textbf{name}\\
-Speichert den Namen des Spielers. Wird auch zur identifizierung verwendet.
-\\\\
-\textbf{score}\\
-Speichert die aktuelle Punktezahl des Spielers.
-
-\newpage
-
-\subsubsection{Sprite}
-\label{sec:Sprite}
-Die Spriteklasse implementiert die Grundvoraussetzungen für jedes Spielelement. Jedes visuelle Element muss von der Spriteklasse erben.
-\\\\
-\textbf{Position}\\
-Position ist eine Klasse, die x und y Koordinaten speichert.
-\\\\
-\textbf{image}\\
-Image ist ein String, der den Namen des Bildes speichert, welcher intern zur identifizierung dient und bei einem ResourceManager die Referenz zum BufferedImage abholen kann.
-
-\subsubsection{AnimatedSprite}
-\label{sec:AnimatedSprite}
-Das AnimatedSprite erbt von der Spriteklasse und implementiert weitere Funktionen, die ein animiertes Objekt ermöglicht.
-\\\\
-\textbf{animationSpeed}\\
-Die Geschwindigkeit mit der durch die einzelnen Bildteile geschaltet wird.
-
-\subsubsection{Bomberman}
-\label{sec:Bomberman}
-Die Bombermanklasse beschreibt den Zustand und die Fähigkeiten der Spielfigur.
-\\\\
-\textbf{movementSpeed }\\
-Wie schnell sich ein Bomberman fortbewegen kann.
-\\\\
-\textbf{bombPower}\\
-Wie weit reicht der Sprengradius.
-\\\\
-\textbf{bombs}\\ 
-Anzahl Bomben die der Bomberman zeitgleich auf dem Spielfeld verteilen kann.
-\\\\
-\textbf{maxBombs}\\
-Maximale Anzahl Bombem die der Bomberman tragen kann.
-
-\subsubsection{PowerUp}
-\label{sec:PowerUp}
-Das PowerUp beschreibt die Art der Fähigkeit die den Bomberman verbessert.
-
-\newpage
-
-\subsubsection{Bomb}
-\label{sec:Bomb}
-Die Bombklasse repräsentiert die Bombe auf dem Spielfeld.
-\\\\
-\textbf{bombPower}\\
-Die Reichweite der Explosionsarme.
-
-\subsubsection{Explosion}
-\label{sec:Explosion}
-Beschreibt einen Teil eines Explosionsarms. Die bombPower der Bombe definiert wie viele Explosionen in jede Richtung erstellt werden müssen.
-
-\subsubsection{DestroyableBlock}
-\label{sec:DestroyableBlock}
-Der DestroyableBlock kann von einer Bombe zerstört werden und hinterlässt manchmal ein PowerUp.
-
-
 \section{Systemsequenzdiagramme}
 \label{sec:Systemsequenzdiagramme}
 \subsection{UC01: Bomberman spielen}
