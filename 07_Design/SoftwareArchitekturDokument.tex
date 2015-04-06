@@ -62,6 +62,7 @@
 \textbf{05.04.15} & 1.02 & Logische Architektur Client & Fabian Binna\\
 \textbf{06.04.15} & 1.03 & Logische Architektur Server & Fabian Binna\\
 \textbf{06.04.15} & 1.04 & Zustandsdiagramm Workflows & Fabian Binna\\
+\textbf{06.04.15} & 1.05 & Sequenzdiagramm GameLoop Client & Fabian Binna\\
 \end{tabularx}
 
 \newpage
@@ -255,6 +256,12 @@ Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server s
 \subsection{Wichtige Abläufe}
 \subsubsection{Zustandsdiagramm Client Workflow}
 \includegraphics[scale=0.5]{StatemachineClient}
+
+\newpage
+
+\subsubsection{Zustandsdiagramm Client Workflow}
+Das Sequenzdiagramm zeigt nur zwei alternative ActionTypes. Der GameLoop läuft beim Server grundsätzlich gleich ab, jedoch ohne das Rendern und anstelle der Sprites werden mit GameObjects gearbeitet.\\
+\includegraphics[scale=0.4]{SequenzDiagrammGameLoopClient}
 
 \newpage
 
