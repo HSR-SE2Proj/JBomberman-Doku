@@ -60,10 +60,17 @@
 \textbf{01.04.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{04.04.15} & 1.01 & Logische Architektur & Fabian Binna \\
 \textbf{05.04.15} & 1.02 & Logische Architektur Client & Fabian Binna\\
+<<<<<<< HEAD
 \textbf{05.04.15} & 1.03 & Ziele und Einschränkungen & Silvan Adrian\\
 \textbf{06.04.15} & 1.04 & Logische Architektur Server & Fabian Binna\\
 \textbf{06.04.15} & 1.05 & Zustandsdiagramm Workflows & Fabian Binna\\
 \textbf{06.04.15} & 1.06 & Systemübersicht Grafik und Beschreibung & Silvan Adrian\\
+=======
+\textbf{06.04.15} & 1.03 & Logische Architektur Server & Fabian Binna\\
+\textbf{06.04.15} & 1.04 & Zustandsdiagramm Workflows & Fabian Binna\\
+\textbf{06.04.15} & 1.05 & Sequenzdiagramm GameLoop Client & Fabian Binna\\
+\textbf{06.04.15} & 1.06 & Schnittstellen & Fabian Binna\\
+>>>>>>> 1dd1d4613970f1ec484b2c196153ae6fe7a19867
 \end{tabularx}
 
 \newpage
@@ -161,6 +168,10 @@ Die Methoden des ActionSerializer sind statisch und werden benötigt um die Acti
 \newpage
 
 \section{Logische Architektur: Client}
+\subsection{Schnittstellen}
+\includegraphics[scale=0.4]{LogischeSichtClient}
+\newpage
+
 \subsection{Presentation/view}
 Im Package view befinden sich Frames und Canvas, die für die Presentation des Clients notwendig sind.
 
@@ -265,7 +276,16 @@ Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server s
 
 \newpage
 
+\subsubsection{Zustandsdiagramm Client Workflow}
+Das Sequenzdiagramm zeigt nur zwei alternative ActionTypes. Der GameLoop läuft beim Server grundsätzlich gleich ab, jedoch ohne das Rendern und anstelle der Sprites werden mit GameObjects gearbeitet.\\
+\includegraphics[scale=0.4]{SequenzDiagrammGameLoopClient}
+
+\newpage
+
 \section{Logische Architektur: Server}
+\subsection{Schnittstellen}
+\includegraphics[scale=0.5]{LogischeSichtServer}
+
 
 \subsection{Workflow/application.server}
 
@@ -352,8 +372,13 @@ Der ServerReceiver holt alle Daten aus einer einzelnen RabbitMQ-Queue, auf welch
 <Wenn mehrere Prozesse oder Threads eingesetzt werden wird hier beschrieben, wie diese ablaufen, miteinander funktionieren, Daten austauschen, sich synchronisieren, usw.>
  
 \section{Deployment}
-<Beschreibung der einzelnen Komponenten und deren Aufteilung (auf welchen Umgebungen, Servern, usw. laufen die Komponenten)>
+Das Messagerouting wird von einem RabbitMQ Broker übernommen, der meistens auf der gleichen Hardware wie der GameServer läuft, aber auch auf einer anderen Hardware betrieben werden kann. Die Übertragung läuft mittels AMQP (Advanced Message Queueing Protocol).
+
+\includegraphics[scale=0.4]{DeploymentDiagram}
  
+\newpage
+
+
 \section{Grössen und Leistung}
 <Einschränkungen der Applikation bezüglich Speicher, Leistung, etc…. (zum Beispiel: Verwaltung unterstützt maximal 20'000 Einträge)>
 
