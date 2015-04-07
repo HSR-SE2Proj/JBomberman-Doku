@@ -66,6 +66,8 @@
 \textbf{06.04.15} & 1.06 & Systemübersicht Grafik und Beschreibung & Silvan Adrian\\
 \textbf{06.04.15} & 1.07 & Schnittstellen & Fabian Binna\\
 \textbf{06.04.15} & 1.08 & Grössen und Leistung + Externes Design & Silvan Adrian\\
+\textbf{07.04.15} & 1.09 & Datenübertragung & Fabian Binna\\
+\textbf{07.04.15} & 1.10 & Prozesse und Threads & Fabian Binna\\
 \end{tabularx}
 
 \newpage
@@ -78,6 +80,8 @@ Dieses Dokument beschreibt die Software Architektur für das Projekt JBomberman.
 \subsection{Gültigkeitsbereich}
 Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
 \subsection{Referenzen}
+\subsection{Übersicht}
+Die LogischeSicht wurde in drei Teile unterteilt: Applikationsübergreifen, Client und Server. Die Schnittstellen werden anhand einer kompletten Packageübersicht gezeigt. Im Kapitel Datenübertragung wird auf die RabbitMQ-Technologie eingegangen. 
 \subsubsection{Glossar}
 Siehe Dokument Glossar.pdf
  
@@ -87,6 +91,7 @@ Zudem braucht es mindestens 2 Clients, damit ein Spiel überhaupt gespielt werde
 Zur Veranschaulichung der Austausch zwischen 2 Clients und 1 Server:
 
 \includegraphics[scale=0.45]{systemuebersicht}
+\newpage
 
  
 \section{Architektonische Ziele \& Einschränkungen}
@@ -190,7 +195,7 @@ Im Package application.client befindet sich der workflow des Clients. Er kontrol
 
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramApplicationClient}
-
+\newpage
 \textbf{ClientController}\\
 Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den PartyFrame, nicht aber den GameFrame.\\
 \begin{table}[!h]
@@ -226,21 +231,19 @@ Der SpriteManager speicher alle Sprites in einer Schichten-Logik. Dies wird ben�
 
 \textbf{Sprite}\\
 Die Sprite-Klasse beinhaltet alle Informationen die für das Zeichnen der Spielobjekte benötig wird.\\
-\begin{table}
+
+
 \begin{tabularx}{\linewidth}{l X}
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
 update(action : Acton) : void & Interpretiert die Action und führt die nötigen Aktualisierungsschritte durch.\\
 draw(screen : int[]) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seinen screen mit auf dem gezeichnet werden kann.\\
 tick() : void & Aktualisiert das Sprite. Wird hauptsächlich für Animationen benötigt.\\
-\end{tabularx}\\
-\end{table}
+\end{tabularx}\\\\
+
+
 \textbf{Keyboard}\\
 Das Keyboard zeichnet die Tastatureingaben auf und sendet diese direkt über die Methode update an den Server.
-
-\subsubsection{Wichtige interne Abläufe}
-//SSD zur GameLoop realisiertung einfügen.
-
 
 \newpage
 
@@ -268,11 +271,10 @@ Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server s
 
 \newpage
 
-\subsubsection{Zustandsdiagramm Client Workflow}
+\subsubsection{Sequenzdiagramm GameLoop Client}
 Das Sequenzdiagramm zeigt nur zwei alternative ActionTypes. Der GameLoop läuft beim Server grundsätzlich gleich ab, jedoch ohne das Rendern und anstelle der Sprites werden mit GameObjects gearbeitet.\\
-\includegraphics[scale=0.4]{SequenzDiagrammGameLoopClient}
 
-\newpage
+\includegraphics[scale=0.4]{SequenzDiagrammGameLoopClient}
 
 \section{Logische Architektur: Server}
 \subsection{Schnittstellen}
@@ -347,27 +349,64 @@ Der ServerReceiver holt alle Daten aus einer einzelnen RabbitMQ-Queue, auf welch
 \subsubsection{Zustandsdiagramm Server Workflow}
 \includegraphics[scale=0.7]{StatemachineServer}
 
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
  
 \section{Prozesse und Threads}
-<Wenn mehrere Prozesse oder Threads eingesetzt werden wird hier beschrieben, wie diese ablaufen, miteinander funktionieren, Daten austauschen, sich synchronisieren, usw.>
+\subsection{Dispatcher Thread}
+Der DispatcherThread(Klasse: ActionDispatcher) sorgt dafür, das die Messages empfangen werden und in die ActionQueue abgelegt werden. Gleichzeitig holt der GameLoop die Action aus der Queue heraus. Die ActionQueue ist mittels einer LinkedBlockingQueue implementiert, und somit Threadsafe.\\
+
+\includegraphics[scale=0.8]{ActionDispatcherProzess}
+
+
+
+\newpage
+
  
 \section{Deployment}
-Das Messagerouting wird von einem RabbitMQ Broker übernommen, der meistens auf der gleichen Hardware wie der GameServer läuft, aber auch auf einer anderen Hardware betrieben werden kann. Die Übertragung läuft mittels AMQP (Advanced Message Queueing Protocol).
+Das Messagerouting wird von einem RabbitMQ Broker übernommen, der meistens auf der gleichen Hardware wie der GameServer läuft, aber auch auf einer anderen Hardware betrieben werden kann. Die Übertragung läuft mittels AMQP (Advanced Message Queueing Protocol).\\
 
 \includegraphics[scale=0.4]{DeploymentDiagram}
  
+\newpage
+
+\section{Datenübertragung}
+\subsubsection{RabbitMQ Broker}
+Der RabbitMQ Broker speichert die erhaltenen Messages in Warteschlangen/Queues. Der Empfänger muss die Message also nicht sofort annehmen. \\
+Die Clients(P) senden ihre Messages an die Queue BombermanInput(hello). Der Server(C) entnimmt dort regelmässig die Messages und kann sie anhand der IDs in den Actions identifizieren.
+
+\includegraphics[scale=1.0]{clientToServer}\\\\
+
+Die Messages die vom Server(P) an die Clients(Cx) gehen werden je in eine Client-Eigene Queue(amq.gen-XyZ...) gelegt. Dieser Vorgang übernimmt jedoch der RabbitMQ Broker(X) für uns.
+
+\includegraphics[scale=1.0]{serverToClient}\\
+
+\newpage
+
+\subsubsection{Actions}
+Da die Informationen innerhalb einer Action in einem Object-Array gespeichert werden, müssen die verschiedenen ActionTypen dokumentiert werden.\\
+
+\textbf{MOVEMENT}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+\hline
+0 & ActionType & ActionType.MOVEMENT\\
+1 & Integer & id des GameObjects\\
+2 & Position & Neue Positionswerte\\
+\end{tabularx}\\\\
+
+\textbf{NEWPLAYER}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+\hline
+0 & ActionType & ActionType.NEWPLAYER\\
+1 & Player & neuer Spieler\\
+\end{tabularx}\\\\
+
+\textbf{Hinweis: } Weitere Actions werden während der Construction-Phase dokumentiert.
+
+\newpage
 \section{Externes Design}
 Es besteht lediglich ein GUI für den Client, der Server soll über die CLI gestartet werden.
 \subsection{StartupFrame} 
