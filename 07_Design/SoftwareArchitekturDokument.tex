@@ -19,8 +19,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Software Architektur: JBomberman}
-\cfoot{Version: 1.08}
-\ofoot{Datum: 01.04.15}
+\cfoot{Version: 1.12}
+\ofoot{Datum: 07.04.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -69,6 +69,7 @@
 \textbf{07.04.15} & 1.09 & Datenübertragung & Fabian Binna\\
 \textbf{07.04.15} & 1.10 & Prozesse und Threads & Fabian Binna\\
 \textbf{07.04.15} & 1.11 & Korrekturen & Fabian Binna\\
+\textbf{07.04.15} & 1.12 & Korrekturen & Silvan Adrian\\
 \end{tabularx}
 
 \newpage
@@ -121,7 +122,7 @@ Dieses Package Diagramm zeigt sowol Client, als auch Server. Client und Server s
 \newpage
 
 \subsection{Time/time}
-Im Package time sind Klasse, die für das timing der GameLoops sorgen.
+Im Package time befindet sich eine Klasse, die für das timing der GameLoops sorgt.
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.8]{ClassDiagramTime}
 
@@ -268,23 +269,22 @@ Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server s
 
 \subsection{Wichtige Abläufe}
 \subsubsection{Zustandsdiagramm Client Workflow}
-\includegraphics[scale=0.5]{StatemachineClient}
+\includegraphics[scale=0.43]{StatemachineClient}
 
 \newpage
 
 \subsubsection{Sequenzdiagramm GameLoop Client}
 Das Sequenzdiagramm zeigt nur zwei alternative ActionTypes. Der GameLoop läuft beim Server grundsätzlich gleich ab, jedoch ohne das Rendern und anstelle der Sprites werden mit GameObjects gearbeitet.\\
 
-\includegraphics[scale=0.4]{SequenzDiagrammGameLoopClient}
-
+\includegraphics[scale=0.39]{SequenzDiagrammGameLoopClient}
 \section{Logische Architektur: Server}
 \subsection{Schnittstellen}
-\includegraphics[scale=0.5]{LogischeSichtServer}
+\includegraphics[scale=0.48]{LogischeSichtServer}
 
 
 \subsection{Workflow/application.server}
 
-Der Workflow des Servers ist sehr simpel. Er wartet bis mehr als zwei Spieler verbunden und bereit sind, und startet dann das Spiel.
+Der Workflow des Servers ist sehr simpel. Er wartet bis mehr als zwei Spieler verbunden und bereit sind. Darauf startet der Server dann das Spiel.
 
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramApplicationServer}
@@ -409,25 +409,24 @@ Da die Informationen innerhalb einer Action in einem Object-Array gespeichert we
 
 \newpage
 \section{Externes Design}
-Es besteht lediglich ein GUI für den Client, der Server soll über die CLI gestartet werden.
+Es besteht lediglich ein GUI für den Client, der Server soll über das CLI gestartet werden.
 \subsection{StartupFrame} 
 Als StartupFrame kommt der Connect zum Server,dabei wird die IP des Servers benötigt um sich verbinden zu können.
 
 \includegraphics[scale=0.5]{StartupFrame}
 
- 
 \subsection{LobbyFrame}
  Sobald der Client sich mit dem Server verbunden hat erscheint das LobbyFrame in welchem alle Mitspieler, die sich auf den Server verbunden haben angezeigt werden.
 Dabei kann jeder Spieler sich über den Button "I'm Ready" ihren Status auf Ready setzen. 
 
-\includegraphics[scale=0.6]{Lobby}
+\includegraphics[scale=0.5]{Lobby}
  
 \newpage
 
 
 \section{Grössen und Leistung}
-JBomberman wird in zewi einzelne Applikationen unterteilt (Server und Client), dabei werden die Sprites auf beiden Seiten benötigt dadurch erwarten wir eine Speicherverbrauch von ca.: 17MB.
+JBomberman wird in zewi einzelne Applikationen unterteilt (Server und Client), dabei werden die Sprites auf dem Client gespeichert was diesen natürlich grösser macht ca.: 17 MB. Der Server selbst sollte nicht grösser als ca.: 3 MB werden.
 Das Spiel kann auf allen Clients gespielt werden, welche Java installiert haben und eine Tastatur als Eingabegerät haben.
-Es ist allerdings ein minimale Bildschirmauflösung von 832 x 832 nötig.
+Es ist allerdings ein minimale Bildschirmauflösung von 832 x 882 nötig.
 
 \end{document}
