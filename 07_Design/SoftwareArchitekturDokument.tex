@@ -68,6 +68,7 @@
 \textbf{06.04.15} & 1.08 & Grössen und Leistung + Externes Design & Silvan Adrian\\
 \textbf{07.04.15} & 1.09 & Datenübertragung & Fabian Binna\\
 \textbf{07.04.15} & 1.10 & Prozesse und Threads & Fabian Binna\\
+\textbf{07.04.15} & 1.11 & Korrekturen & Fabian Binna\\
 \end{tabularx}
 
 \newpage
@@ -130,7 +131,7 @@ Der Timer besitzt eine Referenz auf einen GameLoop, bei dem er regelmässig die 
 \newpage
 
 \subsection{Domain/game}
-Im Package game befinden sich Klassen und Interfaces, die von Server und Client gemensam genutzt werden.
+Im Package game befinden sich Klassen und Interfaces, die von Server und Client gemeinsam genutzt werden.
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramGame}
 \newpage
@@ -191,7 +192,7 @@ render():void & Kümmert sich um die BufferStrategy und delegiert das zeichnen d
 \newpage
 
 \subsection{Workflow/application.client}
-Im Package application.client befindet sich der workflow des Clients. Er kontrolliert wann der PartyFrame und der GameFrame sichtbar ist.
+Im Package application.client befindet sich der workflow des Clients. Er kontrolliert unter anderem wann der PartyFrame und der GameFrame sichtbar ist.
 
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramApplicationClient}
@@ -222,7 +223,7 @@ Im Package game.client werden die Actions vom Server interpretiert und die Sprit
 \includegraphics[scale=0.5]{ClassDiagramGameClient}
 
 \textbf{ClientGame}\\
-Die Methode loop wird unter "Wichtige interne Abläufe" beschrieben.\\
+Die Methode loop wird unter "Wichtige Abläufe" beschrieben.\\
 
 \textbf{SpriteManager}\\
 Der SpriteManager speicher alle Sprites in einer Schichten-Logik. Dies wird benötig, damit die Sprites korrekt gezeichnet werden können. Zudem können die Sprites per id gefunden werden, damit das aktualisieren der Positionen und Zustände einfacher wird. Die Methoden des SpriteManager sind ähnlich wie bei normalen Datenstrukturen und werden deshalb nicht weiter erläutert.
@@ -304,7 +305,7 @@ finishGame() : void & Entkoppelt die Spielrelevanten Klassen und geht in die wai
 \includegraphics[scale=0.5]{ClassDiagramGameServer}
 
 \textbf{ServerGame}\\
-Die Methode loop() wird unter "wichtige Abläufe" genauer beschrieben.\\
+Die Methode loop() funktioniert ähnlich wie die Implementation in der ClientGame Klasse und wurde dort schon beschrieben.\\
 
 \textbf{GameObjectManager}\\
 Der GameObjectManager speichert die GameObject nach Typen ab. Dies ist hilfreich, wenn die Objekte aktualisiert werden müssen. Die Methoden des GameObjectManagers sind ähnlich wie bei normalen Datenstrukturen und werden deshalb nicht weiter erläutert.\\
