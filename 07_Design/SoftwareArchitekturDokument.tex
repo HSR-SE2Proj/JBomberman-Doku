@@ -193,19 +193,19 @@ render():void & Kümmert sich um die BufferStrategy und delegiert das zeichnen d
 \newpage
 
 \subsection{Workflow/application.client}
-Im Package application.client befindet sich der workflow des Clients. Er kontrolliert unter anderem wann der PartyFrame und der GameFrame sichtbar ist.
+Im Package application.client befindet sich der workflow des Clients. Er kontrolliert unter anderem wann der LobbyFrame und der GameFrame sichtbar ist.
 
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramApplicationClient}
 \newpage
 \textbf{ClientController}\\
-Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den PartyFrame, nicht aber den GameFrame.\\
+Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den LobbyFrame, nicht aber den GameFrame.\\
 \begin{table}[!h]
 \begin{tabularx}{\linewidth}{l X}
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
 startGame():void & Erstellt eine GameFrame, welches die ClientGame Klasse instanziert und somit das Spiel startet.\\
-finishGame():void & Informiert den PartyFrame darüber, dass das Spiel beendet wurde.\\
+finishGame():void & Informiert den LobbyFrame darüber, dass das Spiel beendet wurde.\\
 addPlayer(player: Player) : void & Fügt einen neuen Player in die Party ein.\\
 removePlayer(player: Player) : void & Entfernt einen Player aus der Party.\\
 connectToServer(hostname: String) : void & Verbindet den Client mit einem RabbitMQ Broker.\\
