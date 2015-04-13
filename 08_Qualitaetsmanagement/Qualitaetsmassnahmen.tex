@@ -1,0 +1,82 @@
+\documentclass[11pt]{scrartcl}
+
+\title{Qualitätsmassnahmen}
+\author{Silvan Adrian \\ Fabian Binna \\ Pascal Kistler}
+\date{\today{}}
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{scrpage2}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\graphicspath{ {./images/} }
+\pagestyle{scrheadings}
+
+\clearscrheadfoot
+\ihead{\includegraphics[scale=0.4]{jbomberman}}
+\ohead{Projekt: JBomberman}
+\ifoot{Qualitätsmassnahmen}
+\cfoot{Version: 1.00}
+\ofoot{Datum: 13.04.15}
+\setheadsepline{0.5pt}
+\setfootsepline{0.5pt}
+
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+\def\arraystretch{1.5}
+\begin{titlepage}
+\begin{center}
+\vspace{10em}
+\includegraphics[scale=2]{jbomberman}
+\vspace{10em}
+\end{center}
+\begin{center}
+\huge {Projekt: JBomberman} \\
+\huge {Qualitätsmassnahmen}
+\end{center}
+\begin{center}
+\vspace{10em}
+\LARGE {Pascal Kistler} \\
+\LARGE {Silvan Adrian} \\
+\LARGE {Fabian Binna}
+\end{center}
+
+\end{titlepage}
+
+\newpage
+\section{Änderungshistorie}
+\label{sec:Änderungen}
+
+\begin{tabularx}{\linewidth}{l l l l}
+\textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
+\hline
+\textbf{13.04.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
+\textbf{13.04.15} & 1.01 & Qualitätsmassnahmen & P. Kistler \\
+\end{tabularx}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\section{Massnahmen zur Qualitätssicherung}
+\subsection{Git Repository}
+Über das Git Repository haben alle Zugriff auf den aktuellen Code.
+Jedes Teammitglied arbeitet in einem eigenen Branch. Sobald ein Feature fertig ist kann dies in den Masterbranch gemerged werden, sodass im Master immer eine voll funktionsfähige Version  ist.
+\subsection{JUnit Tests}
+JUnit-Tests werden verwendet, um kleinere Einheiten der Software automatisiert auf Fehler zu überprüfen. Diese werden vor jedem Commit ausgeführt, so dass kein Code mit fehlgeschlagenen Tests eingecheckt wird.
+\subsection{Findbugs}
+Findbugs wird eingesetzt, um durch statische Codeanalyse Bugs oder mögliche Probleme im Code zu finden. FindBugs liefert dem Entwickler Hinweise auf mögliche oder tatsächliche Probleme im Code.
+\subsection{Jenkins Buildserver}
+Nach jedem Commit startet der Jenkins Server einen Build vom Masterbranch. Dabei führt Jenkins alle JUnit-Tests aus und sucht mittels FindBugs nach Fehlern im Code. Sollten nicht alle Tests erfolgreich sein muss der Fehler sofort behoben werden. Ein Merge mit dem Master wird nur durchgeführt, wenn alle Tests grün sind.
+\subsection{CodeReview}
+Bei einem grösseren Merge mit dem Masterbranch wird eine Codereview im Team durchgeführt. So kann die Codequalität verbessert werden und gleichzeitig Informationen oder Best-Practices im Team ausgetauscht und gelernt werden, was ebenfalls die Codequalität steigert.
+
+\end{document}
