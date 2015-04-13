@@ -1,6 +1,0 @@
-
-Sprite/AnimatedSprite:
-Eine Klasse für alles. Oder zwei.
-
-Messages:
-Nur informationen für Klasse, oder ganze Klasse serialisieren.
