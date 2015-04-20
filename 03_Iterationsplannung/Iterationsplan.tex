@@ -1,0 +1,279 @@
+\documentclass[11pt]{scrartcl}
+
+\title{Projektplan: JBomberman}
+\author{Silvan Adrian \\ Fabian Binna \\ Pascal Kistler}
+\date{\today{}}
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{scrpage2}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{longtable,tabu}
+\graphicspath{ {./images/} }
+\pagestyle{scrheadings}
+
+\clearscrheadfoot
+\ihead{\includegraphics[scale=0.4]{jbomberman}}
+\ohead{Projekt: JBomberman}
+\ifoot{Iterationsplan: JBomberman}
+\cfoot{Version: 1.00}
+\ofoot{Datum: 07.03.15}
+\setheadsepline{0.5pt}
+\setfootsepline{0.5pt}
+
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+\def\arraystretch{1.5}
+\begin{titlepage}
+\begin{center}
+\vspace{10em}
+\includegraphics[scale=2]{jbomberman}
+\vspace{10em}
+\end{center}
+\begin{center}
+\huge {Projekt: JBomberman} \\
+\huge {Iterationsplan}
+\end{center}
+\begin{center}
+\vspace{10em}
+\LARGE {Pascal Kistler} \\
+\LARGE {Silvan Adrian} \\
+\LARGE {Fabian Binna}
+\end{center}
+
+\end{titlepage}
+
+\newpage
+\section{Änderungshistorie}
+\label{sec:Änderungen}
+
+\begin{tabularx}{\linewidth}{l l X l}
+\textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
+\hline
+\textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
+\bf{20.04.15} & 1.01 & Einfügen von Arbeitspaketen zu einzelnen Iterationen & 
+Silvan Adrian
+\end{tabularx}
+
+\newpage
+\tableofcontents
+\newpage
+\section{Einführung}\subsection{Zweck}
+Dieses Dokument soll einen Überblick über alle Iterationen geben und eine 
+Referenz zu bereits erledigten Iterationen geben und für geplante.
+Dabei werden alle geplanten Arbeitspakete aufgelistet und der geschätzte Aufwand 
+dazu + der wirklich gebrauchte Aufwand Schlussendlich.
+\subsection{Referenzen}
+\begin{itemize}
+  \item Projektplan
+  \item Redmine
+\end{itemize}
+\section{Übersicht}
+\subsection{Phasenübersicht}
+Es bestehen 8 Phasen/Iterationen.
+
+\begin{tabularx}{\linewidth}{X X}
+  \bf{Name} & \bf{Datum} \\
+  \hline
+  Inception & 20.02.2015 \\
+  Elaboration 1 & 08.03.2015 \\
+  Elaboration 2 & 22.03.2015 \\
+  Elaboration 3 & 05.04.2015 \\
+  Construction 1 & 19.04.2015 \\
+  Construction 2 & 03.05.2015 \\
+  Construction 3 & 24.05.2015 \\
+  Transition 	& 31.05.2015 \\
+\end{tabularx}
+\subsection{Planungübersicht}
+
+\section{Elaboration 1}
+\subsection{Arbeitsergebnisse}
+Anforderungen definiert Technologien ausgewählt und Projektplan 
+fertig gestellt. \newline Erster Prototyp 
+zum Testen mit Grundfunktionen (Befehle an Server senden).
+\subsection{Arbeitspakete Soll}
+  \begin{tabularx} {\linewidth}{lXl}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} \\
+    \hline
+    30 & Entwicklungsumgebung aufsetzen & 10 \\
+    40 & Projektplan & 15 \\
+    43 & Netzwerkprototyp & 6 \\
+    44 & DomainModel und Zustandsdiagramm skizzieren & 3 \\
+    46 & Dokumente in LaTex & 8 \\
+    51 & Erste GUI Skizzen & 8 \\
+    \hline
+    & & 50
+  \end{tabularx}
+  
+  \subsection{Arbeitspakete Ist}
+  \begin{tabularx} {\linewidth}{lXll}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}  & \bf{Ist[h]}\\
+    \hline
+    30 & Entwicklungsumgebung aufsetzen & 10 & 16 \\
+    40 & Projektplan & 15 & 19\\
+    43 & Netzwerkprototyp & 6 & 11.50\\
+    44 & DomainModel und Zustandsdiagramm skizzieren & 3 & 3.5 \\
+    46 & Dokumente in LaTex & 8 & 8\\
+    51 & Erste GUI Skizzen & 8 & 8\\
+    \hline
+    & & 50 & 66
+    \end{tabularx}
+    
+    
+    \subsection{Diagramm}
+    
+\section{Elaboration 2}
+\subsection{Zeitraum}
+\subsection{Arbeitsergebnisse}
+Use Cases aufschreiben, dazu das Spielprinzip genauer beschreiben. 
+Nicht Funktionale Anforderungen bestimmen.
+\subsection{Arbeitspakete Soll}
+  \begin{tabularx} {\linewidth}{lXl}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} \\
+    \hline
+    %41 & Anforderungsanalyse & 18.50 \\
+    47 & Projektplan verbessern & 1.5 \\
+    48 & Grafiken & 8 \\
+    49 &  Backup & 3 \\
+    50 & Spielprinzip detailliert & 5 \\
+    52 &  GUI Use Cases & 8 \\
+    53 & Domain Modell Spielobjekte & 4\\
+    54 & Domain Model Anforderungsanalyse & 3\\
+    55 & Nicht funktionale Anforderungen & 2.5 \\
+    56 & Konzeptbeschreibung & 2 \\
+    57 & Risikoanalyse: Game Architektur  & 6 \\
+    58 & SSD USe Case JBomberman spielen & 4 \\
+    59 & Contract Use Case JBomberman spielen & 4\\
+    60 & 	Domain Analyse Dokumentation & 3 \\
+    \hline
+    & & 54
+  \end{tabularx}
+  
+  \subsection{Arbeitspakete Ist}
+  \begin{tabularx} {\linewidth}{lXll}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}  & \bf{Ist[h]}\\
+    \hline
+   %41 & Anforderungsanalyse & 18.50 & 0\\
+    47 & Projektplan verbessern & 1.5 & 1\\
+    48 & Grafiken & 8 & 7\\
+    49 &  Backup & 3 & 3\\
+    50 & Spielprinzip detailliert & 5 & 5\\
+    52 &  GUI Use Cases & 8 & 8\\
+    53 & Domain Modell Spielobjekte & 4 & 7\\
+    54 & Domain Model Anforderungsanalyse & 3 & 5\\
+    55 & Nicht funktionale Anforderungen & 2.5 & 1.5\\
+    56 & Konzeptbeschreibung & 2 & 1.5\\
+    57 & Risikoanalyse: Game Architektur  & 6 & 2\\
+    58 & SSD USe Case JBomberman spielen & 4 & 4\\
+    59 & Contract Use Case JBomberman spielen & 4 & 4\\
+    60 & 	Domain Analyse Dokumentation & 3 & 3 \\
+    \hline
+    & & 54 & 52
+    \end{tabularx}
+
+\subsection{Diagramm}
+
+\section{Elaboration 3 (End of Elaboration)}
+\subsection{Arbeitsergebnisse}
+Architektur Prototyp (Kommunikationsverfahren zwischen Client und Server) 
+fertiggestellt. 
+Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
+\subsection{Arbeitspakete Soll}
+  \begin{tabularx} {\linewidth}{lXl}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} \\
+    \hline
+    %31 & 	Architekturprototyp & 20 \\
+    64 & Notifications über Slack einrichten + refs und Zeit aufschreibung über Commits & 2 \\
+    66 & Besprechung Architektur JBomberman + offene Fragen klären & 4 \\
+    67 &  Grundgerüst Prototyp & 8 \\
+    68 & Architekturprototyp Grundgerüst Packagediagramm & 4 \\
+    69 &  Architekturprototyp Refactoring der Domain & 4 \\
+    70 & GUI Prototyp & 8\\
+    71 & 	Verbesserungen anhand von Reviewprotokoll & 1.5\\
+    72 & Rendering mit Java2D und BufferStrategy & 2 \\
+    73 & Architektur Dokument & 14 \\
+    74 & Glossar erstellen  & 1.5 \\
+    76 & State Diagrams für Client und Server & 3 \\
+    77 & Deployment Diagramm & 1\\
+    78 & 	Prozesse und Threads & 1 \\
+    79 & 	Packages Beschreibungen & 3 \\
+    80 & Ant Builds & 8 \\
+    81 & SSD GameLoop Client & 1 \\
+    82 & Netzwerkübertragung & 1 \\
+    83 & Package Diagramme erstellen & 4 \\
+    85 & 	Findbugs & 2 \\
+    86 & Ant Build Client/Server & 5 \\
+    126 & JBomberman Projekt aufsetzen & 4 \\
+    127 & Verbesserungen gemäss Review vom 9.04 & 2 \\
+    128 & Tests für den Prototyp schreiben & 2 \\
+    130 & Qualitätsmassnahmen	& 2 \\
+    \hline
+    & & 74
+  \end{tabularx}
+  
+  \subsection{Arbeitspakete Ist}
+  \begin{tabularx} {\linewidth}{lXll}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}  & \bf{Ist[h]}\\
+    \hline
+  %31 & 	Architekturprototyp & 20 & 0\\
+    64 & Notifications über Slack einrichten + refs und Zeit aufschreibung über Commits & 2 & 4 \\
+    66 & Besprechung Architektur JBomberman + offene Fragen klären & 4 & 5.75\\
+    67 &  Grundgerüst Prototyp & 8 & 8\\
+    68 & Architekturprototyp Grundgerüst Packagediagramm & 4 & 4\\
+    69 &  Architekturprototyp Refactoring der Domain & 4 & 4\\
+    70 & GUI Prototyp & 8 & 9\\
+    71 & 	Verbesserungen anhand von Reviewprotokoll & 1.5 & 1.5\\
+    72 & Rendering mit Java2D und BufferStrategy & 2 & 2\\
+    73 & Architektur Dokument & 14 & 2.75\\
+    74 & Glossar erstellen  & 1.5 & 1.25\\
+    76 & State Diagrams für Client und Server & 3 & 2\\
+    77 & Deployment Diagramm & 1 & 1\\
+    78 & 	Prozesse und Threads & 1 & 1\\
+    79 & 	Packages Beschreibungen & 3 & 8\\
+    80 & Ant Builds & 8 & 8.5\\
+    81 & SSD GameLoop Client & 1 & 1\\
+    82 & Netzwerkübertragung & 1 & 1\\
+    83 & Package Diagramme erstellen & 4 & 5\\
+    85 & 	Findbugs & 2 & 2.25\\
+    86 & Ant Build Client/Server & 5 & 4.75\\
+    126 & JBomberman Projekt aufsetzen & 4 & 4\\
+    127 & Verbesserungen gemäss Review vom 9.04 & 2 & 2\\
+    128 & Tests für den Prototyp schreiben & 2 & 1.5 \\
+    130 & Qualitätsmassnahmen	& 2 & 2\\
+    \hline
+    & & 74 & 86.25
+    \end{tabularx}
+
+\subsection{Diagramm}
+
+\section{Construction 1}
+\subsection{Arbeitsergebnisse}
+Client und Server Kommunikation umgesetzt. 
+Basic Character movements.
+\subsection{Arbeitspakete Soll}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
+    \hline
+    87 & Timer & 2 \\
+    88 & Player Implementation & 0.5 \\
+\end{longtabu}
+\subsection{Arbeitspakete Ist}
+\subsection{Diagramm}
+\section{Construction 2}
+
+\section{Construction 3}
+
+
+
+\end{document}
