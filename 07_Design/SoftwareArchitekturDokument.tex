@@ -84,7 +84,7 @@ Dieses Dokument beschreibt die Software Architektur für das Projekt JBomberman.
 Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.
 \subsection{Referenzen}
 \subsection{Übersicht}
-Die LogischeSicht wurde in drei Teile unterteilt: Applikationsübergreifen, Client und Server. Die Schnittstellen werden anhand einer kompletten Packageübersicht gezeigt. Im Kapitel Datenübertragung wird auf die RabbitMQ-Technologie eingegangen. 
+Die LogischeSicht wurde in drei Teile unterteilt: Applikationsübergreifend, Client und Server. Die Schnittstellen werden anhand einer kompletten Packageübersicht gezeigt. Im Kapitel Datenübertragung wird auf die RabbitMQ-Technologie eingegangen. 
 \subsubsection{Glossar}
 Siehe Dokument Glossar.pdf
  
@@ -327,7 +327,9 @@ Das GameObject speichert alle nötigen Informationen um das Spielgeschehen und d
 tick() : void & Aktualisiert Zustände und Variablen. Hauptsächlich Zeitbedingte Werte (Wann kann ich die nächste Bombe legen)\\
 update(action : Action) : void & Interpretiert die Action und aktualisiert sich selbst.\\
 sendUpdates() : void & Falls das Object neue Werte besitzt muss es die neuen Daten an die Clients senden.\\
-checkCollisionWidth(o : GameObject) : Boolean & Überprüft, ob das Object mit einem anderen kollidiert und führt dann die jeweiligen Korrekturen (z.B. beim Movement) oder Aktionen durch.\\
+checkCollisionWith(o : GameObject) : Boolean & Überprüft, ob das Object 
+mit einem anderen kollidiert und führt dann die jeweiligen 
+Korrekturen (z.B. beim Movement) oder Aktionen durch.\\
 
 \end{tabularx}
 
