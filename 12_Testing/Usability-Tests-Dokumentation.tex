@@ -10,7 +10,7 @@
 \usepackage{color}
 \usepackage[normalem]{ulem}
 \usepackage{scrpage2}
-\usepackage{graphicx}
+\usepackage{graphicx,xcolor}
 \usepackage{tabularx}
 \graphicspath{ {./images/} }
 \pagestyle{scrheadings}
@@ -19,8 +19,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Pojektantrag: JBomberman}
-\cfoot{Version: 1.01}
-\ofoot{Datum: 07.03.15}
+\cfoot{Version: 1.02}
+\ofoot{Datum: 27.04.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -59,6 +59,8 @@
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{20.04.15} & 1.01 & Dokumentstruktur & Silvan Adrian \\
+\textbf{27.04.14} & 1.02 & Aufbau von Fragebogen eingefügt (Formular) & Silvan 
+Adrian \\
 \end{tabularx}
 
 \newpage
@@ -101,6 +103,23 @@ Tests je nach Anzahl der Teilnehmer in einer grösseren Gruppe veranstaltet.
 
 
 \subsection{Fragebogen}
+\begin{Form}
+\subsubsection{Allgemein}
+\begin{tabularx}{\linewidth}{l l}
+  \bf{Name} & \bf{Datum}\\
+ \TextField[name=Name,width=5cm,  bordercolor={red}, borderstyle=U, 
+ value={}, backgroundcolor={0.95 0.95 0.95}]{} &
+ \TextField[name=Datum,width=5cm,  bordercolor={red}, borderstyle=U, 
+ value={}, backgroundcolor={0.95 0.95 0.95}]{}
+\end{tabularx}
+\subsubsection{Effektivität}
+\subsubsection{Effizienz}
+\subsubsection{Sympathie}
+\subsubsection{Fehlertoleranz}
+\subsubsection{Erlernbarkeit}
+\subsubsection{Anmerkungen}
+  \TextField[multiline,width=\textwidth,  height=3.25cm,borderstyle=D, 
+  bordercolor={red}, value={}, backgroundcolor={0.95 0.95 0.95}]{}
 
-
+\end{Form}
 \end{document}
