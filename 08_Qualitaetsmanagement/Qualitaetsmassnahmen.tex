@@ -19,7 +19,7 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Qualitätsmassnahmen}
-\cfoot{Version: 1.00}
+\cfoot{Version: 1.02}
 \ofoot{Datum: 13.04.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
@@ -58,7 +58,8 @@
 \textbf{Datum} & \textbf{Version} & \textbf{Änderung}  & \textbf{Autor} \\
 \hline
 \textbf{13.04.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
-\textbf{13.04.15} & 1.01 & Qualitätsmassnahmen & P. Kistler \\
+\textbf{13.04.15} & 1.01 & Qualitätsmassnahmen & Pascal Kistler \\
+\bf{28.04.15} & 1.02 & Massnahmen angepasst & Silvan Adrian
 \end{tabularx}
 
 \newpage
@@ -69,16 +70,36 @@
 \section{Massnahmen zur Qualitätssicherung}
 \subsection{Git Repository}
 Über das Git Repository haben alle Zugriff auf den aktuellen Code.
-Jedes Teammitglied arbeitet in einem eigenen Branch. Sobald ein Feature fertig ist kann dies in den Masterbranch gemerged werden, sodass im Master immer eine voll funktionsfähige Version  ist.
+Jedes Teammitglied erstellt eigene branches für die Features.
+Sobald ein Feature fertig ist kann dies in den Masterbranch gemerged werden, 
+sodass im Master immer eine voll funktionsfähige Version  ist.
 
-Die Dokumente der Dokumentation werden in einem separaten Repository versioniert. In diesem Repository werden keine Branches erstellt, sondern alles in den Master gepushed.
+Die Dokumente der Dokumentation werden in einem separaten 
+Repository versioniert. In diesem Repository werden keine Branches 
+erstellt, sondern alles in den Master gepushed.
 \subsection{JUnit Tests}
-JUnit-Tests werden verwendet, um kleinere Einheiten der Software automatisiert auf Fehler zu überprüfen. Diese werden vor jedem Commit ausgeführt, so dass kein Code mit fehlgeschlagenen Tests eingecheckt wird.
+JUnit-Tests werden verwendet, um kleinere Einheiten der Software 
+automatisiert auf Fehler zu überprüfen. Diese werden vor jedem Commit ausgeführt, 
+so dass kein Code mit fehlgeschlagenen Tests eingecheckt wird.
 \subsection{Findbugs}
-Findbugs wird eingesetzt, um durch statische Codeanalyse Bugs oder mögliche Probleme im Code zu finden. FindBugs liefert dem Entwickler Hinweise auf mögliche oder tatsächliche Probleme im Code.
+Findbugs wird eingesetzt, um durch statische Codeanalyse Bugs 
+oder mögliche Probleme im Code zu finden. FindBugs liefert dem Entwickler 
+Hinweise auf mögliche oder tatsächliche Probleme im Code.
+\subsection{Jacoco}
+Jacoco wird eingesetzt um die Test Code Coverage zu sehen und zu verbessern.
+Dabei ist unser Ziel eine Test Code Coverage von 80 %.
 \subsection{Jenkins Buildserver}
-Nach jedem Commit startet der Jenkins Server einen Build vom Masterbranch. Dabei führt Jenkins alle JUnit-Tests aus und sucht mittels FindBugs nach Fehlern im Code. Sollten nicht alle Tests erfolgreich sein muss der Fehler sofort behoben werden. Ein Merge mit dem Master wird nur durchgeführt, wenn alle Tests grün sind.
+Nach jedem Commit startet der Jenkins Server einen Build vom Masterbranch. 
+Dabei führt Jenkins alle JUnit-Tests aus und sucht mittels FindBugs nach
+ Fehlern im Code. Sollten nicht alle Tests erfolgreich sein muss der 
+ Fehler sofort behoben werden. Ein Merge mit dem Master wird nur durchgeführt, 
+ wenn alle Tests grün sind.
+ Zusätzlich zum Findbugs wird mit Jacoco eine Test Code Coverage Analyse 
+ durchgeführt.
 \subsection{CodeReview}
-Bei einem grösseren Merge mit dem Masterbranch wird eine Codereview im Team durchgeführt. So kann die Codequalität verbessert werden und gleichzeitig Informationen oder Best-Practices im Team ausgetauscht und gelernt werden, was ebenfalls die Codequalität steigert.
+Bei einem grösseren Merge mit dem Masterbranch wird eine Codereview 
+im Team durchgeführt. So kann die Codequalität verbessert werden und 
+gleichzeitig Informationen oder Best-Practices im Team ausgetauscht und 
+gelernt werden, was ebenfalls die Codequalität steigert.
 
 \end{document}
