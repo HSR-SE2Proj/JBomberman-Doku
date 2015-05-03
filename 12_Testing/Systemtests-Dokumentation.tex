@@ -71,22 +71,59 @@ Es sollen Tests für verschiedene Releases erstellt werden, dabei werden für
 jedes Release Systemspezifikationen erstellt und das dazugehörige Testprotokoll 
 eingefügt.
 \section{Systemtests RC1}
-\section{Voraussetzungen}Um JBomberman spielen zu können braucht man mindestens einen Mitspieler\section{Vorbereitungen}Server mit RabbitMQ Broker muss gestartet sein und erreichbar sein 
+\subsection{Voraussetzungen}Um JBomberman spielen zu können braucht man mindestens einen Mitspieler\subsection{Vorbereitungen}Server mit RabbitMQ Broker und JBomberman Server muss gestartet sein und 
+erreichbar. 
 (Port: 5672 muss offen sein).
-\section{UC01: JBomberman spielen}\subsection{Systemtests}\begin{tabularx}{\linewidth}{l X X}
-  \bf{Nummer} & \bf{Beschreibung} & \bf{Soll Verhalten}
-  1 & Bewegung in alle Himmelsrichtungen möglich & 
+\subsection{UC01: JBomberman spielen}\subsubsection{Systemtests}\begin{tabularx}{\linewidth}{l X X}
+  \bf{Test} & \bf{Beschreibung} & \bf{Soll Verhalten} \\
+  \bf{T1} & Bewegung in alle Himmelsrichtungen möglich & 
+  Bomberman lässt sich in alle Himmelsrichtungen steuern\\
+  \bf{T2} & Kollisionen zwischen Bomberman und SolidBlocks/DestroyableBlocks 
+  findet statt & Bomberman kann die Blocks nicht durchqueren \\
+  \bf{T3} & Bomberman legt Bombe & Bombe wird gelegt \\
+  \bf{T4} & gelegt Bome explodiert nach (momentan noch 2s) & Bombe explodiert \\
+  \bf{T5} & Feuer der Explosion verteilen sich (wenn SolidBlock im Weg nicht) & Feuer der 
+  Explosion verteilt sich.\\
+  \bf{T6} & Destroyable Block wird durch Explosion zerstört & Destroyable Block wird 
+  zerstört \\
+  \bf{T7} & Gegnerischer Bomberman wird durch Explosion aus dem Spiel geworfen & 
+  Bomberman wird aus dem Spiel geworfen\\
+  \bf{T8} & letzter Bomberman gewinnt (Spiel wird abgeschlossen) & Spiel wird 
+  abgeschlossen \\
+  \bf{T9} & Wenn Runde abgeschlossen werden Spieler in die Lobby zurückgeführt & 
+  Spieler werden in die Lobby zurückgeführt \\
+  \bf{T10} & Auf dem Server kann ein neues Spiel gestartet werden & Neues Spiel 
+  kann gestartet werden \\
+  \bf{T11} & Wenn 2 Spieler bereit wird Timer gestartet bis Spiel gestartet 
+  wird & Timer wird gestartet \\
+  \bf{T12} & Spieler, die in der Lobby nicht bereits waren werden entfernt & 
+  Spieler werden entfernt \\
+  \bf{T13} & Bei Verbindungsunterbruch wird Spieler entfernt & Spieler wird 
+  entfernt\\
+  \bf{T14} & Wenn Spiel gestartet kann kein Spieler mehr sich auf den Server 
+  verbinden & Verbinden nicht möglich \\
+  \bf{T15} & PowerUps kommen zutage & PowerUp erscheinen \\
+  \bf{T16} & PowerUp Funktion funktioniert & PowerUp funktioniert \\
 \end{tabularx}
 
 \subsection{Testprotokoll}
 \begin{tabularx}{\linewidth}{l X X}
-  \bf{Nummer} & \bf{Ist} & \bf{Beschreibung}
+  \bf{Test} & \bf{Ist} & \bf{Beschreibung}
   
 \end{tabularx}
 
 \section{Systemtests RC2}
-\section{UC01: JBomberman spielen}\section{Systemtests}
-\section{Systemtests RC3}
-
+\subsection{UC01: JBomberman spielen}
+\subsubsection{Systemtests}
+\begin{tabularx}{\linewidth}{l X X}
+  \bf{Test} & \bf{Beschreibung} & \bf{Soll Verhalten} \\
+ \bf{T1} & Matchmaking über mehrere Runden & Spiel kann über mehrere 
+ Runden gespielt werden \\
+ \bf{T2} & Spieler Score zählt nach jedem Gewinn eins Hoch & Score 1 höher als 
+ zuvor \\
+ \bf{T3} & Timer synchron auf allen clients & Timer Synchron \\
+ \bf{T4} & Timer läuft aus Map verkleinert sich & Map verkleinert sich \\
+ 
+ \end{tabularx}
 
 \end{document}
