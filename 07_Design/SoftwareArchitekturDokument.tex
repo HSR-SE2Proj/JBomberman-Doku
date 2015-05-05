@@ -71,6 +71,7 @@
 \textbf{07.04.15} & 1.11 & Korrekturen & Fabian Binna\\
 \textbf{07.04.15} & 1.12 & Korrekturen & Silvan Adrian\\
 \textbf{16.04.15} & 1.13 & Sequenz Diagramm Action & Fabian Binna\\
+\textbf{05.05.15} & 1.14 & Anpassungen & Fabian Binna\\
 \end{tabularx}
 
 \newpage
@@ -244,7 +245,7 @@ Die Sprite-Klasse beinhaltet alle Informationen die für das Zeichnen der Spielo
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
 update(action : Acton) : void & Interpretiert die Action und führt die nötigen Aktualisierungsschritte durch.\\
-draw(screen : int[]) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seinen screen mit auf dem gezeichnet werden kann.\\
+draw(g : Graphics) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seine Graphics mit auf dem gezeichnet werden kann.\\
 tick() : void & Aktualisiert das Sprite. Wird hauptsächlich für Animationen benötigt.\\
 \end{tabularx}\\\\
 
@@ -324,7 +325,7 @@ Das GameObject speichert alle nötigen Informationen um das Spielgeschehen und d
 \begin{tabularx}{\linewidth}{l p{6cm}}
 \textbf{Methode} & \textbf{Beschreibung}\\
 \hline
-tick() : void & Aktualisiert Zustände und Variablen. Hauptsächlich Zeitbedingte Werte (Wann kann ich die nächste Bombe legen)\\
+tick(ActionQueue, GameObjectManager) : void & Aktualisiert Zustände und Variablen. Hauptsächlich Zeitbedingte Werte (Wann kann ich die nächste Bombe legen)\\
 update(action : Action) : void & Interpretiert die Action und aktualisiert sich selbst.\\
 sendUpdates() : void & Falls das Object neue Werte besitzt muss es die neuen Daten an die Clients senden.\\
 checkCollisionWith(o : GameObject) : Boolean & Überprüft, ob das Object 
@@ -398,19 +399,38 @@ Da die Informationen innerhalb einer Action in einem Object-Array gespeichert we
 \begin{tabularx}{\linewidth}{l l l}
 \textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
 \hline
-0 & ActionType & ActionType.MOVEMENT\\
-1 & Integer & id des GameObjects\\
-2 & Position & Neue Positionswerte\\
+0 & int & id\\
+1 & Position & Neue Position\\
+2 & BombermanState & Animationsstatus\\
 \end{tabularx}\\\\
 
-\textbf{NEWPLAYER}\\
+\textbf{CREATE\_<OBJECTNAME>}\\
 
 \begin{tabularx}{\linewidth}{l l l}
 \textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
 \hline
-0 & ActionType & ActionType.NEWPLAYER\\
-1 & Player & neuer Spieler\\
+0 & int & id\\
+1 & Position & Anfangsposition\\
 \end{tabularx}\\\\
+
+\textbf{DESTROY}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+\hline
+0 & int & id\\
+\end{tabularx}\\\\
+
+\textbf{PLAYER\_INPUT}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+\hline
+0 & int & id\\
+1 & KeyCode & Taste\\
+2 & boolean & Taste gedrückt\\
+\end{tabularx}\\\\
+
 
 \textbf{Hinweis: } Weitere Actions werden während der Construction-Phase dokumentiert.
 
