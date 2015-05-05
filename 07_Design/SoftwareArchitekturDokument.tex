@@ -212,8 +212,6 @@ Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiz
 \hline
 startGame():void & Erstellt eine GameFrame, welches die ClientGame Klasse instanziert und somit das Spiel startet.\\
 finishGame():void & Informiert den LobbyFrame darüber, dass das Spiel beendet wurde.\\
-addPlayer(player: Player) : void & Fügt einen neuen Player in die Party ein.\\
-removePlayer(player: Player) : void & Entfernt einen Player aus der Party.\\
 connectToServer(hostname: String) : void & Verbindet den Client mit einem RabbitMQ Broker.\\
 disconnect() : void & Schliesst die Verbindung mit dem RabbitMQ Broker.\\
 setReady(b: Boolean): void & Setzt den Spieler auf bereit.\\
@@ -379,7 +377,7 @@ Das Messagerouting wird von einem RabbitMQ Broker übernommen, der meistens auf 
 \newpage
 
 \section{Datenübertragung}
-\subsubsection{RabbitMQ Broker}
+\subsection{RabbitMQ Broker}
 Der RabbitMQ Broker speichert die erhaltenen Messages in Warteschlangen/Queues. Der Empfänger muss die Message also nicht sofort annehmen. \\
 Die Clients(P) senden ihre Messages an die Queue BombermanInput(hello). Der Server(C) entnimmt dort regelmässig die Messages und kann sie anhand der IDs in den Actions identifizieren.
 
@@ -391,7 +389,7 @@ Die Messages die vom Server(P) an die Clients(Cx) gehen werden je in eine Client
 
 \newpage
 
-\subsubsection{Actions}
+\subsection{Actions}
 Da die Informationen innerhalb einer Action in einem Object-Array gespeichert werden, müssen die verschiedenen ActionTypen dokumentiert werden.\\
 
 \textbf{MOVEMENT}\\
@@ -431,8 +429,79 @@ Da die Informationen innerhalb einer Action in einem Object-Array gespeichert we
 2 & boolean & Taste gedrückt\\
 \end{tabularx}\\\\
 
+\textbf{LOBBY\_COMMUNICATION}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & String & Bezeichnung\\
+	1...3 & Object & Properties\\
+\end{tabularx}\\\\
 
 \textbf{Hinweis: } Weitere Actions werden während der Construction-Phase dokumentiert.
+
+\newpage
+
+\subsection{ControllerCommunication}
+Der Actiontype LOBBY\_COMMUNICATION wird für die Kommunikation zwischen Client- und ServerController verwendet. Neben der Bezeichnung werden je nach Message noch folgende Properties übermittelt.\\
+
+\subsubsection{Client to Server}
+
+\textbf{Connect} hat keine weiteren Properties.\\
+
+\textbf{updateState}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & int & PlayerId\\
+	1 & boolean & Status (ready / not ready)\\
+\end{tabularx}\\\\
+
+\textbf{disconnect}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & int & PlayerId\\
+\end{tabularx}\\\\
+
+
+\subsubsection{Server to Client}
+\textbf{ServerFull} hat keine weiteren Properties.\\
+
+\textbf{lobbyList}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & HashMap<Integer, Boolean> & PlayerStates\\
+	1 & int & PlayerId\\
+\end{tabularx}\\\\
+
+\textbf{updateStates}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & HashMap<Integer, Boolean> & PlayerStates\\
+\end{tabularx}\\\\
+
+\textbf{countUpdate}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & int & countdown\\
+\end{tabularx}\\\\
+
+\textbf{startGame}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & String[][] & Party\\
+\end{tabularx}\\\\
 
 \newpage
 \section{Externes Design}
