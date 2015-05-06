@@ -20,8 +20,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Iterationsplan: JBomberman}
-\cfoot{Version: 1.00}
-\ofoot{Datum: 07.03.15}
+\cfoot{Version: 1.02}
+\ofoot{Datum: 06.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -60,7 +60,8 @@
 \hline
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \bf{20.04.15} & 1.01 & Einfügen von Arbeitspaketen zu einzelnen Iterationen & 
-Silvan Adrian
+Silvan Adrian\\
+\bf{06.05.15} & 1.02 & C1 hinzugefügt + generelles am Dokument & Silvan Adrian\\
 \end{tabularx}
 
 \newpage
@@ -71,6 +72,8 @@ Dieses Dokument soll einen Überblick über alle Iterationen geben und eine
 Referenz zu bereits erledigten Iterationen geben und für geplante.
 Dabei werden alle geplanten Arbeitspakete aufgelistet und der geschätzte Aufwand 
 dazu + der wirklich gebrauchte Aufwand Schlussendlich.
+Übergeordnete Tickets werden nicht aufgelistet, da diese einen Arbeitsaufwand 
+von 0 besitzen.
 \subsection{Referenzen}
 \begin{itemize}
   \item Projektplan
@@ -79,7 +82,7 @@ dazu + der wirklich gebrauchte Aufwand Schlussendlich.
 \section{Übersicht}
 \subsection{Phasenübersicht}
 Es bestehen 8 Phasen/Iterationen.
-
+\newline
 \begin{tabularx}{\linewidth}{X X}
   \bf{Name} & \bf{Datum} \\
   \hline
@@ -88,13 +91,13 @@ Es bestehen 8 Phasen/Iterationen.
   Elaboration 2 & 22.03.2015 \\
   Elaboration 3 & 05.04.2015 \\
   Construction 1 & 19.04.2015 \\
-  Construction 2 & 03.05.2015 \\
+  Construction 2 & 10.05.2015 \\
   Construction 3 & 24.05.2015 \\
   Transition 	& 31.05.2015 \\
 \end{tabularx}
 \subsection{Planungübersicht}
 
-\section{Elaboration 1}
+\section{Elaboration 1 (23.02.15 - 08.03.15)}
 \subsection{Arbeitsergebnisse}
 Anforderungen definiert Technologien ausgewählt und Projektplan 
 fertig gestellt. \newline Erster Prototyp 
@@ -129,8 +132,8 @@ zum Testen mit Grundfunktionen (Befehle an Server senden).
     
     
     \subsection{Diagramm}
-    
-\section{Elaboration 2}
+    folgt
+\section{Elaboration 2 (09.03.15 - 22.03.15)}
 \subsection{Zeitraum}
 \subsection{Arbeitsergebnisse}
 Use Cases aufschreiben, dazu das Spielprinzip genauer beschreiben. 
@@ -180,8 +183,8 @@ Nicht Funktionale Anforderungen bestimmen.
     \end{tabularx}
 
 \subsection{Diagramm}
-
-\section{Elaboration 3 (End of Elaboration)}
+folgt
+\section{Elaboration 3 (23.03.15 - 05.04.15)}
 \subsection{Arbeitsergebnisse}
 Architektur Prototyp (Kommunikationsverfahren zwischen Client und Server) 
 fertiggestellt. 
@@ -255,8 +258,8 @@ Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
     \end{tabularx}
 
 \subsection{Diagramm}
-
-\section{Construction 1}
+folgt
+\section{Construction 1 (06.04.15 - 19.04.15)}
 \subsection{Arbeitsergebnisse}
 Client und Server Kommunikation umgesetzt. 
 Basic Character movements.
@@ -267,14 +270,87 @@ Basic Character movements.
     X[1,l]}
     \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
     \hline
-    87 & Timer & 2 \\
-    88 & Player Implementation & 0.5 \\
+    87 & Timer &	0.50\\
+	88	& Player Implementation	 & 1.00\\
+	89	& Party Implementation	& 1.00\\
+	%90	& ActionDispatcher	& 0.25\\
+	%91	& ActionQueue	& 0.50\\
+	93	& ImageManager Implementation & 1.50\\
+	99	& LobbyFrame & 8.00\\
+	100 & ClientController & 4.00\\
+	%101	& Keyboard	& 1.00\\
+	102 & GameClient	& 0.50\\
+	%103	& SpriteManager	 & 1.50\\
+	104 & Sprite & 4.00\\
+	107	 & ServerGame & 0.25\\
+	108	 & GameObjectManager & 1.50\\
+	131	 & SpriteManager Implementation & 1.00\\
+	132 & SpriteManager Microtests & 0.50\\
+	133	& GameObjectManager Implementation & 1.00\\
+	134	 & GameObjectManager Microtests & 0.50\\
+	135	 & Player Microtesting & 1.00\\
+	136	 & Party Microtesting & 1.00\\
+	137 & ImageManager Microtesting & 1.00\\
+	139	 & ActionQueue Implementation + Microtests	& 0.50\\
+	140	 & ActionDispatcher Implementation & 0.25\\
+	141	 & GameClient Grundimplementation & 0.50\\
+	143 & Server Game Implementation & 0.25\\
+	147	 & Allgemeines & 6.00 \\
+	153	 & Timer Implementation & 0.50\\
+	154	 & Keyboard Implementation & 1.00\\
+	159	 & Ticket Bereinigung & 0.50\\
+	\hline
+	& & 35.00
 \end{longtabu}
 \subsection{Arbeitspakete Ist}
-\subsection{Diagramm}
-\section{Construction 2}
 
-\section{Construction 3}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]
+     X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} & \bf{Ist[h]}\\
+    \hline
+  87	 & Timer & 0.50 & 0.50\\
+	88 & Player Implementation & 1.00 & 0.50\\
+	89 & Party Implementation & 1.00 & 1.00\\
+	%90 & ActionDispatcher & 0.25 & 0\\
+	%91 & ActionQueue & 0.50 & 0\\
+	93 & ImageManager Implementation & 1.50 & 2.00\\
+	99 & LobbyFrame & 8.00 & 8.50\\
+	100	 & ClientController & 4.00 & 5.00\\
+	%101	 & Keyboard	 & 1.00	 & 0\\
+	102	 & GameClient & 0.50 & 0.50\\
+	%103	 & SpriteManager & 1.50 & 0\\
+	104	 & Sprite & 4.00 & 5.50\\
+	107	 & ServerGame & 0.25 & 0.50\\
+	%108	 & GameObjectManager & 1.50 & 0\\
+	131	 & SpriteManager Implementation & 1.00 & 1.00\\
+	132	 & SpriteManager Microtests & 0.50 & 0.50\\
+	133	 & GameObjectManager Implementation & 1.00 &	0.50\\
+	134	 & GameObjectManager Microtests & 0.50	& 0.50\\
+	135	 & Player Microtesting & 1.00 & 1.00\\
+	136 & Party Microtesting	 & 1.00 & 0.50\\
+	137	 & ImageManager Microtesting &	1.00 & 1.00\\
+	139	 & ActionQueue Implementation + Microtests &	0.50 & 0.50\\
+	140	 & ActionDispatcher Implementation & 0.25	 & 0.25\\
+	141	 & GameClient Grundimplementation & 0.50	& 0.50\\
+	143 & Server Game Implementation & 0.25 & 0.25\\
+	147 & Allgemeines & 6.00 & 4.75\\
+	153	 & Timer Implementation & 0.50 & 0.50\\
+	154	 & Keyboard Implementation & 1.00 & 1.00\\
+	159	 & Ticket Bereinigung & 0.50 & 0.50\\
+	\hline
+	& & 35.00 & 37.25
+\end{longtabu}
+
+\subsection{Diagramm}
+folgt
+\section{Construction 2 (20.04.15 - 10.05.15)}
+
+\section{Construction 3 (11.05.15 - 24.05.15)}
+
+\section{Transition (25.05.15 - 31.05.15)}
 
 
 
