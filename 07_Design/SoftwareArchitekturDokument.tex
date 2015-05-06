@@ -505,24 +505,51 @@ Der Actiontype LOBBY\_COMMUNICATION wird für die Kommunikation zwischen Client-
 
 \newpage
 \section{Externes Design}
+
 Es besteht lediglich ein GUI für den Client, der Server soll über das CLI gestartet werden.
-\subsection{StartupFrame} 
-Als StartupFrame kommt der Connect zum Server,dabei wird die IP des Servers benötigt um sich verbinden zu können.
+\subsection{StartupFrame}
+
+Als StartupFrame kommt der Connect zum Server,dabei wird die IP oder Name
+des Servers benötigt um sich verbinden zu können.
+Der Connect Button ist hierbei der Standardbutton.
 
 \includegraphics[scale=0.5]{StartupFrame}
 
 \subsection{LobbyFrame}
- Sobald der Client sich mit dem Server verbunden hat erscheint das LobbyFrame in welchem alle Mitspieler, die sich auf den Server verbunden haben angezeigt werden.
-Dabei kann jeder Spieler sich über den Button "I'm Ready" ihren Status auf Ready setzen. 
 
-\includegraphics[scale=0.5]{Lobby}
- 
+Sobald der Client sich mit dem Server verbunden hat erscheint das LobbyFrame in welchem alle Mitspieler, die sich auf den Server verbunden haben angezeigt werden.
+Dabei kann jeder Spieler sich über den Button I'm Ready ihren Status auf Ready setzen.
+Hier ist der I'm Ready Button als Standardbutton festgelegt. 
+
+\includegraphics[scale=0.45]{Lobby}
+
+\subsubsection{Timer}
+Sobald 2 Spieler auf Ready sind wird ein Timer gestartet (10 Sekunden), bis dann 
+muss jeder Spieler der noch nicht Ready ist seinen Status ändern oder er/sie 
+wird aus dem Spiel geworfen bzw.
+
+\includegraphics[scale=0.45]{LobbyTimer}
+
+\subsubsection{Fehlermeldungen}
+Falls auf dem Server bereits 4 Spieler vorhanden sind wird eine Fehlermeldung 
+angezeigt, das der Server bereits Voll ist.
+
+\includegraphics[scale=0.45]{ErrorServerFull}
 \newpage
+\subsection{GameFrame}
+Sobald mindesten 2 Spieler ready waren und er Timer abgelaufen ist startet das 
+Spiel.
 
+\includegraphics[scale=0.45]{GameFrame}
 
 \section{Grössen und Leistung}
-JBomberman wird in zwei einzelne Applikationen unterteilt (Server und Client), dabei werden die Sprites auf dem Client gespeichert was diesen natürlich grösser macht ca.: 17 MB. Der Server selbst sollte nicht grösser als ca.: 3 MB werden.
-Das Spiel kann auf allen Clients gespielt werden, welche Java installiert haben und eine Tastatur als Eingabegerät haben.
-Es ist allerdings ein minimale Bildschirmauflösung von 832 x 882 nötig.
+JBomberman wird in zwei einzelne Applikationen unterteilt (Server und Client), dabei werden 
+die Sprites auf dem Client gespeichert was diesen natürlich grösser macht ca.: 1 MB. 
+Der Server selbst sollte nicht grösser als ca.: 0.5 MB werden.
+Das Spiel kann auf allen Clients gespielt werden, welche Java installiert haben 
+und eine Tastatur als Eingabegerät haben.
+Die Grafiken sind für eine Grösse von 832px x 832px ausgelegt (kann jedoch auch 
+verkleinert werden),
+ wodurch eigentlich keine minimale Auflösung benötigt wird.
 
 \end{document}
