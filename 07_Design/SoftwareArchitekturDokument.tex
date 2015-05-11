@@ -193,11 +193,7 @@ Der GameFrame ist ein Observer und delegiert die Notifies an das zugehörige Pan
 
 \textbf{GameCanvas}\\
 Der GameCanvas kümmert sich nur um das Rendering, also das Zeichnen der Szene. Dabei delegiert er jedoch nur die pixels[] an alle Sprites, welche sich dann eigenständig zeichnen. Der GameCanvas kümmert sich dann um das performante Buffering.\\\\
-\begin{tabularx}{\linewidth}{l p{12cm}}
-\textbf{Methode} & \textbf{Beschreibung}\\
-\hline
-render():void & Kümmert sich um die BufferStrategy und delegiert das zeichnen der Sprites direkt an die Sprites selbst.
-\end{tabularx}
+
 
 \newpage
 
@@ -209,18 +205,7 @@ Im Package application.client befindet sich der workflow des Clients. Er kontrol
 \newpage
 \textbf{ClientController}\\
 Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den LobbyFrame, nicht aber den GameFrame.\\
-\begin{table}[!h]
-\begin{tabularx}{\linewidth}{l X}
-\textbf{Methode} & \textbf{Beschreibung}\\
-\hline
-startGame():void & Erstellt eine GameFrame, welches die ClientGame Klasse instanziert und somit das Spiel startet.\\
-finishGame():void & Informiert den LobbyFrame darüber, dass das Spiel beendet wurde.\\
-connectToServer(hostname: String) : void & Verbindet den Client mit einem RabbitMQ Broker.\\
-disconnect() : void & Schliesst die Verbindung mit dem RabbitMQ Broker.\\
-setReady(b: Boolean): void & Setzt den Spieler auf bereit.\\
 
-\end{tabularx}
-\end{table}
 
 
 \newpage
@@ -241,14 +226,6 @@ Der SpriteManager speicher alle Sprites in einer Schichten-Logik. Dies wird ben�
 \textbf{Sprite}\\
 Die Sprite-Klasse beinhaltet alle Informationen die für das Zeichnen der Spielobjekte benötig wird.\\
 
-
-\begin{tabularx}{\linewidth}{l X}
-\textbf{Methode} & \textbf{Beschreibung}\\
-\hline
-update(action : Acton) : void & Interpretiert die Action und führt die nötigen Aktualisierungsschritte durch.\\
-draw(g : Graphics) : void & Zeichnet sich selbst auf den screen. Diese Methode wird vom GameCanvas aufgerufen und liefert seine Graphics mit auf dem gezeichnet werden kann.\\
-tick() : void & Aktualisiert das Sprite. Wird hauptsächlich für Animationen benötigt.\\
-\end{tabularx}\\\\
 
 
 \textbf{Keyboard}\\
@@ -296,13 +273,6 @@ Der Workflow des Servers ist sehr simpel. Er wartet bis mehr als zwei Spieler ve
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.75]{ClassDiagramApplicationServer}
 
-\begin{tabularx}{\linewidth}{l p{9cm}}
-\textbf{Methode} & \textbf{Beschreibung}\\
-\hline
-wairForPlayers() : void & Der Server befindet sich nach dem Starten in dieser Methode und wartet bis mehr als ein Spieler verbunden und bereit ist. Danach startet er das Spiel.\\
-startGame(party : Party) : void & Erstellt die nötigen Klassen und startet das Spiel.\\
-finishGame() : void & Entkoppelt die Spielrelevanten Klassen und geht in die waitForPlayers Methode zurück.\\
-\end{tabularx}
 
 \newpage
 
@@ -321,19 +291,6 @@ Der GameObjectManager speichert die GameObject nach Typen ab. Dies ist hilfreich
 
 \textbf{GameObject}\\
 Das GameObject speichert alle nötigen Informationen um das Spielgeschehen und die Interaktionen der Gameobjects zu berechnen.\\
-
-
-\begin{tabularx}{\linewidth}{l p{6cm}}
-\textbf{Methode} & \textbf{Beschreibung}\\
-\hline
-tick(ActionQueue, GameObjectManager) : void & Aktualisiert Zustände und Variablen. Hauptsächlich Zeitbedingte Werte (Wann kann ich die nächste Bombe legen)\\
-update(action : Action) : void & Interpretiert die Action und aktualisiert sich selbst.\\
-sendUpdates() : void & Falls das Object neue Werte besitzt muss es die neuen Daten an die Clients senden.\\
-checkCollisionWith(o : GameObject) : Boolean & Überprüft, ob das Object 
-mit einem anderen kollidiert und führt dann die jeweiligen 
-Korrekturen (z.B. beim Movement) oder Aktionen durch.\\
-
-\end{tabularx}
 
 \newpage
 
