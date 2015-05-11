@@ -90,42 +90,48 @@ erreichbar.
   Explosion verteilt sich.\\
   \bf{T6} & Destroyable Block wird durch Explosion zerstört & Destroyable Block wird 
   zerstört \\
-  \bf{T7} & Gegnerischer Bomberman wird durch Explosion aus dem Spiel geworfen & 
+  \bf{T7} & Bomberman wird durch Explosion aus dem Spiel geworfen & 
   Bomberman wird aus dem Spiel geworfen\\
-  \bf{T8} & letzter Bomberman gewinnt (Spiel wird abgeschlossen) & Spiel wird 
-  abgeschlossen \\
-  \bf{T9} & Wenn Runde abgeschlossen werden Spieler in die Lobby zurückgeführt & 
-  Spieler werden in die Lobby zurückgeführt \\
-  \bf{T10} & Auf dem Server kann ein neues Spiel gestartet werden & Neues Spiel 
+  \bf{T8} & letzter Bomberman gewinnt (Spiel wird geschlossen) & Spiel wird 
+  geschlossen \\
+  \bf{T8} & Wenn Runde abgeschlossen werden Spieler in die ConnectionPanel zurückgeführt & 
+  Spieler werden zum ConnectionPanel zurückgeführt \\
+  \bf{T110} & Auf dem Server kann ein neues Spiel gestartet werden & Neues Spiel 
   kann gestartet werden \\
   \bf{T11} & Wenn 2 Spieler bereit wird Timer gestartet bis Spiel gestartet 
   wird & Timer wird gestartet \\
-  \bf{T12} & Spieler, die in der Lobby nicht bereits waren werden entfernt & 
+  \bf{T12} & Spieler kann sich umentscheiden (Timer wird zurückgesetzt) & Timer 
+  fängt neu an \\
+  \bf{T13} & Spieler, die in der Lobby nicht bereit waren werden entfernt & 
   Spieler werden entfernt \\
-  \bf{T13} & Wenn Spiel gestartet kann kein Spieler mehr sich auf den Server 
+  \bf{T14} & Wenn Spiel gestartet kann kein Spieler mehr sich auf den Server 
   verbinden & Verbinden nicht möglich \\
-  \bf{T14} & PowerUps kommen zutage & PowerUp erscheinen \\
-  \bf{T15} & PowerUp Funktion funktioniert & PowerUp funktioniert \\
+  \bf{T15} & Wenn Lobby voll kann der Spieler nicht connecten & Spieler kann 
+  nicht connecten und Meldung Server Full kommt zurück \\
+  \bf{T16} & PowerUps kommen zutage & PowerUp erscheinen \\
+  \bf{T17} & PowerUp Funktion funktioniert & PowerUp funktioniert \\
 \end{tabularx}
 
 \subsection{Testprotokoll}
 \begin{tabularx}{\linewidth}{l l X}
   \bf{Test} & \bf{Ist} & \bf{Beschreibung} \\
-  \bf{T1} & OK & \\
-  \bf{T2} & OK &  \\
-  \bf{T3} & OK  & \\
-  \bf{T4} & OK &  \\
-  \bf{T5} & OK & \\
-  \bf{T6} & OK &  \\
-  \bf{T7} & OK & \\
-  \bf{T8} & &  \\
-  \bf{T9} & & \\
-  \bf{T10} & & \\
-  \bf{T11} & OK & \\
-  \bf{T12} & & \\
-  \bf{T13} & OK &  \\
-  \bf{T14} & OK &  \\
-  \bf{T15} & OK & \\
+  \bf{T1} & OK & Bomberman bewegt sich in alle Richtungen\\
+  \bf{T2} & OK &  Kollison findet statt\\
+  \bf{T3} & OK  & Bombe wird gelegt (allerdings noch nicht sehr präzise)\\
+  \bf{T4} & OK &  Bombe explodiert\\
+  \bf{T5} & OK & Feuer verteilt sich nicht über Solid Blocks\\
+  \bf{T6} & OK &  Block wird zerstört\\
+  \bf{T7} & OK & Bomberman verschwindet\\
+  \bf{T8} & OK & Spiel wird bebendet und es kann von neuem Connected werden\\
+  \bf{T9} & OK & Werden zurückgeführt\\
+  \bf{T10} & OK & Ist möglich\\
+  \bf{T11} & OK& Spiel wird gestartet und nur Ready Spieler eingebunden\\
+  \bf{T12} & OK &  Timer wird zurückgesetzt\\
+  \bf{T13} & OK &  Spieler werden entfernt\\
+  \bf{T14} & Failed & Kann zwar nicht connected werden gibt aber kein Rückmeldung \\
+  \bf{T15} & OK & Meldung Server Full kommt zurück\\
+  \bf{T16} & OK & PowerUps erscheinen\\
+  \bf{T17} & OK & PowerUps funktionieren\\
 \end{tabularx}
 
 \section{Systemtests RC2}
