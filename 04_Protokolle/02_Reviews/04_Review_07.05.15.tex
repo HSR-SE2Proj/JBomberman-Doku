@@ -1,0 +1,75 @@
+\documentclass[11pt]{scrartcl}
+
+\title{Review vom 07.05.2015}
+\author{Silvan Adrian \\ Fabian Binna \\ Pascal Kistler}
+\date{\today{}}
+
+\usepackage[ngerman]{babel}
+\usepackage[automark]{scrpage2}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{scrpage2}
+\usepackage{tabularx}
+\pagestyle{scrheadings}
+
+\clearscrheadfoot
+\ihead{Reviewprotokoll}
+\ofoot{Datum: 07.05.15}
+\setheadsepline{0.5pt}
+\setfootsepline{0.5pt}
+
+\usepackage{ucs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\begin{document}
+
+{\huge Review Meilenstein 4 vom 7.Mai 2015}
+
+\section{Allgemeines}
+\label{sec:Allgemein}
+
+\subsection{Anwesend}
+\label{sec:Anwesend}
+\textbf{Projektmitglieder:} Silvan Adrian, Fabian Binna, Pascal Kistler \\
+\textbf{Projektbetreuer:} Daniel Keller
+\section{Input}
+\subsection{Code}
+\begin{itemize}
+ \item Logging anstatt Ausgaben auf Konsole
+ \item Random Methode für Random (anstatt 120 direkt mit 100 arbeiten für Wahr) (besser formulieren, besser lesbar -> z.B.: probabiltyGreaterThen)
+ \item Kommentare Leerzeilen etc. rausnehmen und löschen
+ \item Wiederholender Code Refactoring
+ \item Code Conventions einhalten
+ \item Aufräumen nicht vergessen (ServerGame)
+\end{itemize}
+
+\subsection{Dokument}
+\begin{itemize}
+  \item Rabbitmq als Package einfügen
+  \item Timer (nicht richtig platziert) (STAN mal noch laufen lassen) 
+  \item -> Wenn möglich mal noch ein CodeReview zu machen
+  \newline
+  \textbf{Domain/Game:} 
+  \item ServerGame als Creator einzeichnen und 
+  nicht nur Interface etc.)
+  \newline
+  \textbf{Architektur Client:}
+  \item GameLoop im Client Game -> aufräumen
+  \item Interface auf eine Ebene mit Party, ActionQueue
+\end{itemize}
+
+\subsection{Unit Testing/Testing}
+\begin{itemize}
+   \item Collisions
+   \item Timing, Aufnahme PowerUp
+\end{itemize}
+
+
+\section{Benotung}
+\label{sec:Benotung}
+Note: \underline {5.5}
+
+\end{document}
