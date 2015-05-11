@@ -71,6 +71,9 @@ Es sollen Tests für verschiedene Releases erstellt werden, dabei werden für
 jedes Release Systemspezifikationen erstellt und das dazugehörige Testprotokoll 
 eingefügt.
 \section{Systemtests RC1}
+\subsection{Übersicht}
+In dieser Version werden die Grundfunktionen getestet, welche schlussendlich auch 
+für den Usability Test gebraucht werden
 \subsection{Voraussetzungen}Um JBomberman spielen zu können braucht man mindestens einen Mitspieler\subsection{Vorbereitungen}Server mit RabbitMQ Broker und JBomberman Server muss gestartet sein und 
 erreichbar. 
 (Port: 5672 muss offen sein).
@@ -98,18 +101,30 @@ erreichbar.
   wird & Timer wird gestartet \\
   \bf{T12} & Spieler, die in der Lobby nicht bereits waren werden entfernt & 
   Spieler werden entfernt \\
-  \bf{T13} & Bei Verbindungsunterbruch wird Spieler entfernt & Spieler wird 
-  entfernt\\
-  \bf{T14} & Wenn Spiel gestartet kann kein Spieler mehr sich auf den Server 
+  \bf{T13} & Wenn Spiel gestartet kann kein Spieler mehr sich auf den Server 
   verbinden & Verbinden nicht möglich \\
-  \bf{T15} & PowerUps kommen zutage & PowerUp erscheinen \\
-  \bf{T16} & PowerUp Funktion funktioniert & PowerUp funktioniert \\
+  \bf{T14} & PowerUps kommen zutage & PowerUp erscheinen \\
+  \bf{T15} & PowerUp Funktion funktioniert & PowerUp funktioniert \\
 \end{tabularx}
 
 \subsection{Testprotokoll}
-\begin{tabularx}{\linewidth}{l X X}
-  \bf{Test} & \bf{Ist} & \bf{Beschreibung}
-  
+\begin{tabularx}{\linewidth}{l l X}
+  \bf{Test} & \bf{Ist} & \bf{Beschreibung} \\
+  \bf{T1} & OK & \\
+  \bf{T2} & OK &  \\
+  \bf{T3} & OK  & \\
+  \bf{T4} & OK &  \\
+  \bf{T5} & OK & \\
+  \bf{T6} & OK &  \\
+  \bf{T7} & OK & \\
+  \bf{T8} & &  \\
+  \bf{T9} & & \\
+  \bf{T10} & & \\
+  \bf{T11} & OK & \\
+  \bf{T12} & & \\
+  \bf{T13} & OK &  \\
+  \bf{T14} & OK &  \\
+  \bf{T15} & OK & \\
 \end{tabularx}
 
 \section{Systemtests RC2}
