@@ -12,6 +12,7 @@
 \usepackage{scrpage2}
 \usepackage{graphicx}
 \usepackage{tabularx}
+\usepackage{lscape}
 \graphicspath{ {./images/} }
 \pagestyle{scrheadings}
 
@@ -167,14 +168,14 @@ Im Package utils befinden sich Hilfsklassen.
 Der ImageManager lädt die Bilder. Jedes Sprite holt sich von da die Bilddaten.\\
 
 \textbf{ActionSerializer}\\
-Die Methoden des ActionSerializer sind statisch und werden benötigt um die Actions für das Netzwerk zu serialisieren bzw. deserialisieren.\\
-
+Die Methoden des ActionSerializer sind statisch und werden benötigt um die
+ Actions für das Netzwerk zu
+ serialisieren bzw. deserialisieren.\\
+\begin{landscape}
+  \subsection{Wichtige Abläufe}
+\includegraphics[scale=0.25]{SequenceDiagramAction}
+\end{landscape}
 \newpage
-
-\subsection{Wichtige Abläufe}
-\includegraphics[scale=0.25, angle=90]{SequenceDiagramAction}
-\newpage
-
 \section{Logische Architektur: Client}
 \subsection{Schnittstellen}
 \includegraphics[scale=0.4]{LogischeSichtClient}
