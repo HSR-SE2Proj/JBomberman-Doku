@@ -20,8 +20,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Software Architektur: JBomberman}
-\cfoot{Version: 1.16}
-\ofoot{Datum: 06.05.15}
+\cfoot{Version: 1.17}
+\ofoot{Datum: 16.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -75,7 +75,8 @@
 \textbf{05.05.15} & 1.14 & Anpassungen & Fabian Binna\\
 \bf{05.05.15} & 1.15 & Anpassungen an Client-, ServerController und LobbyCommunication 
 & Pascal Kistler\\
-\bf{06.05.15} & 1.16 & Externes Design erweitert + Grössen Leistung angepasst\\
+\bf{06.05.15} & 1.16 & Externes Design erweitert + Grössen Leistung angepasst & Silvan Adrian\\
+\bf{16.05.15} & 1.17 & NetworkFacade und LobbyCommunication angepasst & Pascal Kistler\\
 \end{tabularx}
 
 \newpage
@@ -419,6 +420,14 @@ Der Actiontype LOBBY\_COMMUNICATION wird für die Kommunikation zwischen Client-
 	1 & boolean & Status (ready / not ready)\\
 \end{tabularx}\\\\
 
+\textbf{alive}\\
+
+\begin{tabularx}{\linewidth}{l l l}
+	\textbf{i} & \textbf{Klasse} & \textbf{Inhalt}\\
+	\hline
+	0 & int & PlayerId\\
+\end{tabularx}\\\\
+
 \textbf{disconnect}\\
 
 \begin{tabularx}{\linewidth}{l l l}
@@ -455,6 +464,8 @@ Der Actiontype LOBBY\_COMMUNICATION wird für die Kommunikation zwischen Client-
 	\hline
 	0 & int & countdown\\
 \end{tabularx}\\\\
+
+\textbf{aliveCheck} hat keine weiteren Properties\\
 
 \textbf{startGame}\\
 
