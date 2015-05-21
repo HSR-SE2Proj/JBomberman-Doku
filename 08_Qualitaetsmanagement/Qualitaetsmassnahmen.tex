@@ -19,8 +19,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Qualitätsmassnahmen}
-\cfoot{Version: 1.02}
-\ofoot{Datum: 13.04.15}
+\cfoot{Version: 1.03}
+\ofoot{Datum: 18.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -60,6 +60,7 @@
 \textbf{13.04.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{13.04.15} & 1.01 & Qualitätsmassnahmen & Pascal Kistler \\
 \bf{28.04.15} & 1.02 & Massnahmen angepasst & Silvan Adrian
+\bf{18.05.15} & 1.03 & GitLab hinzugefügt + Codreview angepasst \\
 \end{tabularx}
 
 \newpage
@@ -96,10 +97,14 @@ Dabei führt Jenkins alle JUnit-Tests aus und sucht mittels FindBugs nach
  wenn alle Tests grün sind.
  Zusätzlich zum Findbugs wird mit Jacoco eine Test Code Coverage Analyse 
  durchgeführt.
+ \subsection{GitLab}
+ Bei jedem Push oder merge in das Code repository kriegt jedes Teammitglied eine 
+ Notification über Slack, welche es jedem Teammitglied erlaubt sofort die 
+ neusten Änderungen anzusehen und womöglich einen Kommentar dazu abzugeben.
 \subsection{CodeReview}
-Bei einem grösseren Merge mit dem Masterbranch wird eine Codereview 
-im Team durchgeführt. So kann die Codequalität verbessert werden und 
-gleichzeitig Informationen oder Best-Practices im Team ausgetauscht und 
-gelernt werden, was ebenfalls die Codequalität steigert.
+Zum Schluss des Projekts hin wird ein Codereview im Team durchgeführt, um 
+nochmals den ganzen Code durchzugehen.
+
+
 
 \end{document}
