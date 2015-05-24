@@ -193,12 +193,20 @@ Im Package view befinden sich Frames und Canvas, die für die Presentation des C
 \subsubsection{Klassenstruktur}
 \includegraphics[scale=0.8]{ClassDiagramView}
 
-
-\textbf{GameFrame}\\
-Der GameFrame ist ein Observer und delegiert die Notifies an das zugehörige Panel, die sich dann selber auf den neusten Stand bringen.\\
-
 \textbf{GameCanvas}\\
-Der GameCanvas kümmert sich nur um das Rendering, also das Zeichnen der Szene. Dabei delegiert er jedoch nur die pixels[] an alle Sprites, welche sich dann eigenständig zeichnen. Der GameCanvas kümmert sich dann um das performante Buffering.\\\\
+Der GameCanvas kümmert sich nur um das Rendering, also das Zeichnen der Szene. Dabei delegiert er jedoch nur die pixels[] an alle Sprites, welche sich dann eigenständig zeichnen. Der GameCanvas kümmert sich dann um das performante Buffering.\\
+
+\textbf{ScorePanel}\\
+Das ScorePanel zeigt die aktuelle Runde und verbleibende Zeit an. Zudem werden auch die aktuellen Punktestände der einzelnen Spieler dargestellt.\\
+
+\textbf{StartFrame}\\
+Das StartFrame übernimmt die Koordination von Connection- und LobbyPanel und zeigt, falls vorhanden, Fehlermeldungen an.\\
+
+\textbf{ConnectionPanel}\\
+Im ConnectionPanel wird die Serveradresse eingegeben und der Verbindungsaufbau gestartet.\\
+
+\textbf{LobbyPanel}\\
+Das LobbyPanel zeigt alle aktuell am Server angemeldeten Spieler an und deren Status.
 
 
 \newpage
