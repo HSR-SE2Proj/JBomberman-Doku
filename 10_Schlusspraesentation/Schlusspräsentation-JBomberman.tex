@@ -2,24 +2,26 @@
 
 \usetheme{m}
 
-\usepackage{booktabs}
+\usepackage{booktabs,pgf-pie}
 \usepackage[scale=2]{ccicons}
 
 \usepgfplotslibrary{dateplot}
 
 
-\title{A modern beamer theme}
+\title{JBomberman}
 \subtitle{}
 \date{\today}
-\author{Matthias Vogelgesang}
-\institute{Institute or miscellaneous information}
+\author{Silvan Adrian, Fabian Binna, Pascal Kistler}
+\institute{Hochschule für Technik Rapperswil}
 
 \begin{document}
 
 \maketitle
 
+\section{Idee/Problembeschreibung}
+
 \begin{frame}[fragile]
-  \frametitle{mtheme}
+  \frametitle{Idee}
 
   The \emph{mtheme} is a Beamer theme with minimal visual noise inspired by the
   \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
@@ -173,6 +175,10 @@ or show \textbf{bold} results.\end{verbatim}
       \end{axis}
     \end{tikzpicture}
   \end{figure}
+
+\begin{tikzpicture}
+\pie{10/A, 20/B, 30/C, 40/D}
+\end{tikzpicture}
 \end{frame}
 \begin{frame}{Quotes}
   \begin{quote}
