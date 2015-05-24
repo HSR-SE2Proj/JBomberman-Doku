@@ -19,8 +19,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Pojektantrag: JBomberman}
-\cfoot{Version: 1.02}
-\ofoot{Datum: 11.05.15}
+\cfoot{Version: 1.03}
+\ofoot{Datum: 24.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -60,6 +60,7 @@
 \textbf{09.03.15} & 1.00 & Erstellung des Dokuments & Gruppe \\
 \textbf{20.04.15} & 1.01 & Struktur des Dokuments + Vorgaben & Silvan Adrian \\
 \textbf{11.05.15} & 1.02 & Testprotokoll RC1 & Silvan Adrian \\
+\textbf{24.05.15} & 1.03 & Testprotokoll RC2 & Silvan Adrian \\
 \end{tabularx}
 
 \newpage
@@ -141,11 +142,35 @@ erreichbar.
   \bf{Test} & \bf{Beschreibung} & \bf{Soll Verhalten} \\
  \bf{T1} & Matchmaking über mehrere Runden & Spiel kann über mehrere 
  Runden gespielt werden \\
- \bf{T2} & Spieler Score zählt nach jedem Gewinn eins Hoch & Score 1 höher als 
+ \bf{T2} & Banner für Rundengewinner wird angezeigt & Banner wird angezeigt \\
+ \bf{T3} & Banner für Spielgewinner wird angezeigt & Banner wird angezeigt \\
+ \bf{T4} & Banner wenn für kein Gewinner in der Spielrunde & Banner wird 
+ angezeigt\\
+ \bf{T5} & Spieler Score zählt nach jedem Gewinn eins Hoch & Score 1 höher als 
  zuvor \\
- \bf{T3} & Timer synchron auf allen clients & Timer Synchron \\
- \bf{T4} & Timer läuft aus Map verkleinert sich & Map verkleinert sich \\
+ \bf{T6} & Timer läuft aus PowerUp's werden auf höchste Stufe gesetzt & 
+ PowerUp's auf höchster Stufe \\
+ \bf{T7} & Nach Spielschluss wird das Connection Panel geöffnet & Connection 
+ Panel wird angezeigt\\
+ \bf{T8} & Es können mehrere Spiele hintereinander gespielt werden &
+ Mehrere Spiele können gespielt werden \\
+ \bf{T9} & Bomben werden durch Explosionen anderer Bomben zerstört &
+ Bomben werden zerstört \\
  
  \end{tabularx}
+
+\subsection{Testprotokoll}
+\begin{tabularx}{\linewidth}{l l X}
+  \bf{Test} & \bf{Ist} & \bf{Beschreibung} \\
+  \bf{T1} & OK & Spiel kann über mehrere Runden gespielt werden\\
+  \bf{T2} & OK &  Banner wird angezeigt \\
+  \bf{T3} & OK  & Banner wird angezeigt \\
+  \bf{T4} & OK &  Banner wird angezeigt \\
+  \bf{T5} & OK & Score 1 höher als zuvor\\
+  \bf{T6} & OK &   PowerUp's auf höchster Stufe \\
+  \bf{T7} & OK & Connection Panel wird angezeigt\\
+  \bf{T8} & OK & Mehrere Spiele können gespielt werden\\
+  \bf{T9} & OK & Bomben werden zerstört\\
+\end{tabularx}
 
 \end{document}
