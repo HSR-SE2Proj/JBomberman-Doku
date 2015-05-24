@@ -20,8 +20,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Software Architektur: JBomberman}
-\cfoot{Version: 1.17}
-\ofoot{Datum: 16.05.15}
+\cfoot{Version: 1.18}
+\ofoot{Datum: 24.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -77,6 +77,7 @@
 & Pascal Kistler\\
 \bf{06.05.15} & 1.16 & Externes Design erweitert + Grössen Leistung angepasst & Silvan Adrian\\
 \bf{16.05.15} & 1.17 & NetworkFacade und LobbyCommunication angepasst & Pascal Kistler\\
+\bf{24.05.15} & 1.18 & Packagediagramme angepasst & Pascal Kistler\\
 \end{tabularx}
 
 \newpage
@@ -128,16 +129,6 @@ Dieses Package Diagramm zeigt sowohl Client, als auch Server. Client und Server 
 
 \newpage
 
-\subsection{Time/time}
-Im Package time befindet sich eine Klasse, die für das timing der GameLoops sorgt.
-\subsubsection{Klassenstruktur}
-\includegraphics[scale=0.8]{ClassDiagramTime}
-
-\textbf{Timer}\\
-Der Timer besitzt eine Referenz auf einen GameLoop, bei dem er regelmässig die Methode loop() aufruft.
-
-\newpage
-
 \subsection{Domain/game}
 Im Package game befinden sich Klassen und Interfaces, die von Server und Client gemeinsam genutzt werden.
 \subsubsection{Klassenstruktur}
@@ -172,6 +163,19 @@ Der ImageManager lädt die Bilder. Jedes Sprite holt sich von da die Bilddaten.\
 Die Methoden des ActionSerializer sind statisch und werden benötigt um die
  Actions für das Netzwerk zu
  serialisieren bzw. deserialisieren.\\
+ 
+\textbf{IDGerenator}\\
+ Der IDGenerator generiert ab 100 fortlaufende IDs\\
+ 
+\textbf{RandomUtil}\\
+Diese Klasse enthält alle Methoden, welche etwas mit Zufallszahlen zu tun haben, wie Zufallszahlen generieren und mit einer definierbaren Wahrscheinlichkeit true zurück zu geben\\
+
+\textbf{Timer}\\
+Der Timer besitzt eine Referenz auf einen GameLoop, bei dem er regelmässig die Methode loop() aufruft.\\
+
+\textbf{TimerUtil}\\
+Verzögert den aufrufenden Thread um die angegebene Zeit.\\
+
 \begin{landscape}
   \subsection{Wichtige Abläufe}
 \includegraphics[scale=0.25]{SequenceDiagramAction}
