@@ -15,6 +15,7 @@
 \usepackage{longtable,tabu}
 \graphicspath{ {./images/} }
 \pagestyle{scrheadings}
+\usepackage{pgfplots}
 
 \clearscrheadfoot
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
@@ -93,7 +94,7 @@ Es bestehen 8 Phasen/Iterationen.
   Construction 1 & 19.04.2015 \\
   Construction 2 & 10.05.2015 \\
   Construction 3 & 24.05.2015 \\
-  Transition 	& 31.05.2015 \\
+  Transition 	& 28.05.2015 \\
 \end{tabularx}
 \subsection{Planungübersicht}
 
@@ -132,7 +133,30 @@ zum Testen mit Grundfunktionen (Befehle an Server senden).
     
     
     \subsection{Diagramm}
-    folgt
+     \begin{tikzpicture}
+        \begin{axis}[
+          symbolic x coords={30,40,43,44,46,51},
+          ybar,
+        xlabel={Tickets},
+        ylabel={Stunden},
+        width=\textwidth,
+        height=6cm,
+        xtick=data
+      ]
+      \addplot plot coordinates {
+      (30, 10) (40, 15) (43, 6) 
+      (44,3) (46,8) (51,8)
+      };
+      \addplot plot coordinates {
+      (30, 16) (40, 19) (43, 11.5) 
+      (44, 3.5) (46,8) (51,8)
+      };
+
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
+    
 \section{Elaboration 2 (09.03.15 - 22.03.15)}
 \subsection{Zeitraum}
 \subsection{Arbeitsergebnisse}
@@ -183,15 +207,44 @@ Nicht Funktionale Anforderungen bestimmen.
     \end{tabularx}
 
 \subsection{Diagramm}
-folgt
+\begin{tikzpicture}
+        \begin{axis}[
+          symbolic x coords={47,48,49,50,52,53,54,55,56,57,58,59,60},
+          ybar,
+        xlabel={Tickets},
+        ylabel={Stunden},
+        width=\textwidth,
+        height=6cm,
+        xtick=data
+      ]
+      \addplot plot coordinates {
+     (47,1.5) (48,8) (49,3) (50,5)
+     (52,8) (53,4) (54,3) (55,2.5)
+     (56,2) (57,6) (58,4) (59,4)
+     (60,3)
+      };
+      \addplot plot coordinates {
+    (47,1) (48,7) (49,3) (50,5)
+     (52,8) (53,7)(54,5) (55,1.5) (56,1.5)
+     (57,2) (58,4) (59,4) (60,3)
+      };
+
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
+
 \section{Elaboration 3 (23.03.15 - 05.04.15)}
 \subsection{Arbeitsergebnisse}
 Architektur Prototyp (Kommunikationsverfahren zwischen Client und Server) 
 fertiggestellt. 
 Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
 \subsection{Arbeitspakete Soll}
-  \begin{tabularx} {\linewidth}{lXl}
-    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} \\
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
     \hline
     %31 & 	Architekturprototyp & 20 \\
     64 & Notifications über Slack einrichten + refs und Zeit aufschreibung über Commits & 2 \\
@@ -202,7 +255,6 @@ Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
     70 & GUI Prototyp & 8\\
     71 & 	Verbesserungen anhand von Reviewprotokoll & 1.5\\
     72 & Rendering mit Java2D und BufferStrategy & 2 \\
-    73 & Architektur Dokument & 14 \\
     74 & Glossar erstellen  & 1.5 \\
     76 & State Diagrams für Client und Server & 3 \\
     77 & Deployment Diagramm & 1\\
@@ -221,11 +273,15 @@ Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
     149 & Allgemeines & 3 \\
     \hline
     & & 77
-  \end{tabularx}
+  \end{longtabu}
   
   \subsection{Arbeitspakete Ist}
-  \begin{tabularx} {\linewidth}{lXll}
-    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}  & \bf{Ist[h]}\\
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]
+     X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} & \bf{Ist[h]}\\
     \hline
   %31 & 	Architekturprototyp & 20 & 0\\
     64 & Notifications über Slack einrichten + refs und Zeit aufschreibung über Commits & 2 & 4 \\
@@ -236,7 +292,6 @@ Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
     70 & GUI Prototyp & 8 & 9\\
     71 & 	Verbesserungen anhand von Reviewprotokoll & 1.5 & 1.5\\
     72 & Rendering mit Java2D und BufferStrategy & 2 & 2\\
-    73 & Architektur Dokument & 14 & 2.75\\
     74 & Glossar erstellen  & 1.5 & 1.25\\
     76 & State Diagrams für Client und Server & 3 & 2\\
     77 & Deployment Diagramm & 1 & 1\\
@@ -252,13 +307,46 @@ Performance Tests zum ausgewählten Verfahren zwischen Client und Server.
     127 & Verbesserungen gemäss Review vom 9.04 & 2 & 2\\
     128 & Tests für den Prototyp schreiben & 2 & 1.5 \\
     130 & Qualitätsmassnahmen	& 2 & 2\\
-    149 & Allgemeines & 3 & 3 \\
+    149 & Allgemeines & 3 & 5.75 \\
     \hline
     & & 77 & 89.25
-    \end{tabularx}
+    \end{longtabu}
 
 \subsection{Diagramm}
-folgt
+\begin{tikzpicture}
+        \begin{axis}[
+          symbolic y coords={64,66,67,68,69,70,71,72,74,76,77,78,79,80,81,82,83,85,86,126,127,128,130,149},
+          xbar,
+        xlabel={Stunden},
+        ylabel={Ticket},
+        width=\textwidth,
+        ytick=data,
+        height=0.8\textheight,
+        bar width=0.2cm
+      ]
+      \addplot plot coordinates {
+     (2,64) (4,66) (8,67) (4,68)
+     (4,69) (8,70) (1.5,71) (2,72)
+     (1.5,74) (3,76) (1,77)
+     (1,78) (3,79) (8,80) (1,81)
+     (1,82) (4,83) (2,85) (5,86)
+     (4,126) (2,127) (2,128)
+     (2,130) (3,149)
+      };
+      \addplot plot coordinates {
+      (4,64) (5.75,66) (8,67) (4,68)
+     (4,69) (9,70) (1.5,71) (2,72)
+      (1.25,74) (2,76) (1,77)
+     (1,78) (8,79) (8.5,80) (1,81)
+     (1,82) (5,83) (2.25,85) (4.75,86)
+     (4,126) (2,127) (1.5,128)
+     (2,130) (5.75,149)
+      };
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
+
 \section{Construction 1 (06.04.15 - 19.04.15)}
 \subsection{Arbeitsergebnisse}
 Client und Server Kommunikation umgesetzt. 
@@ -283,7 +371,6 @@ Basic Character movements.
 	%103	& SpriteManager	 & 1.50\\
 	104 & Sprite & 4.00\\
 	107	 & ServerGame & 0.25\\
-	108	 & GameObjectManager & 1.50\\
 	131	 & SpriteManager Implementation & 1.00\\
 	132 & SpriteManager Microtests & 0.50\\
 	133	& GameObjectManager Implementation & 1.00\\
@@ -345,12 +432,230 @@ Basic Character movements.
 \end{longtabu}
 
 \subsection{Diagramm}
-folgt
+
+\begin{tikzpicture}
+        \begin{axis}[
+          symbolic y coords={87,88,89,93,99,100,102,104,107,131,132,
+          133,134,135,136,137,139,140,141,143,147,153,154,159},
+          xbar,
+        xlabel={Stunden},
+        ylabel={Ticket},
+        width=\textwidth,
+        ytick=data,
+        height=0.9\textheight,
+        bar width=0.2cm
+      ]
+      \addplot plot coordinates {
+     (0.5,87) (1,88) (1,89) (1.5,93) (8,99) (4,100) (0.5,102) (4,104) (0.25,107)
+     (1,131) (0.5,132)
+          (1,133) (0.5,134) (1,135) (1,136) (1,137) (0.5,139)
+          (0.25,140) (0.5,141) (0.25,143) (6,147) (0.5,153) (1,154)
+          (0.5,159)
+      };
+      \addplot plot coordinates {
+       (0.5,87) (0.5,88) (1,89) (2,93) (8.5,99) (5,100) (0.5,102) (5.5,104) (0.5,107)
+     (1,131) (0.5,132)
+          (0.5,133) (0.5,134) (1,135) (0.5,136) (1,137) (0.5,139) (0.25,140)
+          (0.5,141) (0.25,143) (4.75,147) (0.5,153) (1,154)
+          (0.5,159)
+      };
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
+
+
 \section{Construction 2 (20.04.15 - 10.05.15)}
+\subsection{Arbeitsergebnisse}
+Hauptfeatures iplementieren (Kollisionsdetektion, 
+Bomben funktionieren, PowerUps funktionieren)
+\subsection{Arbeitspakete Soll}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
+    \hline
+   106 & ServerController & 4.00\\
+	118 & 	GBomberman & 0.50\\
+	119 & 	SBomberman & 4.00\\
+	120	 & GBomb & 0.25\\
+	122	 & GPowerup & 1.25\\
+	124	 & GExplosion & 3.00\\
+	129	 & Testumgebung für Betatester aufsetzen & 3.00\\
+	%144	 & Usability Testing & 6.00\\
+	145	 & Allgemeines & 6.00\\
+	148 & 	Produktmetriken & 2.00\\
+	150 & 	AntBuild erweitern & 5.00\\
+	151	 & Feedback Umfrage & 3.00\\
+	152	 & StartFrame & 8.00\\
+	155	 & Map & 2.00\\
+	156	 & Rendering & 1.00\\
+	157	 & Systemtests RC1 & 4.00\\
+	160	 & Bomb Cooldown & 0.25\\
+	161	 & PowerUp Implementation & 1.25\\
+	162	 & Bomberman Animation Implementation & 0.50\\
+	168 & 	Anpassungen Architekturdokument & 0.50\\
+	169	 & Architektur Review & 3.00\\
+    \hline
+    & & 50.50
+  \end{longtabu}
+  \newpage
+  \subsection{Arbeitspakete Ist}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]
+     X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} & \bf{Ist[h]}\\
+    \hline
+	       106 & ServerController & 4.00 & 9.00\\
+	118 & 	GBomberman & 0.50 & 4.00\\
+	119 & 	SBomberman & 4.00 & 1.00\\
+	120	 & GBomb & 0.25 & 0\\
+	122	 & GPowerup & 1.25 & 0\\
+	124	 & GExplosion & 3.00 & 2\\
+	129	 & Testumgebung für Betatester aufsetzen & 3.00 & 2.50\\
+	%144	 & Usability Testing & 6.00\\
+	145	 & Allgemeines & 6.00 & 5.50\\
+	148 & 	Produktmetriken & 2.00 & 1.50\\
+	150 & 	AntBuild erweitern & 5.00 & 5.50\\
+	151	 & Feedback Umfrage & 3.00 & 2.00\\
+	152	 & StartFrame & 8.00 & 4.00\\
+	155	 & Map & 2.00 & 3.00\\
+	156	 & Rendering & 1.00 & 1.00\\
+	157	 & Systemtests RC1 & 4.00 & 3.25\\
+	160	 & Bomb Cooldown & 0.25 & 0.25\\
+	161	 & PowerUp Implementation & 1.25 & 0\\
+	162	 & Bomberman Animation Implementation & 0.50 & 0.50\\
+	168 & 	Anpassungen Architekturdokument & 0.50 & 1.50\\
+	169	 & Architektur Review & 3.00 & 3.00\\
+    \hline
+    & & 50.50 & 49.50
+    \end{longtabu}
 
+\subsection{Diagramm}
+\begin{tikzpicture}
+        \begin{axis}[
+          symbolic y coords={106,118,119,120,122,124,129,145,148,
+          150,151,152,155,156,157,160,161,162,168,169},
+          xbar,
+        xlabel={Stunden},
+        ylabel={Ticket},
+        width=\textwidth,
+        ytick=data,
+        height=0.9\textheight,
+        bar width=0.2cm
+      ]
+      \addplot plot coordinates {
+     (4,106) (0.5,118) (4,119) (0.25,120) (1.25,122) (3,124) (3,129)
+     (6,145) (2,148)
+          (5,150) (3,151) (8,152) (2,155) (1,156) (4,157) (0.25,160)
+          (1.25,161) (0.5,162) (0.5,168) (3,169)
+      };
+      \addplot plot coordinates {
+       (9,106) (4,118) (1,119) (0,120) (0,122) (2,124) (2.5,129)
+     (5.5,145) (1.5,148)
+          (5.5,150) (2,151) (4,152) (3,155) (1,156) (3.25,157) (0.25,160)
+          (0,161) (0.5,162) (1.5,168) (3,169)
+      };
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
+    \newpage
 \section{Construction 3 (11.05.15 - 24.05.15)}
+\subsection{Arbeitsergebnisse}
+Spielablauf und Matchmaking fertig. 
+Falls genügend Zeit werden noch erweiterte Features eingebaut.
+\subsection{Arbeitspakete Soll}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
+    \hline
+  98	 & ScorePanel & 2.00\\
+	111 & 	ClientController & 4.00\\
+	146	 & Allgemeines & 6.00\\
+	158	 & Systemtests RC2 & 3.00\\
+	163	 & Bombenplatzierung unpräzise & 0.50\\
+	164	 & Framegrösse verändern & 1.00\\
+	165	 & ClientNetwork & 1.00\\
+	166	 & Explosionen zünden Bomben & 0.50\\
+	170 & 	Fehler gemäss Reviewprotokoll beheben & 3.00\\
+	171 & 	Warnings Findbug beheben & 3.00\\
+	172	 & Microtesting/Testing & 4.00\\
+	173 & 	Balancing & 0.50\\
+	174 & 	Matchmaking & 6.00\\
+	175	 & Spielbeschreibung für User & 1.00\\
+	177	 & Sitzung invalid durch Verbindungsverlust & 1.00\\
+	180 & 	Null-Pointer Exception bei Spielstart & 1.00\\
+	181 & 	Mehrfache Bomben & 0.50\\
+	182 & 	Zwei Bomben auf gleichem Feld & 0.25\\
+	184 & 	Refactoring & 3.00\\
+	185 & 	Codreview & 6.00\\
+	189 & 	STAN Sturkturanalyse & 2.00\\
+	190	 & Spielablauf & 4.00\\
+	191	 & Refactoring GBomberman & 2.00\\
+	192	 & Usabilitytest RC2 & 6.00\\
+	193 & 	Frame zerquetscht & 1.00\\
+	194	 & Status changes after server full message causing NPE & 0.50\\
+	195 & 	Map initMap Refactoring & 1.00\\
+	196	 & ActionSerializer Refactoring & 1.00\\
+	197	 & Architekturdokument updaten	 & 1.00\\
+	198	 & GUI nicht Threadsafe & 1.00\\
+	199	 & GameCanvas Focus & 0.50\\
+	200	 & nach erstem Speil werden Runden nicht zurückgesetzt & 0.50\\
+    \hline
+    & & 64.75
+  \end{longtabu}
+\subsection{Arbeitspakete Ist}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]
+     X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} & \bf{Ist[h]}\\
+    \hline
+  98	 & ScorePanel & 2.00\\
+	111 & 	ClientController & 4.00\\
+	146	 & Allgemeines & 6.00\\
+	158	 & Systemtests RC2 & 3.00\\
+	163	 & Bombenplatzierung unpräzise & 0.50\\
+	164	 & Framegrösse verändern & 1.00\\
+	165	 & ClientNetwork & 1.00\\
+	166	 & Explosionen zünden Bomben & 0.50\\
+	170 & 	Fehler gemäss Reviewprotokoll beheben & 3.00\\
+	171 & 	Warnings Findbug beheben & 3.00\\
+	172	 & Microtesting/Testing & 4.00\\
+	173 & 	Balancing & 0.50\\
+	174 & 	Matchmaking & 6.00\\
+	175	 & Spielbeschreibung für User & 1.00\\
+	177	 & Sitzung invalid durch Verbindungsverlust & 1.00\\
+	180 & 	Null-Pointer Exception bei Spielstart & 1.00\\
+	181 & 	Mehrfache Bomben & 0.50\\
+	182 & 	Zwei Bomben auf gleichem Feld & 0.25\\
+	184 & 	Refactoring & 3.00\\
+	185 & 	Codreview & 6.00\\
+	189 & 	STAN Sturkturanalyse & 2.00\\
+	190	 & Spielablauf & 4.00\\
+	191	 & Refactoring GBomberman & 2.00\\
+	192	 & Usabilitytest RC2 & 6.00\\
+	193 & 	Frame zerquetscht & 1.00\\
+	194	 & Status changes after server full message causing NPE & 0.50\\
+	195 & 	Map initMap Refactoring & 1.00\\
+	196	 & ActionSerializer Refactoring & 1.00\\
+	197	 & Architekturdokument updaten	 & 1.00\\
+	198	 & GUI nicht Threadsafe & 1.00\\
+	199	 & GameCanvas Focus & 0.50\\
+	200	 & nach erstem Speil werden Runden nicht zurückgesetzt & 0.50\\
+    \hline
+    & & 64.75
+    \end{longtabu}
 
-\section{Transition (25.05.15 - 31.05.15)}
+
+\section{Transition (25.05.15 - 28.05.15)}
 
 
 
