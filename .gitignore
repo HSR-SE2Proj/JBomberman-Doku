@@ -7,3 +7,6 @@
 **/*.synctex.gz
 **/*.toc
 **/*.blg
+**/*.nav
+**/*.snm
+**/*.vrb
