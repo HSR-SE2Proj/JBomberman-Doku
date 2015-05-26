@@ -143,11 +143,18 @@ Die ActionQueue speichert die Actions. Die Actions werden bei jedem loop aus der
 \textbf{ActionDispatcher}\\
 Der ActionDispatcher ist ein Thread und ist ausschliesslich damit beschäftig auf eingehende Messages zu warten und diese als Action in der Queue einzureihen.\\
 
+\textbf{ActionSerializer}\\
+Die Methoden des ActionSerializer sind statisch und werden benötigt um die
+Actions für das Netzwerk zu serialisieren bzw. deserialisieren.\\
+
 \textbf{Player}\\
 Der Player speichert die Daten eines Spielers. Die Daten werden für die Zuweisung von Actions und das Darstellen des Scoreboard benötigt.\\
 
 \textbf{Party}\\
-Die Party beinhaltet alle Player eines Spiels. Ein Spiel kann nur mittels einer Party instanziert werden.
+Die Party beinhaltet alle Player eines Spiels. Ein Spiel kann nur mittels einer Party instanziert werden.\\
+
+\textbf{Timer}\\
+Der Timer besitzt eine Referenz auf einen GameLoop, bei dem er regelmässig die Methode loop() aufruft.
 
 \newpage
 
@@ -158,20 +165,12 @@ Im Package utils befinden sich Hilfsklassen.
 
 \textbf{ImageManager}\\
 Der ImageManager lädt die Bilder. Jedes Sprite holt sich von da die Bilddaten.\\
-
-\textbf{ActionSerializer}\\
-Die Methoden des ActionSerializer sind statisch und werden benötigt um die
- Actions für das Netzwerk zu
- serialisieren bzw. deserialisieren.\\
  
 \textbf{IDGerenator}\\
  Der IDGenerator generiert ab 100 fortlaufende IDs\\
  
 \textbf{RandomUtil}\\
 Diese Klasse enthält alle Methoden, welche etwas mit Zufallszahlen zu tun haben, wie Zufallszahlen generieren und mit einer definierbaren Wahrscheinlichkeit true zurück zu geben\\
-
-\textbf{Timer}\\
-Der Timer besitzt eine Referenz auf einen GameLoop, bei dem er regelmässig die Methode loop() aufruft.\\
 
 \textbf{TimerUtil}\\
 Verzögert den aufrufenden Thread um die angegebene Zeit.\\
