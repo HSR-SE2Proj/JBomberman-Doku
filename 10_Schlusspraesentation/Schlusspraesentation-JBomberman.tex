@@ -30,17 +30,20 @@
 	\item Probleme und Lösungen
 	\item Statistiken
 	\item Fazit
+	\item Fragen
 	\end{itemize}
 \end{frame}
 
 
-\section{Idee/Problembeschreibung}
+\section{Idee}
 %Idee
 \begin{frame}[fragile]
   \frametitle{Idee}
 	\begin{itemize}
-	\item Projekt das Spass macht und fordert
-	\item Netzwerkbasierend
+	  \item Projekt das Spass macht und fordert
+	  \item Netzwerkbasierend
+	  \item Klon eines Spiel
+	  \item Erste Erfahrungen in der Spielentwicklung
 	\end{itemize}
 \end{frame}
 
@@ -106,25 +109,110 @@
 \end{frame}
 
 %Statistiken
+\section{Statistiken}
+\begin{frame}{fragile}
+  \frametitle{Iterationen}
+      \begin{tikzpicture}
+      \begin{axis}[
+        mbarplot,
+        xlabel={Iteration},
+        ylabel={Stunden},
+        width=\textwidth,
+        height=6cm,
+        symbolic x coords={Inception,Elaboration1,Elaboration2,Elaboration3,
+        Construction1, Construction2, Construction3, Transition},
+        x tick label style={rotate=45,anchor=east},
+      ]
 
-\begin{frame}{Bar charts}
-  
+      \addplot plot coordinates {
+      (Inception, 5.00)
+       (Elaboration1, 50.00) 
+      (Elaboration2, 54.00) 
+      (Elaboration3, 77.00)
+      (Construction1, 35.00) 
+      (Construction2, 50.50)
+      (Construction3, 67.25) 
+      (Transition, 27.00)
+       };
+      \addplot plot coordinates {
+      (Inception, 4.50) 
+      (Elaboration1, 66) 
+      (Elaboration2, 52.00) 
+      (Elaboration3, 89.25)
+      (Construction1, 44.00) 
+      (Construction2, 49.50)
+      (Construction3, 63.25 ) 
+      (Transition, 16.25)
+      };
+
+      \legend{Geschätzt, Ist}
+
+      \end{axis}
+       \end{tikzpicture}
+     \end{frame}
+     
+\begin{frame}{fragile}
+   \frametitle{Wochen}
+\includegraphics[scale=0.35]{wochenstunden}
+\end{frame} 
+    
+\begin{frame}{fragile}
+   \frametitle{Personen}
 \begin{tikzpicture}
-\pie{10/A, 20/B, 30/C, 40/D}
+\pie[sum=385.75]{141.50/Silvan Adrian, 122.00/Fabian Binna, 122.25/Pascal Kistler}
 \end{tikzpicture}
 \end{frame}
-\begin{frame}{Quotes}
-  \begin{quote}
-    Veni, Vidi, Vici
-  \end{quote}
+
+\begin{frame}{fragile}
+   \frametitle{Kategorien}
+\begin{tikzpicture}
+\pie[sum=385.75]{81.5/Analyse + Design,126/Implementation,89.5/Dokumentation,22/Test,10/Deployment ,56.75/Allgemein}
+\end{tikzpicture}
 \end{frame}
+
+\begin{frame}{fragile}
+   \frametitle{Code Statistik}
+  \begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+\begin{itemize}
+  \item Anzahl Klassen: 59
+  \item Code Zeilen: 3266
+  \item Ca.: 55 Zeilen/Klasse
+\end{itemize}
+\column{0.5\textwidth}
+\includegraphics[width=\textwidth]{stan-metrics}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{fragile}
+   \frametitle{Findbugs}
+\includegraphics[scale=0.35]{findbugs}
+\end{frame}
+
 
 %Fazit,Lessons learned
 \section{Fazit}
 \begin{frame}{Summary}
-Teamarbeit -> besser im Team arbeiten
-Projektmanagement
-Viel genauer Anforderungen beschreiben/setzen (z.B.: Git)
+
+
+
+\begin{columns}[onlytextwidth]
+    \column{0.5\textwidth}
+      \textbf{Positives}
+\begin{itemize}
+  \item Teamarbeit
+  \item Neue Technologien gelernt
+  \item Neue Tools verwendet
+\end{itemize}
+
+    \column{0.5\textwidth}
+    \textbf{Negatives}
+\begin{itemize}
+  \item Projektmanagement
+  \item Viel genauer Anforderungen beschreiben/setzen
+\end{itemize}
+  \end{columns}
 
 \end{frame}
 
