@@ -19,22 +19,30 @@
 
 \maketitle
 
+%Ablauf
+\begin{frame}{fragile}
+	\frametitle{Ablauf}
+	\begin{itemize}
+	\item Idee
+	\item Architektur
+	\item Risiko
+	\item Demonstration
+	\item Probleme und Lösungen
+	\item Statistiken
+	\item Fazit
+	\end{itemize}
+\end{frame}
+
+
 \section{Idee/Problembeschreibung}
-%Idee/Problembeschreibung
+%Idee
 \begin{frame}[fragile]
   \frametitle{Idee}
-
-  The \emph{mtheme} is a Beamer theme with minimal visual noise inspired by the
-  \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
-  Theme} by Benjamin Weiss.
-
-  Enable the theme by loading
-
-  \begin{verbatim}    \documentclass{beamer}
-    \usetheme{m}\end{verbatim}
-
-  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
-  installed to enjoy this wonderful typography.
+	\begin{itemize}
+	\item Projekt das Spass macht und fordert
+	\item Netzwerkbasierend
+	\item 
+	\end{itemize}
 \end{frame}
 
 
@@ -88,8 +96,8 @@
 	\item Performance der Applikation
 	\item Komplexität Architektur/Code
 	\end{itemize}
-
 \end{frame}
+
 %Demo
 \plain{Demonstration}
 
