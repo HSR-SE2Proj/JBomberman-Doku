@@ -21,8 +21,8 @@
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
 \ifoot{Iterationsplan: JBomberman}
-\cfoot{Version: 1.02}
-\ofoot{Datum: 06.05.15}
+\cfoot{Version: 1.04}
+\ofoot{Datum: 27.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -63,6 +63,8 @@
 \bf{20.04.15} & 1.01 & Einfügen von Arbeitspaketen zu einzelnen Iterationen & 
 Silvan Adrian\\
 \bf{06.05.15} & 1.02 & C1 hinzugefügt + generelles am Dokument & Silvan Adrian\\
+\bf{26.05.15} & 1.03 & C3 hinzugefügt & Silvan Adrian\\
+\bf{27.05.15} & 1.04 & Transition hinzugefügt & Silvan Adrian\\
 \end{tabularx}
 
 \newpage
@@ -693,6 +695,58 @@ Falls genügend Zeit werden noch erweiterte Features eingebaut.
 
 \section{Transition (25.05.15 - 28.05.15)}
 
+\subsection{Arbeitspakete Soll}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]}\\
+    \hline
+187 & Schlussabgabe / Webseite mit Links & 3.00\\
+	186 	& Schlussbericht erfassen & 3.00\\
+	183	 & Dokumente verbessern/ zur Abgabe vorbereiten & 6.00\\
+	38 & Projektpräsentation & 15.00\\
+	 \hline
+    & & 27.00
+\end{longtabu}
+
+\subsection{Arbeitspakete Ist}
+\begin{longtabu} to \textwidth {
+    X[1,l]
+    X[10,l]
+    X[1,l]
+     X[1,l]}
+    \bf{Ref.}  & \bf{Beschreibung} & \bf{Soll[h]} & \bf{Ist[h]}\\
+    \hline
+    187 & Schlussabgabe / Webseite mit Links & 3.00 & 1.50\\
+	186 	& Schlussbericht erfassen & 3.00 & 1.75\\
+	183	 & Dokumente verbessern/ zur Abgabe vorbereiten & 6.00 & 4.00\\
+	38 & Projektpräsentation & 15.00 & 9.00\\
+	 \hline
+    & & 27.00 & 16.25
+\end{longtabu}
+
+    \subsection{Diagramm}
+    \begin{tikzpicture}
+        \begin{axis}[
+          symbolic x coords={187,186,183,38},
+          ybar,
+        xlabel={Ticket},
+        ylabel={Stunden},
+        width=\textwidth,
+        xtick=data,
+        height=6cm,
+      ]
+      \addplot plot coordinates {
+       (187,3) (186,3) (183,6) (38,15)
+      };
+      \addplot plot coordinates {
+      (187,1.5) (186,1.75) (183,4) (38,9)
+      };
+      \legend{Soll, Ist}
+
+        \end{axis}
+    \end{tikzpicture}
 
 
 \end{document}
