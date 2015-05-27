@@ -18,9 +18,9 @@
 \clearscrheadfoot
 \ihead{\includegraphics[scale=0.4]{jbomberman}}
 \ohead{Projekt: JBomberman}
-\ifoot{Pojektantrag: JBomberman}
-\cfoot{Version: 1.03}
-\ofoot{Datum: 24.05.15}
+\ifoot{Systemtests: JBomberman}
+\cfoot{Version: 1.04}
+\ofoot{Datum: 27.05.15}
 \setheadsepline{0.5pt}
 \setfootsepline{0.5pt}
 
@@ -61,6 +61,7 @@
 \textbf{20.04.15} & 1.01 & Struktur des Dokuments + Vorgaben & Silvan Adrian \\
 \textbf{11.05.15} & 1.02 & Testprotokoll RC1 & Silvan Adrian \\
 \textbf{24.05.15} & 1.03 & Testprotokoll RC2 & Silvan Adrian \\
+\textbf{27.05.15} & 1.04 & Vorbereitung Abgabe & Silvan Adrian\\
 \end{tabularx}
 
 \newpage
@@ -68,17 +69,17 @@
 \newpage
 \section{Einführung}\subsection{Zweck}
 Dieses Dokument beinhaltet alle Informationen zu den Systemtest von JBomberman.
-Hier soll festgehalten werden, was getestet wird und was das Ergebnis\subsection{Gültigkeitsbereich}Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.\subsection{Definitionen und Abkürzungen}Siehe Glossar\subsection{Referenzen}GlossarProjektplan\subsection{Übersicht}
+Hier soll festgehalten werden, was getestet wird und was als Ergebnis herauskommt.\subsection{Gültigkeitsbereich}Dieses Dokument ist während des ganzen Projekts gültig und wird laufend aktualisiert.\subsection{Definitionen und Abkürzungen}Siehe Glossar\subsection{Referenzen}GlossarProjektplan\subsection{Übersicht}
 Es sollen Tests für verschiedene Releases erstellt werden, dabei werden für 
 jedes Release Systemspezifikationen erstellt und das dazugehörige Testprotokoll 
 eingefügt.
 \section{Systemtests RC1}
 \subsection{Übersicht}
 In dieser Version werden die Grundfunktionen getestet, welche schlussendlich auch 
-für den Usability Test gebraucht werden
+für den Usability Test RC1 gebraucht werden
 \subsection{Voraussetzungen}Um JBomberman spielen zu können braucht man mindestens einen Mitspieler\subsection{Vorbereitungen}Server mit RabbitMQ Broker und JBomberman Server muss gestartet sein und 
 erreichbar. 
-(Port: 5672 muss offen sein).
+(Port: 5672 und 15672 müssen offen sein).
 \subsection{UC01: JBomberman spielen}\subsubsection{Systemtests}\begin{tabularx}{\linewidth}{l X X}
   \bf{Test} & \bf{Beschreibung} & \bf{Soll Verhalten} \\
   \bf{T1} & Bewegung in alle Himmelsrichtungen möglich & 
@@ -134,8 +135,17 @@ erreichbar.
   \bf{T16} & OK & PowerUps erscheinen\\
   \bf{T17} & OK & PowerUps funktionieren\\
 \end{tabularx}
-
+\subsection{Beschreibung}
+Testcase 14 ist fehlgeschlagen, wird aber aus Zeitgründen nicht 
+implementiert (da zwischen zu vielen cases unterschieden werden muss)
 \section{Systemtests RC2}
+\subsection{Übersicht}
+In dieser Version werden die erweiterten Funktionen getestet (Matchmaking -> 
+Spiel über mehrere Runden).
+Die erweiterte Funktionen werden auch einem Usability Test unterzogen.
+\subsection{Voraussetzungen}Um JBomberman spielen zu können braucht man mindestens einen Mitspieler\subsection{Vorbereitungen}Server mit RabbitMQ Broker und JBomberman Server muss gestartet sein und 
+erreichbar. 
+(Port: 5672 und 15672 müssen offen sein).
 \subsection{UC01: JBomberman spielen}
 \subsubsection{Systemtests}
 \begin{tabularx}{\linewidth}{l X X}
@@ -172,5 +182,7 @@ erreichbar.
   \bf{T8} & OK & Mehrere Spiele können gespielt werden\\
   \bf{T9} & OK & Bomben werden zerstört\\
 \end{tabularx}
-
+\subsection{Beschreibung}
+Testcases haben alle geklappt und werden noch genauer getestet bei dem Usability 
+Test.
 \end{document}
