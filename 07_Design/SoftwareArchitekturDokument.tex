@@ -214,8 +214,7 @@ Das LobbyPanel zeigt alle aktuell am Server angemeldeten Spieler an und deren St
 Im Package application.client befindet sich der workflow des Clients. Er kontrolliert unter anderem wann der LobbyFrame und der GameFrame sichtbar ist.
 
 \subsubsection{Klassenstruktur}
-\includegraphics[scale=0.75]{ClassDiagramApplicationClient}
-\newpage
+\includegraphics[scale=0.75]{ClassDiagramApplicationClient}\\
 \textbf{ClientController}\\
 Der ClientController kontrolliert den Zustand der Client-Applikation. Er notifiziert nur den LobbyFrame, nicht aber den GameFrame.\\
 
@@ -257,7 +256,8 @@ Der Client und der Server implementieren beide das Interface NetworkFacade. Die 
 Die Klasse ClientNetwork implementiert die NetworkFacade.\\
 
 \textbf{ClientSender}\\
-Der Client Sender sendet direkt auf eine RabbtiMQ-Queue. Alle Clients senden auf die selbe Queue.\\
+Der Client Sender sendet direkt auf eine RabbtiMQ-Queue. Alle Clients senden auf die selbe Queue.
+\\\\
 
 \textbf{ClientReceiver}\\
 Der ClientReceiver holt Messages aus seiner eigenen RabbitMQ-Queue. Der Server sendet seine Updates auf jede einzelne Queue.
@@ -278,7 +278,7 @@ Das Sequenzdiagramm zeigt nur zwei alternative ActionTypes. Der GameLoop läuft 
 \subsection{Schnittstellen}
 \includegraphics[scale=0.48]{LogischeSichtServer}
 
-
+\newpage
 \subsection{Workflow/application.server}
 
 Der Workflow des Servers ist sehr simpel. Er wartet bis mehr als zwei Spieler verbunden und bereit sind. Darauf startet der Server dann das Spiel.
@@ -300,10 +300,8 @@ Die Methode loop() funktioniert ähnlich wie die Implementation in der ClientGam
 \textbf{GameObjectManager}\\
 Der GameObjectManager speichert die GameObject nach Typen ab. Dies ist hilfreich, wenn die Objekte aktualisiert werden müssen. Die Methoden des GameObjectManagers sind ähnlich wie bei normalen Datenstrukturen und werden deshalb nicht weiter erläutert.\\
 
-\newpage
-
 \textbf{GameObject}\\
-Das GameObject speichert alle nötigen Informationen um das Spielgeschehen und die Interaktionen der Gameobjects zu berechnen.\\
+Das GameObject speichert alle nötigen Informationen um das Spielgeschehen und die Interaktionen der Gameobjects zu berechnen.
 
 \newpage
 
@@ -318,7 +316,7 @@ Der Client und der Server implementieren beide das Interface NetworkFacade. Die 
 Die Klasse ServerNetwork implementiert die NetworkFacade.\\
 
 \textbf{ServerSender}\\
-Der ServerSender sendet alle Daten die im übergeben werden direkt an alle angemeldeten Clients.\\
+Der ServerSender sendet alle Daten, die ihm übergeben werden direkt an alle angemeldeten Clients.\\
 
 \textbf{ServerReceiver}\\
 Der ServerReceiver holt alle Daten aus einer einzelnen RabbitMQ-Queue, auf welche alle Clients senden.\\
